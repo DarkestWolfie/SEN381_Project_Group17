@@ -72,12 +72,6 @@
     <Compile Include="DataLayer\product_history_d.cs" />
     <Compile Include="DataLayer\provider_d.cs" />
     <Compile Include="DataLayer\treatment_d.cs" />
-    <Compile Include="PresentationLayer\Address.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\Address.Designer.cs">
-      <DependentUpon>Address.cs</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,17 +108,8 @@
     <Compile Include="PresentationLayer\CallCenter.Designer.cs">
       <DependentUpon>CallCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\Address.resx">
-      <DependentUpon>Address.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,9 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\CallCenter.resx">
       <DependentUpon>CallCenter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

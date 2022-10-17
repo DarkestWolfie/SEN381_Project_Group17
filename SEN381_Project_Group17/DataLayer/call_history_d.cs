@@ -58,7 +58,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(call_history_b call, int empID, int CustID)
+        public string update(call_history_b call)
         {
             try
             {
@@ -69,8 +69,8 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@id", call.CallID);
-                    cmd.Parameters.AddWithValue("@callCustomerID", CustID);
-                    cmd.Parameters.AddWithValue("@callEmployeeID", empID);
+                    cmd.Parameters.AddWithValue("@callCustomerID", call.CallCustomerID);
+                    cmd.Parameters.AddWithValue("@callEmployeeID", call.CallEmployeeID);
                     cmd.Parameters.AddWithValue("@start", call.Strat);
                     cmd.Parameters.AddWithValue("@end", call.End);
                     cmd.Parameters.AddWithValue("@dateCreated", call.DateCreated);

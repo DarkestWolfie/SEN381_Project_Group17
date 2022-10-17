@@ -58,7 +58,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(customer_b customer, int addressID)
+        public string update(customer_b customer)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@gender", customer.Gender);
                     cmd.Parameters.AddWithValue("@familyID", customer.FamilyID);
                     cmd.Parameters.AddWithValue("@familyRole", customer.FamilyRole);
-                    cmd.Parameters.AddWithValue("@customerAddressID", addressID);
+                    cmd.Parameters.AddWithValue("@customerAddressID", customer.CustomerAddress);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

@@ -56,24 +56,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Close();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Address Ad = new Address();
-            this.Hide();
-            Ad.ShowDialog();
-            this.Close();
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Main Ma = new Main();
-            this.Hide();
-            Ma.ShowDialog();
-            this.Close();
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Login Log = new Login();
