@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             InitializeComponent();
         }
+
+        int providerID = 0;
 
         provider_d provider = new provider_d();
         BindingSource providerSource = new BindingSource();
@@ -43,11 +46,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[providerSource.Position];
 
-                textBox3.Text = row.Cells["providerID"].Value.ToString();
                 textBox2.Text = row.Cells["providerName"].Value.ToString();
-                //textBox4.Text = row.Cells["status"].Value.ToString();
+                textBox3.Text = row.Cells["status"].Value.ToString();
                 textBox4.Text = row.Cells["province"].Value.ToString();
+
+                providerID = int.Parse(row.Cells["providerID"].Value.ToString());
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+            MessageBox.Show(provider.update(providerObj));
         }
     }
 }
