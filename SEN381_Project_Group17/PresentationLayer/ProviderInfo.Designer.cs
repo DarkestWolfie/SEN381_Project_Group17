@@ -50,6 +50,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -148,6 +150,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.TabIndex = 44;
             this.button3.Text = "Find";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -225,11 +228,20 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox9.Size = new System.Drawing.Size(100, 20);
             this.textBox9.TabIndex = 68;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(338, 91);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(450, 215);
+            this.dataGridView1.TabIndex = 69;
+            // 
             // ProviderInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -253,6 +265,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Controls.Add(this.button1);
             this.Name = "ProviderInfo";
             this.Text = "Form5";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +293,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

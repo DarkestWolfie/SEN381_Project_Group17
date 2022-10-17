@@ -17,6 +17,30 @@ namespace SEN381_Project_Group17.DataLayer
 
         string con = "Server=.; Initial Catalog=ukupholisa; Integrated Security=SSPI";
 
+        //Search
+        public DataTable search(int id)
+        {
+            using (SqlConnection cn = new SqlConnection(con))
+            {
+                SqlCommand cmd = new SqlCommand("spSearchEmployee", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cn.Open();
+
+                DataTable data = new DataTable();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    data.Load(dr);
+
+                    return data;
+                }
+            }
+        }
+
         //Get
         public DataTable getAll()
         {
