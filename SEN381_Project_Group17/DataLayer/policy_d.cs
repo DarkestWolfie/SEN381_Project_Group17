@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,6 +31,36 @@ namespace SEN381_Project_Group17.DataLayer
             adapter.Fill(customerData);
 
             return customerData;
+        }
+
+        //Update
+        public string update(policy_b policy)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spUpdatePolicy", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", policy.PolicyID);
+                    cmd.Parameters.AddWithValue("@policyName", policy.PolicyName);
+                    cmd.Parameters.AddWithValue("@price", policy.Price);
+                    cmd.Parameters.AddWithValue("@installment", policy.Installment);
+                    cmd.Parameters.AddWithValue("@payout", policy.Payout);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Policy data updated successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to update Policy data:\n\n" + eA.Message;
+            }
         }
     }
 }

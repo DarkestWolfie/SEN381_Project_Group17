@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,6 +31,37 @@ namespace SEN381_Project_Group17.DataLayer
             adapter.Fill(customerData);
 
             return customerData;
+        }
+
+        //Update
+        public string update(treatment_b treatment, int conditionID, int providerID)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spUpdateTreatment", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", treatment.TreatmentID);
+                    cmd.Parameters.AddWithValue("@treatmentName", treatment.TreatmentName);
+                    cmd.Parameters.AddWithValue("@description", treatment.Description);
+                    cmd.Parameters.AddWithValue("@cost", treatment.Cost);
+                    cmd.Parameters.AddWithValue("@treatmentConditionID", conditionID);
+                    cmd.Parameters.AddWithValue("@treatmentProviderID", providerID);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Treatment data updated successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to update Treatment data:\n\n" + eA.Message;
+            }
         }
     }
 }

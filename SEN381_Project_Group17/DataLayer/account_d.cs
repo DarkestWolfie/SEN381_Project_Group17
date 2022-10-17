@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,6 +31,35 @@ namespace SEN381_Project_Group17.DataLayer
             adapter.Fill(customerData);
 
             return customerData;
+        }
+
+        //Update
+        public string update(customer_account_b account, int customerID)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spUpdateAccount", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", account.AccountCustomerID);
+                    cmd.Parameters.AddWithValue("@accountCustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@amountDue", account.AmountDue);
+                    cmd.Parameters.AddWithValue("@installmentDate", account.InstallmentDate);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Customer Account data updated successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to update Customer Account data:\n\n" + eA.Message;
+            }
         }
     }
 }
