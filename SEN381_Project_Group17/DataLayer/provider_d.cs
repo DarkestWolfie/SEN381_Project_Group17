@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,6 +31,35 @@ namespace SEN381_Project_Group17.DataLayer
             adapter.Fill(customerData);
 
             return customerData;
+        }
+
+        //Update
+        public string update(provider_b provider)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spUpdateProvider", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", provider.ProviderID);
+                    cmd.Parameters.AddWithValue("@providerName", provider.ProviderName);
+                    cmd.Parameters.AddWithValue("@status", provider.Status);
+                    cmd.Parameters.AddWithValue("@province", provider.Province);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Provider data updated successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to update Provider data:\n\n" + eA.Message;
+            }
         }
     }
 }
