@@ -78,6 +78,42 @@
     <Compile Include="PresentationLayer\Address.Designer.cs">
       <DependentUpon>Address.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ClientInfo.Designer.cs">
+      <DependentUpon>ClientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\UkupholisaHub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\UkupholisaHub.Designer.cs">
+      <DependentUpon>UkupholisaHub.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\EmployeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\EmployeeInfo.Designer.cs">
+      <DependentUpon>EmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ProviderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ProviderInfo.Designer.cs">
+      <DependentUpon>ProviderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\CallCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CallCenter.Designer.cs">
+      <DependentUpon>CallCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +124,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PresentationLayer\Address.resx">
       <DependentUpon>Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ClientInfo.resx">
+      <DependentUpon>ClientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\UkupholisaHub.resx">
+      <DependentUpon>UkupholisaHub.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\EmployeeInfo.resx">
+      <DependentUpon>EmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ProviderInfo.resx">
+      <DependentUpon>ProviderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\CallCenter.resx">
+      <DependentUpon>CallCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
