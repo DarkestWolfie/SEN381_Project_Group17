@@ -645,6 +645,46 @@ BEGIN
 END
 GO
 
+CREATE PROC spSearchCustomer
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM customer WHERE customerID = @id;
+END
+GO
+
+CREATE PROC spSearchProvider
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM [provider] WHERE providerID = @id;
+END
+GO
+
+CREATE PROC spSearchEmployee
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM employee WHERE employeeID = @id;
+END
+GO
+
+CREATE PROC spSearchCall
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM call_history WHERE callID = @id;
+END
+GO
+
 USE ukupholisa
 GO
 

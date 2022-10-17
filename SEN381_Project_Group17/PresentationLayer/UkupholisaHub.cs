@@ -26,35 +26,41 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void button3_Click(object sender, EventArgs e)
         {
             CallCenter CC = new CallCenter();
-            CC.Show();
+            this.Hide();
+            CC.ShowDialog();
             this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             ClientInfo CI = new ClientInfo();
-            CI.Show();
+            this.Hide();
+            CI.ShowDialog();
             this.Close();
+            
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             EmployeeInfo EI = new EmployeeInfo();
-            EI.Show();
+            this.Hide();
+            EI.ShowDialog();
             this.Close();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             ProviderInfo PI = new ProviderInfo();
-            PI.Show();
+            this.Hide();
+            PI.ShowDialog();
             this.Close();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Address Ad = new Address();
-            Ad.Show();
+            this.Hide();
+            Ad.ShowDialog();
             this.Close();
 
         }
@@ -62,7 +68,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void button8_Click(object sender, EventArgs e)
         {
             Main Ma = new Main();
-            Ma.Show();
+            this.Hide();
+            Ma.ShowDialog();
             this.Close();
 
         }
@@ -70,7 +77,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void button2_Click(object sender, EventArgs e)
         {
             Login Log = new Login();
-            Log.Show();
+            this.Hide();
+            Log.ShowDialog();
             this.Close();
         }
 

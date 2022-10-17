@@ -48,6 +48,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -137,6 +139,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.TabIndex = 21;
             this.button3.Text = "Find";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -207,11 +210,20 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox8.Size = new System.Drawing.Size(100, 20);
             this.textBox8.TabIndex = 37;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(335, 95);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(453, 176);
+            this.dataGridView1.TabIndex = 38;
+            // 
             // EmployeeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -234,6 +246,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Name = "EmployeeInfo";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.EmployeeInfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +272,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

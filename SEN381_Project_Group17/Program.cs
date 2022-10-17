@@ -17,7 +17,7 @@ namespace SEN381_Project_Group17
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new UkupholisaHub());
         }
     }
 }
