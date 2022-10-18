@@ -59,5 +59,27 @@ namespace SEN381_Project_Group17.PresentationLayer
 
             MessageBox.Show(call.update(callObj));
         }
+
+        private void CallCenter_Load(object sender, EventArgs e)
+        {
+            callSource.DataSource = call.getAll();
+            dataGridView1.DataSource = callSource;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (callSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
+
+                textBox2.Text = row.Cells["callCustomerID"].Value.ToString();
+                textBox3.Text = row.Cells["callEmployeeID"].Value.ToString();
+                textBox4.Text = row.Cells["start"].Value.ToString();
+                textBox5.Text = row.Cells["end"].Value.ToString();
+                textBox6.Text = row.Cells["dateCreated"].Value.ToString();
+
+                callID = int.Parse(row.Cells["callID"].Value.ToString());
+            }
+        }
     }
 }

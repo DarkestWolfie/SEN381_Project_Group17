@@ -59,5 +59,25 @@ namespace SEN381_Project_Group17.PresentationLayer
             provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
             MessageBox.Show(provider.update(providerObj));
         }
+
+        private void ProviderInfo_Load(object sender, EventArgs e)
+        {
+            providerSource.DataSource = provider.getAll();
+            dataGridView1.DataSource = providerSource;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (providerSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[providerSource.Position];
+
+                textBox2.Text = row.Cells["providerName"].Value.ToString();
+                textBox3.Text = row.Cells["status"].Value.ToString();
+                textBox4.Text = row.Cells["province"].Value.ToString();
+
+                providerID = int.Parse(row.Cells["providerID"].Value.ToString());
+            }
+        }
     }
 }

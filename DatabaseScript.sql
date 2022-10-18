@@ -685,6 +685,16 @@ BEGIN
 END
 GO
 
+CREATE PROC spSearchAddress
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM address WHERE addressID = @id;
+END
+GO
+
 USE ukupholisa
 GO
 

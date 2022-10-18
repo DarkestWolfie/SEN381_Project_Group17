@@ -123,6 +123,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(411, 216);
             this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button3
             // 
@@ -260,6 +261,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Controls.Add(this.button1);
             this.Name = "CallCenter";
             this.Text = "Form6";
+            this.Load += new System.EventHandler(this.CallCenter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
