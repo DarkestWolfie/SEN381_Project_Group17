@@ -146,6 +146,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(450, 215);
             this.dataGridView1.TabIndex = 69;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // button7
             // 
@@ -177,6 +178,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Controls.Add(this.button1);
             this.Name = "ProviderInfo";
             this.Text = "Form5";
+            this.Load += new System.EventHandler(this.ProviderInfo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

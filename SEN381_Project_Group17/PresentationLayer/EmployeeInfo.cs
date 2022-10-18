@@ -31,7 +31,8 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void EmployeeInfo_Load(object sender, EventArgs e)
         {
-
+            employeeSource.DataSource = employee.getAll();
+            dataGridView1.DataSource = employeeSource;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -71,6 +72,28 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
             MessageBox.Show(employee.update(employeeObj));
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (employeeSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[employeeSource.Position];
+
+                textBox2.Text = row.Cells["empName"].Value.ToString();
+                textBox3.Text = row.Cells["email"].Value.ToString();
+                textBox4.Text = row.Cells["phoneNumber"].Value.ToString();
+                textBox5.Text = row.Cells["role"].Value.ToString();
+                textBox6.Text = row.Cells["userName"].Value.ToString();
+                textBox7.Text = row.Cells["password"].Value.ToString();
+
+                employeeID = int.Parse(row.Cells["employeeID"].Value.ToString());
+            }
         }
     }
 }

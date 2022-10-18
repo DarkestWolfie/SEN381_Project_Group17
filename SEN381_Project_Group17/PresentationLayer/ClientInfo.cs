@@ -24,6 +24,9 @@ namespace SEN381_Project_Group17.PresentationLayer
         customer_d customer = new customer_d();
         BindingSource customerSource = new BindingSource();
 
+        address_d address = new address_d();
+        BindingSource addressSource = new BindingSource();
+
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -44,10 +47,23 @@ namespace SEN381_Project_Group17.PresentationLayer
                 textBox5.Text = row.Cells["idNumber"].Value.ToString();
                 textBox6.Text = row.Cells["familyID"].Value.ToString();
                 textBox7.Text = row.Cells["familyRole"].Value.ToString();
-                textBox8.Text = row.Cells["customerAddressID"].Value.ToString();
                 textBox9.Text = row.Cells["gender"].Value.ToString();
 
                 customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+
+                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                dataGridView2.Visible = true;
+                dataGridView2.DataSource = addressSource;
+
+                if (customerSource.Position >= 0)
+                {
+                    DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
+
+                    textBox8.Text = rowAddress.Cells["addressLine"].Value.ToString();
+                    textBox10.Text = rowAddress.Cells["city"].Value.ToString();
+                    textBox11.Text = rowAddress.Cells["province"].Value.ToString();
+                    textBox12.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                }
             }
         }
 
@@ -70,6 +86,45 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             customer_b customerObj = new customer_b(customerID, int.Parse(textBox6.Text), int.Parse(textBox8.Text), textBox2.Text, textBox3.Text, textBox5.Text, textBox9.Text, textBox7.Text, DateTime.Parse(textBox4.Text));
             MessageBox.Show(customer.update(customerObj));
+        }
+
+        private void ClientInfo_Load(object sender, EventArgs e)
+        {
+            customerSource.DataSource = customer.getAll();
+            dataGridView1.DataSource = customerSource;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (customerSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[customerSource.Position];
+
+                textBox2.Text = row.Cells["custName"].Value.ToString();
+                textBox3.Text = row.Cells["custSurname"].Value.ToString();
+                textBox4.Text = row.Cells["dob"].Value.ToString();
+                textBox5.Text = row.Cells["idNumber"].Value.ToString();
+                textBox6.Text = row.Cells["familyID"].Value.ToString();
+                textBox7.Text = row.Cells["familyRole"].Value.ToString();
+                textBox8.Text = row.Cells["customerAddressID"].Value.ToString();
+                textBox9.Text = row.Cells["gender"].Value.ToString();
+
+                customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+
+                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                dataGridView2.Visible = true;
+                dataGridView2.DataSource = addressSource;
+
+                if (customerSource.Position >= 0)
+                {
+                    DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
+
+                    textBox8.Text = rowAddress.Cells["addressLine"].Value.ToString();
+                    textBox10.Text = rowAddress.Cells["city"].Value.ToString();
+                    textBox11.Text = rowAddress.Cells["province"].Value.ToString();
+                    textBox12.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                }
+            }
         }
     }
 }
