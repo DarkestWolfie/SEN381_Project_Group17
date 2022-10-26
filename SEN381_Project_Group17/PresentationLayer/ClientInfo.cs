@@ -19,7 +19,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             InitializeComponent();
         }
 
-        int customerID = 0;
+        string customerID;
+        int addressID;
 
         customer_d customer = new customer_d();
         BindingSource customerSource = new BindingSource();
@@ -34,24 +35,25 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            customerSource.DataSource = customer.search(int.Parse(textBox1.Text));
+            customerSource.DataSource = customer.search(textBox1.Text);
             dataGridView1.DataSource = customerSource;
 
             if (customerSource.Position >= 0)
             {
                 DataGridViewRow row = this.dataGridView1.Rows[customerSource.Position];
 
-                textBox2.Text = row.Cells["custName"].Value.ToString();
-                textBox3.Text = row.Cells["custSurname"].Value.ToString();
-                textBox4.Text = row.Cells["dob"].Value.ToString();
-                textBox5.Text = row.Cells["idNumber"].Value.ToString();
-                textBox6.Text = row.Cells["familyID"].Value.ToString();
-                textBox7.Text = row.Cells["familyRole"].Value.ToString();
-                textBox9.Text = row.Cells["gender"].Value.ToString();
+                name.Text = row.Cells["custName"].Value.ToString();
+                surname.Text = row.Cells["custSurname"].Value.ToString();
+                dob.Text = row.Cells["dob"].Value.ToString();
+                idNum.Text = row.Cells["idNumber"].Value.ToString();
+                familyID.Text = row.Cells["familyID"].Value.ToString();
+                familyRole.Text = row.Cells["familyRole"].Value.ToString();
+                gender.Text = row.Cells["gender"].Value.ToString();
 
-                customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+                customerID = row.Cells["customerID"].Value.ToString();
+                addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                addressSource.DataSource = address.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 
@@ -59,10 +61,10 @@ namespace SEN381_Project_Group17.PresentationLayer
                 {
                     DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
 
-                    textBox8.Text = rowAddress.Cells["addressLine"].Value.ToString();
-                    textBox10.Text = rowAddress.Cells["city"].Value.ToString();
-                    textBox11.Text = rowAddress.Cells["province"].Value.ToString();
-                    textBox12.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                    addressLine.Text = rowAddress.Cells["addressLine"].Value.ToString();
+                    city.Text = rowAddress.Cells["city"].Value.ToString();
+                    province.Text = rowAddress.Cells["province"].Value.ToString();
+                    postalCode.Text = rowAddress.Cells["postalCode"].Value.ToString();
                 }
             }
         }
@@ -84,8 +86,17 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            customer_b customerObj = new customer_b(customerID, int.Parse(textBox6.Text), int.Parse(textBox8.Text), textBox2.Text, textBox3.Text, textBox5.Text, textBox9.Text, textBox7.Text, DateTime.Parse(textBox4.Text));
+            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
+            address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
+            MessageBox.Show(address.update(addressObj));
             MessageBox.Show(customer.update(customerObj));
+
+            customerSource.DataSource = customer.getAll();
+            dataGridView1.DataSource = customerSource;
+
+            addressSource.DataSource = address.search(addressID);
+            dataGridView2.Visible = true;
+            dataGridView2.DataSource = addressSource;
         }
 
         private void ClientInfo_Load(object sender, EventArgs e)
@@ -100,18 +111,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[customerSource.Position];
 
-                textBox2.Text = row.Cells["custName"].Value.ToString();
-                textBox3.Text = row.Cells["custSurname"].Value.ToString();
-                textBox4.Text = row.Cells["dob"].Value.ToString();
-                textBox5.Text = row.Cells["idNumber"].Value.ToString();
-                textBox6.Text = row.Cells["familyID"].Value.ToString();
-                textBox7.Text = row.Cells["familyRole"].Value.ToString();
-                textBox8.Text = row.Cells["customerAddressID"].Value.ToString();
-                textBox9.Text = row.Cells["gender"].Value.ToString();
+                name.Text = row.Cells["custName"].Value.ToString();
+                surname.Text = row.Cells["custSurname"].Value.ToString();
+                dob.Text = row.Cells["dob"].Value.ToString();
+                idNum.Text = row.Cells["idNumber"].Value.ToString();
+                familyID.Text = row.Cells["familyID"].Value.ToString();
+                familyRole.Text = row.Cells["familyRole"].Value.ToString();
+                gender.Text = row.Cells["gender"].Value.ToString();
 
-                customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+                customerID = row.Cells["customerID"].Value.ToString();
+                addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                addressSource.DataSource = address.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 
@@ -119,10 +130,10 @@ namespace SEN381_Project_Group17.PresentationLayer
                 {
                     DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
 
-                    textBox8.Text = rowAddress.Cells["addressLine"].Value.ToString();
-                    textBox10.Text = rowAddress.Cells["city"].Value.ToString();
-                    textBox11.Text = rowAddress.Cells["province"].Value.ToString();
-                    textBox12.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                    addressLine.Text = rowAddress.Cells["addressLine"].Value.ToString();
+                    city.Text = rowAddress.Cells["city"].Value.ToString();
+                    province.Text = rowAddress.Cells["province"].Value.ToString();
+                    postalCode.Text = rowAddress.Cells["postalCode"].Value.ToString();
                 }
             }
         }

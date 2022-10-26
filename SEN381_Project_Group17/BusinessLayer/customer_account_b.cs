@@ -8,15 +8,15 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class customer_account_b
     {
-        int accountID, accountCustomerID;
+        int accountID;
+        String accountCustomerID, installmentDate;
         Double amountDue;
-        DateTime installmentDate;
 
         public customer_account_b()
         {
         }
 
-        public customer_account_b(int accountID, int accountCustomerID, double amountDue, DateTime installmentDate)
+        public customer_account_b(int accountID, string accountCustomerID, double amountDue, String installmentDate)
         {
             AccountID = accountID;
             AccountCustomerID = accountCustomerID;
@@ -25,8 +25,8 @@ namespace SEN381_Project_Group17.BusinessLayer
         }
 
         public int AccountID { get => accountID; set => accountID = value; }
-        public int AccountCustomerID { get => accountCustomerID; set => accountCustomerID = value; }
+        public string AccountCustomerID { get => accountCustomerID; set => accountCustomerID = value; }
         public double AmountDue { get => amountDue; set => amountDue = value; }
-        public DateTime InstallmentDate { get => installmentDate; set => installmentDate = value; }
+        public string InstallmentDate { get => installmentDate; set => installmentDate = value; }
     }
 }

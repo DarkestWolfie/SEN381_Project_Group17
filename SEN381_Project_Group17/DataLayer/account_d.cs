@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(customer_account_b account, int customerID)
+        public string update(customer_account_b account)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@id", account.AccountCustomerID);
-                    cmd.Parameters.AddWithValue("@accountCustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@accountCustomerID", account.AccountCustomerID);
                     cmd.Parameters.AddWithValue("@amountDue", account.AmountDue);
                     cmd.Parameters.AddWithValue("@installmentDate", account.InstallmentDate);
 

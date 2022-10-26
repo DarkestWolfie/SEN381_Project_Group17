@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(product_b product, int policyID)
+        public string update(product_b product)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@id", product.ProductID);
                     cmd.Parameters.AddWithValue("@policyDiscount", product.PolicyDiscount);
                     cmd.Parameters.AddWithValue("@availability", product.Availibility);
-                    cmd.Parameters.AddWithValue("@productPolicyID", policyID);
+                    cmd.Parameters.AddWithValue("@productPolicyID", product.ProductPolicyID);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

@@ -8,15 +8,14 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class customer_b
     {
-        int customerID, familyID, customerAddress;
-        String custName, custSurname, idNumber, gender, familyRole;
-        DateTime dob;
+        int familyID, customerAddress;
+        String customerID, custName, custSurname, idNumber, gender, familyRole, dob;
 
         public customer_b()
         {
         }
 
-        public customer_b(int customerID, int familyID, int customerAddress, string custName, string custSurname, string idNumber, string gender, string familyRole, DateTime dob)
+        public customer_b(string customerID, int familyID, int customerAddress, string custName, string custSurname, string idNumber, string gender, string familyRole, string dob)
         {
             CustomerID = customerID;
             FamilyID = familyID;
@@ -29,7 +28,7 @@ namespace SEN381_Project_Group17.BusinessLayer
             Dob = dob;
         }
 
-        public int CustomerID { get => customerID; set => customerID = value; }
+        public string CustomerID { get => customerID; set => customerID = value; }
         public int FamilyID { get => familyID; set => familyID = value; }
         public int CustomerAddress { get => customerAddress; set => customerAddress = value; }
         public string CustName { get => custName; set => custName = value; }
@@ -37,6 +36,6 @@ namespace SEN381_Project_Group17.BusinessLayer
         public string IdNumber { get => idNumber; set => idNumber = value; }
         public string Gender { get => gender; set => gender = value; }
         public string FamilyRole { get => familyRole; set => familyRole = value; }
-        public DateTime Dob { get => dob; set => dob = value; }
+        public string Dob { get => dob; set => dob = value; }
     }
 }
