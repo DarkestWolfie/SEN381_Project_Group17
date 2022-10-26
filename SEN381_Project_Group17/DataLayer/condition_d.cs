@@ -46,6 +46,7 @@ namespace SEN381_Project_Group17.DataLayer
 
                     cmd.Parameters.AddWithValue("@id", condition.ConditionID);
                     cmd.Parameters.AddWithValue("@conditionName", condition.ConditionName);
+                    cmd.Parameters.AddWithValue("@conditioncode", condition.ConditionCode);
                     cmd.Parameters.AddWithValue("@conditionPolicyID", policyID);
                     cn.Open();
                     cmd.ExecuteNonQuery();

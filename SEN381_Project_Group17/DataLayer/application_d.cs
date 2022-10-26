@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(application_b application, int conditionID, int providerID, int customerID)
+        public string update(application_b application)
         {
             try
             {
@@ -47,9 +47,9 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@id", application.ApplicationID);
                     cmd.Parameters.AddWithValue("@applicationDate", application.ApplicationDate);
                     cmd.Parameters.AddWithValue("@status", application.Status);
-                    cmd.Parameters.AddWithValue("@applicationCustomerID", customerID);
-                    cmd.Parameters.AddWithValue("@treatmentConditionID", conditionID);
-                    cmd.Parameters.AddWithValue("@treatmentProviderID", providerID);
+                    cmd.Parameters.AddWithValue("@applicationCustomerID", application.ApplicationCustomerID);
+                    cmd.Parameters.AddWithValue("@applicationConditionID", application.ApplicationConditionID);
+                    cmd.Parameters.AddWithValue("@applicationProviderID", application.ApplicationProviderID);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

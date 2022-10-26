@@ -30,20 +30,20 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.find = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.add = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.addressLine = new System.Windows.Forms.TextBox();
+            this.familyRole = new System.Windows.Forms.TextBox();
+            this.familyID = new System.Windows.Forms.TextBox();
+            this.idNum = new System.Windows.Forms.TextBox();
+            this.dob = new System.Windows.Forms.TextBox();
+            this.surname = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,13 +51,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.gender = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.city = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.province = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.postalCode = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -71,15 +71,15 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 13;
             // 
-            // button5
+            // find
             // 
-            this.button5.Location = new System.Drawing.Point(495, 28);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Find";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.find.Location = new System.Drawing.Point(495, 28);
+            this.find.Name = "find";
+            this.find.Size = new System.Drawing.Size(75, 23);
+            this.find.TabIndex = 12;
+            this.find.Text = "Find";
+            this.find.UseVisualStyleBackColor = true;
+            this.find.Click += new System.EventHandler(this.button5_Click);
             // 
             // dataGridView1
             // 
@@ -90,33 +90,33 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // button4
+            // update
             // 
-            this.button4.Location = new System.Drawing.Point(333, 359);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.update.Location = new System.Drawing.Point(333, 359);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(75, 23);
+            this.update.TabIndex = 10;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // delete
             // 
-            this.button3.Location = new System.Drawing.Point(414, 359);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.delete.Location = new System.Drawing.Point(414, 359);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(75, 23);
+            this.delete.TabIndex = 9;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // add
             // 
-            this.button2.Location = new System.Drawing.Point(495, 359);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.add.Location = new System.Drawing.Point(495, 359);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(75, 23);
+            this.add.TabIndex = 8;
+            this.add.Text = "Add";
+            this.add.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -137,54 +137,54 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label1.TabIndex = 14;
             this.label1.Text = "Search";
             // 
-            // textBox8
+            // addressLine
             // 
-            this.textBox8.Location = new System.Drawing.Point(655, 236);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 51;
+            this.addressLine.Location = new System.Drawing.Point(655, 236);
+            this.addressLine.Name = "addressLine";
+            this.addressLine.Size = new System.Drawing.Size(100, 20);
+            this.addressLine.TabIndex = 51;
             // 
-            // textBox7
+            // familyRole
             // 
-            this.textBox7.Location = new System.Drawing.Point(655, 184);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 50;
+            this.familyRole.Location = new System.Drawing.Point(655, 184);
+            this.familyRole.Name = "familyRole";
+            this.familyRole.Size = new System.Drawing.Size(100, 20);
+            this.familyRole.TabIndex = 50;
             // 
-            // textBox6
+            // familyID
             // 
-            this.textBox6.Location = new System.Drawing.Point(655, 158);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 49;
+            this.familyID.Location = new System.Drawing.Point(655, 158);
+            this.familyID.Name = "familyID";
+            this.familyID.Size = new System.Drawing.Size(100, 20);
+            this.familyID.TabIndex = 49;
             // 
-            // textBox5
+            // idNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(655, 132);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 48;
+            this.idNum.Location = new System.Drawing.Point(655, 132);
+            this.idNum.Name = "idNum";
+            this.idNum.Size = new System.Drawing.Size(100, 20);
+            this.idNum.TabIndex = 48;
             // 
-            // textBox4
+            // dob
             // 
-            this.textBox4.Location = new System.Drawing.Point(655, 106);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 47;
+            this.dob.Location = new System.Drawing.Point(655, 106);
+            this.dob.Name = "dob";
+            this.dob.Size = new System.Drawing.Size(100, 20);
+            this.dob.TabIndex = 47;
             // 
-            // textBox3
+            // surname
             // 
-            this.textBox3.Location = new System.Drawing.Point(655, 80);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 46;
+            this.surname.Location = new System.Drawing.Point(655, 80);
+            this.surname.Name = "surname";
+            this.surname.Size = new System.Drawing.Size(100, 20);
+            this.surname.TabIndex = 46;
             // 
-            // textBox2
+            // name
             // 
-            this.textBox2.Location = new System.Drawing.Point(655, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 45;
+            this.name.Location = new System.Drawing.Point(655, 57);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(100, 20);
+            this.name.TabIndex = 45;
             // 
             // label8
             // 
@@ -250,13 +250,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label2.TabIndex = 38;
             this.label2.Text = "Name";
             // 
-            // textBox9
+            // gender
             // 
-            this.textBox9.Location = new System.Drawing.Point(655, 210);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 53;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.gender.Location = new System.Drawing.Point(655, 210);
+            this.gender.Name = "gender";
+            this.gender.Size = new System.Drawing.Size(100, 20);
+            this.gender.TabIndex = 53;
+            this.gender.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label9
             // 
@@ -268,12 +268,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label9.Text = "Gender";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textBox10
+            // city
             // 
-            this.textBox10.Location = new System.Drawing.Point(655, 262);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 55;
+            this.city.Location = new System.Drawing.Point(655, 262);
+            this.city.Name = "city";
+            this.city.Size = new System.Drawing.Size(100, 20);
+            this.city.TabIndex = 55;
             // 
             // label10
             // 
@@ -284,12 +284,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label10.TabIndex = 54;
             this.label10.Text = "City";
             // 
-            // textBox11
+            // province
             // 
-            this.textBox11.Location = new System.Drawing.Point(655, 288);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 57;
+            this.province.Location = new System.Drawing.Point(655, 288);
+            this.province.Name = "province";
+            this.province.Size = new System.Drawing.Size(100, 20);
+            this.province.TabIndex = 57;
             // 
             // label11
             // 
@@ -300,12 +300,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label11.TabIndex = 56;
             this.label11.Text = "Province";
             // 
-            // textBox12
+            // postalCode
             // 
-            this.textBox12.Location = new System.Drawing.Point(655, 314);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 59;
+            this.postalCode.Location = new System.Drawing.Point(655, 314);
+            this.postalCode.Name = "postalCode";
+            this.postalCode.Size = new System.Drawing.Size(100, 20);
+            this.postalCode.TabIndex = 59;
             // 
             // label12
             // 
@@ -331,21 +331,21 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.postalCode);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.province);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.city);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.gender);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.addressLine);
+            this.Controls.Add(this.familyRole);
+            this.Controls.Add(this.familyID);
+            this.Controls.Add(this.idNum);
+            this.Controls.Add(this.dob);
+            this.Controls.Add(this.surname);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -355,11 +355,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.find);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.delete);
+            this.Controls.Add(this.add);
             this.Controls.Add(this.button1);
             this.Name = "ClientInfo";
             this.Text = "Form2";
@@ -374,20 +374,20 @@ namespace SEN381_Project_Group17.PresentationLayer
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button find;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox addressLine;
+        private System.Windows.Forms.TextBox familyRole;
+        private System.Windows.Forms.TextBox familyID;
+        private System.Windows.Forms.TextBox idNum;
+        private System.Windows.Forms.TextBox dob;
+        private System.Windows.Forms.TextBox surname;
+        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -395,13 +395,13 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox gender;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox city;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox province;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox postalCode;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridView2;
     }

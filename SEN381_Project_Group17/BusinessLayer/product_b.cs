@@ -8,15 +8,15 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class product_b
     {
-        int productID, productPolicyID;
+        int productID;
         Double policyDiscount;
-        String availibility;
+        String availibility, productPolicyID;
 
         public product_b()
         {
         }
 
-        public product_b(int productID, int productPolicyID, double policyDiscount, string availibility)
+        public product_b(int productID, string productPolicyID, double policyDiscount, string availibility)
         {
             this.ProductID = productID;
             this.ProductPolicyID = productPolicyID;
@@ -25,7 +25,7 @@ namespace SEN381_Project_Group17.BusinessLayer
         }
 
         public int ProductID { get => productID; set => productID = value; }
-        public int ProductPolicyID { get => productPolicyID; set => productPolicyID = value; }
+        public string ProductPolicyID { get => productPolicyID; set => productPolicyID = value; }
         public double PolicyDiscount { get => policyDiscount; set => policyDiscount = value; }
         public string Availibility { get => availibility; set => availibility = value; }
     }

@@ -18,7 +18,7 @@ namespace SEN381_Project_Group17.DataLayer
         string con = "Server=.; Initial Catalog=ukupholisa; Integrated Security=SSPI";
 
         //Search
-        public DataTable search(int id)
+        public DataTable search(string id)
         {
             using (SqlConnection cn = new SqlConnection(con))
             {

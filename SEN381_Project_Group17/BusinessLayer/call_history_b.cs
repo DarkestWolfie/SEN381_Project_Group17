@@ -8,14 +8,15 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class call_history_b
     {
-        int callID, callCustomerID, callEmployeeID;
-        DateTime strat, end, dateCreated;
+        int callID, callEmployeeID;
+        String callCustomerID;
+        String strat, end, dateCreated;
 
         public call_history_b()
         {
         }
 
-        public call_history_b(int callID, int callCustomerID, int callEmployeeID, DateTime strat, DateTime end, DateTime dateCreated)
+        public call_history_b(int callID, string callCustomerID, int callEmployeeID, string strat, string end, string dateCreated)
         {
             this.CallID = callID;
             this.CallCustomerID = callCustomerID;
@@ -26,10 +27,10 @@ namespace SEN381_Project_Group17.BusinessLayer
         }
 
         public int CallID { get => callID; set => callID = value; }
-        public int CallCustomerID { get => callCustomerID; set => callCustomerID = value; }
+        public string CallCustomerID { get => callCustomerID; set => callCustomerID = value; }
         public int CallEmployeeID { get => callEmployeeID; set => callEmployeeID = value; }
-        public DateTime Strat { get => strat; set => strat = value; }
-        public DateTime End { get => end; set => end = value; }
-        public DateTime DateCreated { get => dateCreated; set => dateCreated = value; }
+        public string Strat { get => strat; set => strat = value; }
+        public string End { get => end; set => end = value; }
+        public String DateCreated { get => dateCreated; set => dateCreated = value; }
     }
 }
