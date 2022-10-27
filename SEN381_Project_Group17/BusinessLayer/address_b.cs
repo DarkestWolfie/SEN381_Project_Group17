@@ -24,6 +24,14 @@ namespace SEN381_Project_Group17.BusinessLayer
             PostalCode = postalCode;
         }
 
+        public address_b(string addressLine, string city, string province, string postalCode)
+        {
+            AddressLine = addressLine;
+            City = city;
+            Province = province;
+            PostalCode = postalCode;
+        }
+
         public int AddressID { get => addressID; set => addressID = value; }
         public string AddressLine { get => addressLine; set => addressLine = value; }
         public string City { get => city; set => city = value; }

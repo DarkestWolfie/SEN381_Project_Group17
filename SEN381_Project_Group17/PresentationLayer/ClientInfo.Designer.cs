@@ -79,7 +79,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // find
             // 
             this.find.Location = new System.Drawing.Point(486, -26);
-            this.find.Name = "button5";
+            this.find.Name = "find";
             this.find.Size = new System.Drawing.Size(75, 23);
             this.find.TabIndex = 12;
             this.find.Text = "Find";
@@ -101,7 +101,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Location = new System.Drawing.Point(286, 531);
-            this.update.Name = "button4";
+            this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 10;
             this.update.Text = "Update";
@@ -114,7 +114,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.Location = new System.Drawing.Point(558, 531);
-            this.delete.Name = "button3";
+            this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(230, 47);
             this.delete.TabIndex = 9;
             this.delete.Text = "Delete";
@@ -126,11 +126,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Location = new System.Drawing.Point(12, 531);
-            this.add.Name = "button2";
+            this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 8;
             this.add.Text = "Add";
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // button1
             // 
