@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(product_history_b productHistory, int productID)
+        public string update(product_history_b productHistory)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@id", productHistory.HistoryProductID);
                     cmd.Parameters.AddWithValue("@start", productHistory.Start);
                     cmd.Parameters.AddWithValue("@end", productHistory.End);
-                    cmd.Parameters.AddWithValue("@historyProductID", productID);
+                    cmd.Parameters.AddWithValue("@historyProductID", productHistory.HistoryProductID);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

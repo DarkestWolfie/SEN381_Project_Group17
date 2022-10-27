@@ -30,11 +30,11 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.find = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.add = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.addressLine = new System.Windows.Forms.TextBox();
@@ -76,7 +76,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 13;
             // 
-            // button5
+            // find
             // 
             this.button5.Location = new System.Drawing.Point(486, -26);
             this.button5.Name = "button5";
@@ -95,7 +95,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // button4
+            // update
             // 
             this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -108,7 +108,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // delete
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -120,7 +120,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // add
             // 
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -455,11 +455,11 @@ namespace SEN381_Project_Group17.PresentationLayer
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button find;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox addressLine;

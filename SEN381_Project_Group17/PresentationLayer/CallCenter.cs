@@ -131,7 +131,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            call_history_b callObj = new call_history_b(callID, int.Parse(textBox2.Text), int.Parse(textBox3.Text), DateTime.Parse(textBox4.Text), DateTime.Parse(textBox5.Text), DateTime.Parse(textBox6.Text));
+            call_history_b callObj = new call_history_b(callID,textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, textBox6.Text);
 
             MessageBox.Show(call.update(callObj));
         }

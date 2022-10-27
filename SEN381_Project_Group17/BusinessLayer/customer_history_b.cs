@@ -8,15 +8,14 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class customer_history_b
     {
-        int cusHistoryID, historyCustomerID, historyProductHistory;
-        DateTime start, end;
-        String active;
+        int cusHistoryID, historyProductHistory;
+        String active, historyCustomerID, start, end;
 
         public customer_history_b()
         {
         }
 
-        public customer_history_b(int cusHistoryID, int historyCustomerID, int historyProductHistory, DateTime start, DateTime end, string active)
+        public customer_history_b(int cusHistoryID, string historyCustomerID, int historyProductHistory, string start, string end, string active)
         {
             this.CusHistoryID = cusHistoryID;
             this.HistoryCustomerID = historyCustomerID;
@@ -27,10 +26,10 @@ namespace SEN381_Project_Group17.BusinessLayer
         }
 
         public int CusHistoryID { get => cusHistoryID; set => cusHistoryID = value; }
-        public int HistoryCustomerID { get => historyCustomerID; set => historyCustomerID = value; }
+        public string HistoryCustomerID { get => historyCustomerID; set => historyCustomerID = value; }
         public int HistoryProductHistory { get => historyProductHistory; set => historyProductHistory = value; }
-        public DateTime Start { get => start; set => start = value; }
-        public DateTime End { get => end; set => end = value; }
+        public string Start { get => start; set => start = value; }
+        public string End { get => end; set => end = value; }
         public string Active { get => active; set => active = value; }
     }
 }

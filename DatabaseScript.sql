@@ -28,10 +28,10 @@ CREATE TABLE [provider]
 
 CREATE TABLE [customer] 
 (
-  customerID int NOT NULL IDENTITY,
+  customerID varchar(9) NOT NULL UNIQUE,
   custName varchar(45) ,
   custSurname varchar(45) ,
-  dob date ,
+  dob varchar(10) ,
   idNumber varchar(13) ,
   gender varchar(45) ,
   familyID int ,
@@ -54,7 +54,7 @@ CREATE TABLE [employee]
 
 CREATE TABLE [policy] 
 (
-  policyID int NOT NULL IDENTITY,
+  policyID varchar(12) NOT NULL UNIQUE,
   policyName varchar(45) ,
   price float ,
   installment float ,
@@ -65,20 +65,20 @@ CREATE TABLE [policy]
 CREATE TABLE [call_history] 
 (
   callID int NOT NULL IDENTITY,
-  callCustomerID int FOREIGN KEY REFERENCES customer (customerID),
+  callCustomerID varchar(9) FOREIGN KEY REFERENCES customer (customerID),
   callEmployeeID int FOREIGN KEY REFERENCES employee (employeeID),
-  [start] time  ,
-  [end] time ,
-  dateCreated date ,
+  [start] varchar(10)  ,
+  [end] varchar(10) ,
+  dateCreated varchar(10) ,
   PRIMARY KEY (callID)
 );
 
 CREATE TABLE [customer_account] 
 (
   accountID int NOT NULL IDENTITY,
-  accountCustomerID int FOREIGN KEY REFERENCES customer (customerID),
+  accountCustomerID varchar(9) FOREIGN KEY REFERENCES customer (customerID),
   amountDue float ,
-  installmentDate date ,
+  installmentDate varchar(10) ,
   PRIMARY KEY (accountID)
 );
 
@@ -86,7 +86,8 @@ CREATE TABLE [condition]
 (
   conditionID int NOT NULL IDENTITY,
   conditionName varchar(45) ,
-  conditionPolicyID int FOREIGN KEY REFERENCES policy (policyID),
+  conitionCode varchar(10),
+  conditionPolicyID varchar(12) FOREIGN KEY REFERENCES policy (policyID),
   PRIMARY KEY (conditionID),
 );
 
@@ -95,15 +96,15 @@ CREATE TABLE [product]
   productID int NOT NULL IDENTITY,
   policyDiscount float ,
   [availability] varchar(45) ,
-  productPolicyID int FOREIGN KEY REFERENCES policy (policyID),
+  productPolicyID varchar(12) FOREIGN KEY REFERENCES policy (policyID),
   PRIMARY KEY (productID)
 );
 
 CREATE TABLE [product_history] 
 (
   proHistoryID int NOT NULL IDENTITY,
-  [start] date ,
-  [end] date ,
+  [start] varchar(10) ,
+  [end] varchar(10) ,
   historyProductID int FOREIGN KEY REFERENCES product (productID),
   PRIMARY KEY (proHistoryID)
 );
@@ -111,10 +112,10 @@ CREATE TABLE [product_history]
 CREATE TABLE [customer_history] 
 (
   cusHistoryID int NOT NULL IDENTITY,
-  [start] date ,
-  [end] date ,
+  [start] varchar(10) ,
+  [end] varchar(10) ,
   active varchar(45) ,
-  historyCustomerID int FOREIGN KEY REFERENCES customer (customerID),
+  historyCustomerID varchar(9) FOREIGN KEY REFERENCES customer (customerID),
   historyProductHistoryID int FOREIGN KEY REFERENCES product_history (proHistoryID),
   PRIMARY KEY (cusHistoryID)
 );
@@ -123,7 +124,7 @@ CREATE TABLE [treatment]
 (
   treatmentID int NOT NULL IDENTITY,
   treatmentName varchar(45) ,
-  [description] varchar(45) ,
+  [description] varchar(1000) ,
   cost float ,
   treatmentConditionID int FOREIGN KEY REFERENCES condition (conditionID),
   treatmentProviderID int FOREIGN KEY REFERENCES provider (providerID),
@@ -133,9 +134,9 @@ CREATE TABLE [treatment]
   CREATE TABLE [application] 
   (
   applicationID int NOT NULL IDENTITY,
-  applicationDate date ,
+  applicationDate varchar(10) ,
   [status] varchar(45) ,
-  applicationCustomerID int FOREIGN KEY REFERENCES customer (customerID),
+  applicationCustomerID varchar(9) FOREIGN KEY REFERENCES customer (customerID),
   applicationConditionID int FOREIGN KEY REFERENCES condition (conditionID),
   applicationProviderID int FOREIGN KEY REFERENCES provider (providerID),
   PRIMARY KEY (applicationID) 
@@ -251,6 +252,7 @@ GO
 
 CREATE PROC spAddProvider
 (
+	
 	@providerName varchar(45),
 	@status varchar(45),
 	@province varchar(45)
@@ -265,9 +267,10 @@ GO
 
 CREATE PROC spAddCustomer
 (
+	 @customerID varchar(9),
 	 @custName varchar(45) ,
 	 @custSurname varchar(45) ,
-	 @dob date ,
+	 @dob varchar(10) ,
 	 @idNumber varchar(13) ,
 	 @gender varchar(45) ,
 	 @familyID int ,
@@ -277,8 +280,8 @@ CREATE PROC spAddCustomer
 AS
 BEGIN
 	INSERT INTO [customer]
-	(custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
-	VALUES (@custName, @custSurname, @dob, @idNumber, @gender, @familyID, @familyRole, @customerAddressID);
+	(customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+	VALUES (@customerID, @custName, @custSurname, @dob, @idNumber, @gender, @familyID, @familyRole, @customerAddressID);
 END
 GO
 
@@ -301,6 +304,7 @@ GO
 
 CREATE PROC spAddPolicy
 (
+	@policyID varchar(12),
 	@policyName varchar(45) ,
 	@price float ,
 	@installment float ,
@@ -309,18 +313,18 @@ CREATE PROC spAddPolicy
 AS
 BEGIN
 	INSERT INTO [policy]
-	(policyName, price, installment, payout)
-	VALUES (@policyName, @price, @installment, @payout);
+	(policyID, policyName, price, installment, payout)
+	VALUES (@policyID, @policyName, @price, @installment, @payout);
 END
 GO
 
 CREATE PROC spAddCallHistory
 (
-	@callCustomerID int ,
+	@callCustomerID varchar(9) ,
 	@callEmployeeID int ,
-	@start time  ,
-	@end time ,
-	@dateCreated date
+	@start varchar(10)  ,
+	@end varchar(10) ,
+	@dateCreated varchar(10)
 )
 AS
 BEGIN
@@ -332,9 +336,9 @@ GO
 
 CREATE PROC spAddAccount
 (
-	@accountCustomerID int ,
+	@accountCustomerID varchar(9) ,
 	@amountDue float ,
-	@installmentDate date 
+	@installmentDate varchar(10) 
 )
 AS
 BEGIN
@@ -347,13 +351,14 @@ GO
 CREATE PROC spAddCondition
 (
 	@conditionName varchar(45) ,
+	@conditionCode varchar(10),
 	@conditionPolicyID int
 )
 AS
 BEGIN
 	INSERT INTO [condition]
-	(conditionName, conditionPolicyID)
-	VALUES (@conditionName, @conditionPolicyID);
+	(conditionName, conitionCode, conditionPolicyID)
+	VALUES (@conditionName, @conditionCode, @conditionPolicyID);
 END
 GO
 
@@ -361,7 +366,7 @@ CREATE PROC spAddProduct
 (
 	@policyDiscount float ,
 	@availability varchar(45) ,
-	@productPolicyID int
+	@productPolicyID varchar(12)
 )
 AS
 BEGIN
@@ -373,8 +378,8 @@ GO
 
 CREATE PROC spAddProductHistory
 (
-	@start date ,
-	@end date ,
+	@start varchar(10) ,
+	@end varchar(10) ,
 	@historyProductID int
 )
 AS
@@ -387,10 +392,10 @@ GO
 
 CREATE PROC spAddCustomerHistory
 (
-	@start date ,
-	@end date ,
+	@start varchar(10) ,
+	@end varchar(10) ,
 	@active varchar(45) ,
-	@historyCustomerID int ,
+	@historyCustomerID varchar(9) ,
 	@historyProductHistoryID int
 )
 AS
@@ -419,9 +424,9 @@ GO
 
 CREATE PROC spAddApplication
 (
-	@applicationDate date ,
+	@applicationDate varchar(10) ,
 	@status varchar(45) ,
-	@applicationCustomerID int ,
+	@applicationCustomerID varchar(9) ,
 	@applicationConditionID int,
 	@applicationProviderID int
 )
@@ -466,10 +471,10 @@ GO
 
 CREATE PROC spUpdateCustomer
 (
-	 @id int,
+	 @id varchar(9),
 	 @custName varchar(45) ,
 	 @custSurname varchar(45) ,
-	 @dob date ,
+	 @dob varchar(10) ,
 	 @idNumber varchar(13) ,
 	 @gender varchar(45) ,
 	 @familyID int ,
@@ -504,7 +509,7 @@ GO
 
 CREATE PROC spUpdatePolicy
 (
-	@id int,
+	@id varchar(12),
 	@policyName varchar(45) ,
 	@price float ,
 	@installment float ,
@@ -521,11 +526,11 @@ GO
 CREATE PROC spUpdateCallHistory
 (
 	@id int,
-	@callCustomerID int ,
+	@callCustomerID varchar(9) ,
 	@callEmployeeID int ,
-	@start time  ,
-	@end time ,
-	@dateCreated date
+	@start varchar(10)  ,
+	@end varchar(10) ,
+	@dateCreated varchar(10)
 )
 AS
 BEGIN
@@ -538,9 +543,9 @@ GO
 CREATE PROC spUpdateAccount
 (
 	@id int,
-	@accountCustomerID int ,
+	@accountCustomerID varchar(9) ,
 	@amountDue float ,
-	@installmentDate date 
+	@installmentDate varchar(10) 
 )
 AS
 BEGIN
@@ -554,12 +559,13 @@ CREATE PROC spUpdateCondition
 (
 	@id int,
 	@conditionName varchar(45) ,
+	@conditionCode varchar(10),
 	@conditionPolicyID int
 )
 AS
 BEGIN
 	Update [condition]
-	SET conditionName = @conditionName, conditionPolicyID = @conditionPolicyID
+	SET conditionName = @conditionName, conitionCode = @conditionCode, conditionPolicyID = @conditionPolicyID
 	WHERE conditionID = @id
 END
 GO
@@ -569,7 +575,7 @@ CREATE PROC spUpdateProduct
 	@id int,
 	@policyDiscount float ,
 	@availability varchar(45) ,
-	@productPolicyID int
+	@productPolicyID varchar(12)
 )
 AS
 BEGIN
@@ -582,8 +588,8 @@ GO
 CREATE PROC spUpdateProductHistory
 (
 	@id int,
-	@start date ,
-	@end date ,
+	@start varchar(10) ,
+	@end varchar(10) ,
 	@historyProductID int
 )
 AS
@@ -597,10 +603,10 @@ GO
 CREATE PROC spUpdateCustomerHistory
 (
 	@id int,
-	@start date ,
-	@end date ,
+	@start varchar(10) ,
+	@end varchar(10) ,
 	@active varchar(45) ,
-	@historyCustomerID int ,
+	@historyCustomerID varchar(9) ,
 	@historyProductHistoryID int
 )
 AS
@@ -631,9 +637,9 @@ GO
 CREATE PROC spUpdateApplication
 (
 	@id int,
-	@applicationDate date ,
+	@applicationDate varchar(10) ,
 	@status varchar(45) ,
-	@applicationCustomerID int ,
+	@applicationCustomerID varchar(9) ,
 	@applicationConditionID int,
 	@applicationProviderID int
 )
@@ -647,7 +653,7 @@ GO
 
 CREATE PROC spSearchCustomer
 (
-	@id int
+	@id varchar(12)
 )
 AS
 BEGIN
@@ -695,50 +701,128 @@ BEGIN
 END
 GO
 
-USE ukupholisa
-GO
-
 INSERT INTO [address] (addressLine, city, province, postalCode)
 VALUES ('25 James Street', 'Brits', 'North West', '0250');
+INSERT INTO [address] (addressLine, city, province, postalCode)
+VALUES ('34 Bedford Street', 'Pretoria', 'Gauteng', '0001');
+INSERT INTO [address] (addressLine, city, province, postalCode)
+VALUES ('09 Gert Road', 'Pretoria', 'Gauteng', '0102');
+INSERT INTO [address] (addressLine, city, province, postalCode)
+VALUES ('13 Peace Street', 'Pretoria', 'Gauteng', '0001');
+INSERT INTO [address] (addressLine, city, province, postalCode)
+VALUES ('54 Rian AVE', 'Pretoria', 'Gauteng', '0001');
 
 INSERT INTO [provider] (providerName, status, province)
 VALUES ('Groen Kloof', 'Aproved', 'North West');
+INSERT INTO [provider] (providerName, status, province)
+VALUES ('Medi Clinic', 'Aproved', 'Gauteng');
+INSERT INTO [provider] (providerName, status, province)
+VALUES ('YouHeal Hospital', 'Aproved', 'North West');
 
-INSERT INTO [customer] (custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
-VALUES ('Dylan', 'Ellis', '2000-12-02', '0012022823391', 'Male', 1, 'Parent', 1);
+
+INSERT INTO [customer] (customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+VALUES ('E00000001' ,'Dylan', 'Ellis', '2000-12-02', '0012022823391', 'Male', 1, 'Parent', 1);
+INSERT INTO [customer] (customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+VALUES ('D00000001' ,'Dian', 'de Vos', '2001-11-22', '0111227364812', 'Male', 2, 'Parent', 4);
+INSERT INTO [customer] (customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+VALUES ('S00000001' ,'Luc', 'Szyndralewicz', '2000-01-10', '0001101200434', 'Male', 3, 'Parent', 2);
+INSERT INTO [customer] (customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+VALUES ('C00000001' ,'Francois', 'Cornelius', '2000-05-25', '0005251102665', 'Male', 4, 'Parent', 5);
+INSERT INTO [customer] (customerID, custName, custSurname, dob, idNumber, gender, familyID, familyRole, customerAddressID)
+VALUES ('J00000001' ,'Carissa', 'Janse', '2002-11-27', '0211271223391', 'Female', 5, 'Parent', 3);
 
 INSERT INTO [employee] (empName, email, phoneNumber, [role], userName, [password])
-VALUES ('Dian', 'de Vos', '0820912012', 'Call agent', 'Dianing', 'VosDeDian');
+VALUES ('Martin', 'martin@gamil.com', '0820912012', 'Call agent', 'martin123', '123Martin');
+INSERT INTO [employee] (empName, email, phoneNumber, [role], userName, [password])
+VALUES ('Aiden', 'aiden@gmail.com', '0982342365', 'Call agent', 'aiden123', '123Aiden');
+INSERT INTO [employee] (empName, email, phoneNumber, [role], userName, [password])
+VALUES ('Stefan', 'stefan@gamil.com', '0648721320', 'Manager', 'stefan123', '123Stefan');
 
-INSERT INTO [policy] (policyName, price, installment, payout)
-VALUES ('Full', 120000, 380, 100000);
+INSERT INTO [policy] (policyID, policyName, price, installment, payout)
+VALUES ('2021DA00001' ,'Full', 120000, 380, 100000);
+INSERT INTO [policy] (policyID, policyName, price, installment, payout)
+VALUES ('2019ZC00002' ,'Full', 134000, 385, 130000);
+INSERT INTO [policy] (policyID, policyName, price, installment, payout)
+VALUES ('2021JA00003' ,'Full', 203000, 400, 200000);
+INSERT INTO [policy] (policyID, policyName, price, installment, payout)
+VALUES ('2021EB00004' ,'Full', 320000, 450, 320000);
+INSERT INTO [policy] (policyID, policyName, price, installment, payout)
+VALUES ('2017HD00005' ,'Full', 100000, 350, 90000);
 
 INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
-VALUES (1, 1, '12:00:00', '12:30:00', '2022-10-14');
+VALUES ('E00000001', 1, '12:00:00', '12:30:00', '2022-10-14');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
+VALUES ('S00000001', 3, '11:00:00', '11:30:00', '2022-10-17');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
+VALUES ('J00000001', 1, '10:30:00', '11:00:00', '2022-10-16');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
+VALUES ('J00000001', 2, '14:00:00', '14:30:00', '2022-10-17');
 
 INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
-VALUES (1, 4800, '2022-10-30');
+VALUES ('E00000001', 4800, '2022-10-30');
+INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
+VALUES ('D00000001', 300, '2022-10-30');
+INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
+VALUES ('E00000001', 1200, '2022-10-30');
+INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
+VALUES ('S00000001', 500, '2022-10-30');
+INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
+VALUES ('C00000001', 830, '2022-10-30');
+INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
+VALUES ('J00000001', 2000, '2022-10-30');
 
-INSERT INTO [condition] (conditionName, conditionPolicyID)
-VALUES ('Cholestrol', 1);
+INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
+VALUES ('Cholestrol', 'COL', '2021DA00001');
+INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
+VALUES ('Diabetes', 'DIAB', '2019ZC00002');
+INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
+VALUES ('Acne', 'ACNE', '2021JA00003');
 
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.3, 'Availible', 1);
+VALUES (0.4, 'Availible', '2021EB00004');
+INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
+VALUES (0.5, 'Availible', '2021JA00003');
+INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
+VALUES (0.3, 'Availible', '2019ZC00002');
+INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
+VALUES (0.2, 'Availible', '2021DA00001');
+INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
+VALUES (0.25, 'Availible', '2017HD00005');
 
 INSERT INTO [product_history] ([start], [end], historyProductID)
 VALUES ('2013-09-24', '2023-08-02', 1);
+INSERT INTO [product_history] ([start], [end], historyProductID)
+VALUES ('2012-11-29', '2022-10-19', 5);
+INSERT INTO [product_history] ([start], [end], historyProductID)
+VALUES ('2015-09-24', '2023-01-05', 2);
+INSERT INTO [product_history] ([start], [end], historyProductID)
+VALUES ('2018-02-15', '2022-11-21', 3);
+INSERT INTO [product_history] ([start], [end], historyProductID)
+VALUES ('2012-12-04', '2023-06-14', 4);
 
 INSERT INTO [customer_history] ([start], [end], [active], historyCustomerID, historyProductHistoryID)
-VALUES ('2012-07-06', '2022-11-29', 'Yes', 1, 1);
+VALUES ('2012-07-06', '2022-11-29', 'Yes', 'J00000001', 1);
+INSERT INTO [customer_history] ([start], [end], [active], historyCustomerID, historyProductHistoryID)
+VALUES ('2013-04-22', '2021-10-15', 'Yes', 'D00000001', 2);
+INSERT INTO [customer_history] ([start], [end], [active], historyCustomerID, historyProductHistoryID)
+VALUES ('2017-07-28', '2023-11-17', 'No', 'S00000001', 3);
+INSERT INTO [customer_history] ([start], [end], [active], historyCustomerID, historyProductHistoryID)
+VALUES ('2014-10-15', '2022-12-08', 'Yes', 'C00000001', 4);
+INSERT INTO [customer_history] ([start], [end], [active], historyCustomerID, historyProductHistoryID)
+VALUES ('2018-08-10', '2022-06-14', 'Yes', 'E00000001', 5);
 
 INSERT INTO [treatment]	(treatmentName, [description], cost, treatmentConditionID, treatmentProviderID)
-VALUES ('Injection', 'Injection for common cold', 20, 1, 1);
+VALUES ('Pill', 'Pill that lowwers Cholestrol levels', 20, 1, 1);
+INSERT INTO [treatment]	(treatmentName, [description], cost, treatmentConditionID, treatmentProviderID)
+VALUES ('Cream', 'A cream to improve redness', 20, 1, 1);
+INSERT INTO [treatment]	(treatmentName, [description], cost, treatmentConditionID, treatmentProviderID)
+VALUES ('Injection', 'Injection to balance out blood sugar', 20, 1, 1);
 
 INSERT INTO [application] (applicationDate, [status], applicationCustomerID, applicationConditionID, applicationProviderID)
-VALUES ('2022-10-24', 'Aproved', 1, 1, 1);
+VALUES ('2022-10-24', 'Aproved', 'E00000001', 1, 3);
+INSERT INTO [application] (applicationDate, [status], applicationCustomerID, applicationConditionID, applicationProviderID)
+VALUES ('2022-11-02', 'Aproved', 'S00000001', 3, 2);
 
-USE ukupholisa
-GO
 
 SELECT * FROM provider;
 SELECT * FROM policy;
@@ -752,3 +836,4 @@ SELECT * FROM condition;
 SELECT * FROM product_history;
 SELECT * FROM treatment;
 SELECT * FROM application;
+SELECT * FROM address;

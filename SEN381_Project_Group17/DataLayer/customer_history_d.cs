@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(customer_history_b customerHistory, int productID, int customerID)
+        public string update(customer_history_b customerHistory)
         {
             try
             {
@@ -48,8 +48,8 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@start", customerHistory.Start);
                     cmd.Parameters.AddWithValue("@end", customerHistory.End);
                     cmd.Parameters.AddWithValue("@active", customerHistory.Active);
-                    cmd.Parameters.AddWithValue("@historyCustomerID", customerID);
-                    cmd.Parameters.AddWithValue("@historyProductHistoryID", productID);
+                    cmd.Parameters.AddWithValue("@historyCustomerID", customerHistory.HistoryCustomerID);
+                    cmd.Parameters.AddWithValue("@historyProductHistoryID", customerHistory.HistoryProductHistory);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

@@ -110,7 +110,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            customerSource.DataSource = customer.search(int.Parse(textBox1.Text));
+            customerSource.DataSource = customer.search(textBox1.Text);
             dataGridView1.DataSource = customerSource;
 
             if (customerSource.Position >= 0)
@@ -125,9 +125,10 @@ namespace SEN381_Project_Group17.PresentationLayer
                 familyRole.Text = row.Cells["familyRole"].Value.ToString();
                 gender.Text = row.Cells["gender"].Value.ToString();
 
-                customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+                customerID = row.Cells["customerID"].Value.ToString();
+                addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                addressSource.DataSource = address.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 
@@ -160,8 +161,17 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), int.Parse(addressLine.Text), name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, DateTime.Parse(dob.Text));
+            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
+            address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
+            MessageBox.Show(address.update(addressObj));
             MessageBox.Show(customer.update(customerObj));
+
+            customerSource.DataSource = customer.getAll();
+            dataGridView1.DataSource = customerSource;
+
+            addressSource.DataSource = address.search(addressID);
+            dataGridView2.Visible = true;
+            dataGridView2.DataSource = addressSource;
         }
 
         private void ClientInfo_Load(object sender, EventArgs e)
@@ -182,12 +192,12 @@ namespace SEN381_Project_Group17.PresentationLayer
                 idNum.Text = row.Cells["idNumber"].Value.ToString();
                 familyID.Text = row.Cells["familyID"].Value.ToString();
                 familyRole.Text = row.Cells["familyRole"].Value.ToString();
-                addressLine.Text = row.Cells["customerAddressID"].Value.ToString();
                 gender.Text = row.Cells["gender"].Value.ToString();
 
-                customerID = int.Parse(row.Cells["customerID"].Value.ToString());
+                customerID = row.Cells["customerID"].Value.ToString();
+                addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(int.Parse(row.Cells["customerAddressID"].Value.ToString()));
+                addressSource.DataSource = address.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 

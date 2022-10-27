@@ -8,15 +8,14 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class policy_b
     {
-        int policyID;
-        string policyName;
+        String policyName, policyID;
         Double price, installment, payout;
 
         public policy_b()
         {
         }
 
-        public policy_b(int policyID, string policyName, double price, double installment, double payout)
+        public policy_b(string policyID, string policyName, double price, double installment, double payout)
         {
             this.PolicyID = policyID;
             this.PolicyName = policyName;
@@ -25,7 +24,7 @@ namespace SEN381_Project_Group17.BusinessLayer
             this.Payout = payout;
         }
 
-        public int PolicyID { get => policyID; set => policyID = value; }
+        public string PolicyID { get => policyID; set => policyID = value; }
         public string PolicyName { get => policyName; set => policyName = value; }
         public double Price { get => price; set => price = value; }
         public double Installment { get => installment; set => installment = value; }

@@ -34,7 +34,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(treatment_b treatment, int conditionID, int providerID)
+        public string update(treatment_b treatment)
         {
             try
             {
@@ -48,8 +48,8 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@treatmentName", treatment.TreatmentName);
                     cmd.Parameters.AddWithValue("@description", treatment.Description);
                     cmd.Parameters.AddWithValue("@cost", treatment.Cost);
-                    cmd.Parameters.AddWithValue("@treatmentConditionID", conditionID);
-                    cmd.Parameters.AddWithValue("@treatmentProviderID", providerID);
+                    cmd.Parameters.AddWithValue("@treatmentConditionID", treatment.TreatmentConditionID);
+                    cmd.Parameters.AddWithValue("@treatmentProviderID", treatment.TreatmentProviderID);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();
