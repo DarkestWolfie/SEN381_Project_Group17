@@ -57,6 +57,20 @@ namespace SEN381_Project_Group17.DataLayer
             return customerData;
         }
 
+        //GetCount
+        public int getCount()
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlCommand cmd = new SqlCommand("spAddressCount", cn);
+
+            cn.Open();
+            var addressCount = cmd.ExecuteScalar();
+            
+
+            return int.Parse(addressCount.ToString());
+        }
+
         //Update
         public string update(address_b adsress)
         {

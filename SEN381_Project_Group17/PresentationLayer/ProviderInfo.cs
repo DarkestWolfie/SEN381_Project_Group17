@@ -100,7 +100,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            this.Hide();
+            Form hub = new UkupholisaHub();
+            hub.ShowDialog();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

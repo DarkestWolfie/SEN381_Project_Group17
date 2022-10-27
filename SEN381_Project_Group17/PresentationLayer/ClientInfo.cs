@@ -106,7 +106,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            this.Hide();
+            Form hub = new UkupholisaHub();
+            hub.ShowDialog();
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -164,8 +168,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
             address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
-            MessageBox.Show(address.update(addressObj));
-            MessageBox.Show(customer.update(customerObj));
+
+            MessageBox.Show(customer.update(customerObj) + "\n\n" + address.update(addressObj));
 
             customerSource.DataSource = customer.getAll();
             dataGridView1.DataSource = customerSource;
@@ -322,6 +326,24 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void ClientInfo_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            int newAddressID = address.getCount();
+            string newCustomerID = "D00000002";
+            
+            address_b addressAdd = new address_b(addressLine.Text, city.Text, province.Text, postalCode.Text);
+            customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
+
+            //MessageBox.Show(customer.update(customerObj) + "\n\n" + address.update(addressObj));
+
+            //customerSource.DataSource = customer.getAll();
+            //dataGridView1.DataSource = customerSource;
+
+            //addressSource.DataSource = address.search(addressID);
+            //dataGridView2.Visible = true;
+            //dataGridView2.DataSource = addressSource;
         }
     }
 }
