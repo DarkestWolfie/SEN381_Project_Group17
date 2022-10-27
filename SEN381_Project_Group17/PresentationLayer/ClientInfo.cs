@@ -95,7 +95,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             }
         }
 
-        int customerID = 0;
+        string customerID;
+        int addressID;
 
         customer_d customer = new customer_d();
         BindingSource customerSource = new BindingSource();

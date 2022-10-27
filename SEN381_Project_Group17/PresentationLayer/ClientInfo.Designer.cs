@@ -78,13 +78,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             // find
             // 
-            this.button5.Location = new System.Drawing.Point(486, -26);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Find";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.find.Location = new System.Drawing.Point(486, -26);
+            this.find.Name = "button5";
+            this.find.Size = new System.Drawing.Size(75, 23);
+            this.find.TabIndex = 12;
+            this.find.Text = "Find";
+            this.find.UseVisualStyleBackColor = true;
+            this.find.Click += new System.EventHandler(this.button5_Click);
             // 
             // dataGridView1
             // 
@@ -97,40 +97,40 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             // update
             // 
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(286, 531);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(230, 47);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.update.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update.Location = new System.Drawing.Point(286, 531);
+            this.update.Name = "button4";
+            this.update.Size = new System.Drawing.Size(230, 47);
+            this.update.TabIndex = 10;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.button4_Click);
             // 
             // delete
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(558, 531);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(230, 47);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
+            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete.Location = new System.Drawing.Point(558, 531);
+            this.delete.Name = "button3";
+            this.delete.Size = new System.Drawing.Size(230, 47);
+            this.delete.TabIndex = 9;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
             // 
             // add
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 531);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(230, 47);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.add.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add.Location = new System.Drawing.Point(12, 531);
+            this.add.Name = "button2";
+            this.add.Size = new System.Drawing.Size(230, 47);
+            this.add.TabIndex = 8;
+            this.add.Text = "Add";
+            this.add.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -371,13 +371,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.dataGridView2);
             this.pnlContainer.Controls.Add(this.postalCode);
-            this.pnlContainer.Controls.Add(this.button2);
+            this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.label12);
-            this.pnlContainer.Controls.Add(this.button3);
+            this.pnlContainer.Controls.Add(this.delete);
             this.pnlContainer.Controls.Add(this.province);
-            this.pnlContainer.Controls.Add(this.button4);
+            this.pnlContainer.Controls.Add(this.update);
             this.pnlContainer.Controls.Add(this.label11);
-            this.pnlContainer.Controls.Add(this.button5);
+            this.pnlContainer.Controls.Add(this.find);
             this.pnlContainer.Controls.Add(this.city);
             this.pnlContainer.Controls.Add(this.textBox1);
             this.pnlContainer.Controls.Add(this.label10);
