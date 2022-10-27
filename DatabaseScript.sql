@@ -701,6 +701,13 @@ BEGIN
 END
 GO
 
+CREATE PROC spAddressCount
+AS
+BEGIN
+	SELECT COUNT(addressID) + 1 FROM address
+END
+GO
+
 INSERT INTO [address] (addressLine, city, province, postalCode)
 VALUES ('25 James Street', 'Brits', 'North West', '0250');
 INSERT INTO [address] (addressLine, city, province, postalCode)
