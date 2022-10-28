@@ -708,6 +708,23 @@ BEGIN
 END
 GO
 
+CREATE PROC spPolicyCount
+AS
+BEGIN
+	SELECT COUNT(policyID) + 1 FROM policy
+END
+GO
+
+CREATE PROC spCustomerCount
+(
+	@id varchar(1)
+)
+AS
+BEGIN
+	SELECT COUNT(customerID) + 1 FROM customer WHERE customerID LIKE @id + '%'
+END
+GO
+
 INSERT INTO [address] (addressLine, city, province, postalCode)
 VALUES ('25 James Street', 'Brits', 'North West', '0250');
 INSERT INTO [address] (addressLine, city, province, postalCode)
