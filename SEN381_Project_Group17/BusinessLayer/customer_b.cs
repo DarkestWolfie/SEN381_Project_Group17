@@ -37,5 +37,45 @@ namespace SEN381_Project_Group17.BusinessLayer
         public string Gender { get => gender; set => gender = value; }
         public string FamilyRole { get => familyRole; set => familyRole = value; }
         public string Dob { get => dob; set => dob = value; }
+
+        public string GenerateID(string Surname)
+        {
+            DataLayer.customer_d customer = new DataLayer.customer_d();
+
+            string newCustomerID = "";
+
+            string letter = Surname.Substring(0, 1).ToUpper();
+            string custID = customer.getCount(letter);
+
+            string count = "";
+
+            foreach (char character in custID)
+            {
+                if (character.ToString() != letter && character != '0')
+                {
+                    count += character;
+                }
+            }
+
+            newCustomerID += letter;
+
+            if (count == "")
+            {
+                count = "1";
+            }
+            else
+            {
+                count = (int.Parse(count) + 1).ToString();
+            }
+
+            for (int i = 8; i > count.Length; i--)
+            {
+                newCustomerID += "0";
+            }
+
+            newCustomerID += count;
+
+            return newCustomerID;
+        }
     }
 }

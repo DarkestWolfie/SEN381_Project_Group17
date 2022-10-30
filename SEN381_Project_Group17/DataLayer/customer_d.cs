@@ -57,6 +57,34 @@ namespace SEN381_Project_Group17.DataLayer
             return customerData;
         }
 
+        //GetCount
+        public string getCount(string id)
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlCommand cmd = new SqlCommand("spCustomerCount", cn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            SqlParameter parameter;
+            parameter = cmd.Parameters.Add("@id", SqlDbType.VarChar, 1);
+            parameter.Value = id;
+
+            cn.Open();
+            var customerCount = cmd.ExecuteScalar();
+            cn.Close();
+
+            if (customerCount != null)
+            {
+                return customerCount.ToString();
+            }
+            else
+            {
+                return "0";
+            }
+            
+        }
+
         //Update
         public string update(customer_b customer)
         {
@@ -88,6 +116,40 @@ namespace SEN381_Project_Group17.DataLayer
             catch (Exception eA)
             {
                 return "The following error was encountered while trying to update Customer data:\n\n" + eA.Message;
+            }
+        }
+
+        //Add
+        public string add(customer_b customer)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddCustomer", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@customerID", customer.CustomerID);
+                    cmd.Parameters.AddWithValue("@custName", customer.CustName);
+                    cmd.Parameters.AddWithValue("@custSurname", customer.CustSurname);
+                    cmd.Parameters.AddWithValue("@dob", customer.Dob);
+                    cmd.Parameters.AddWithValue("@idNumber", customer.IdNumber);
+                    cmd.Parameters.AddWithValue("@gender", customer.Gender);
+                    cmd.Parameters.AddWithValue("@familyID", customer.FamilyID);
+                    cmd.Parameters.AddWithValue("@familyRole", customer.FamilyRole);
+                    cmd.Parameters.AddWithValue("@customerAddressID", customer.CustomerAddress);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Customer data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Customer data:\n\n" + eA.Message;
             }
         }
     }

@@ -98,10 +98,12 @@ namespace SEN381_Project_Group17.PresentationLayer
         string customerID;
         int addressID;
 
-        customer_d customer = new customer_d();
+        customer_b customer_b = new customer_b();
+
+        customer_d customer_d = new customer_d();
         BindingSource customerSource = new BindingSource();
 
-        address_d address = new address_d();
+        address_d address_d = new address_d();
         BindingSource addressSource = new BindingSource();
 
         private void button1_Click(object sender, EventArgs e)
@@ -115,7 +117,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            customerSource.DataSource = customer.search(textBox1.Text);
+            customerSource.DataSource = customer_d.search(textBox1.Text);
             dataGridView1.DataSource = customerSource;
 
             if (customerSource.Position >= 0)
@@ -133,7 +135,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 customerID = row.Cells["customerID"].Value.ToString();
                 addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(addressID);
+                addressSource.DataSource = address_d.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 
@@ -169,19 +171,19 @@ namespace SEN381_Project_Group17.PresentationLayer
             customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
             address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
 
-            MessageBox.Show(customer.update(customerObj) + "\n\n" + address.update(addressObj));
+            MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
 
-            customerSource.DataSource = customer.getAll();
+            customerSource.DataSource = customer_d.getAll();
             dataGridView1.DataSource = customerSource;
 
-            addressSource.DataSource = address.search(addressID);
+            addressSource.DataSource = address_d.search(addressID);
             dataGridView2.Visible = true;
             dataGridView2.DataSource = addressSource;
         }
 
         private void ClientInfo_Load(object sender, EventArgs e)
         {
-            customerSource.DataSource = customer.getAll();
+            customerSource.DataSource = customer_d.getAll();
             dataGridView1.DataSource = customerSource;
         }
 
@@ -202,7 +204,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 customerID = row.Cells["customerID"].Value.ToString();
                 addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
 
-                addressSource.DataSource = address.search(addressID);
+                addressSource.DataSource = address_d.search(addressID);
                 dataGridView2.Visible = true;
                 dataGridView2.DataSource = addressSource;
 
@@ -330,20 +332,20 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            int newAddressID = address.getCount();
-            string newCustomerID = "D00000002";
-            
+            int newAddressID = address_d.getCount();
+            string newCustomerID = customer_b.GenerateID(surname.Text);
+
             address_b addressAdd = new address_b(addressLine.Text, city.Text, province.Text, postalCode.Text);
             customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
 
-            //MessageBox.Show(customer.update(customerObj) + "\n\n" + address.update(addressObj));
+            MessageBox.Show(address_d.add(addressAdd) + "\n\n" + customer_d.add(customerAdd));
 
-            //customerSource.DataSource = customer.getAll();
-            //dataGridView1.DataSource = customerSource;
+            customerSource.DataSource = customer_d.getAll();
+            dataGridView1.DataSource = customerSource;
 
-            //addressSource.DataSource = address.search(addressID);
-            //dataGridView2.Visible = true;
-            //dataGridView2.DataSource = addressSource;
+            addressSource.DataSource = address_d.search(newAddressID);
+            dataGridView2.Visible = true;
+            dataGridView2.DataSource = addressSource;
         }
     }
 }

@@ -68,7 +68,7 @@ namespace SEN381_Project_Group17.DataLayer
             var addressCount = cmd.ExecuteScalar();
             
 
-            return int.Parse(addressCount.ToString());
+            return int.Parse(addressCount.ToString()) + 1;
         }
 
         //Update
@@ -98,6 +98,35 @@ namespace SEN381_Project_Group17.DataLayer
             catch (Exception eA)
             {
                 return "The following error was encountered while trying to update Address data:\n\n" + eA.Message;
+            }
+        }
+
+        //Add
+        public string add(address_b adsress)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddAddress", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@addressLine", adsress.AddressLine);
+                    cmd.Parameters.AddWithValue("@city", adsress.City);
+                    cmd.Parameters.AddWithValue("@province", adsress.Province);
+                    cmd.Parameters.AddWithValue("@postalCode", adsress.PostalCode);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Address data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Address data:\n\n" + eA.Message;
             }
         }
     }

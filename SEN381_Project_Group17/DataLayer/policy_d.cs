@@ -33,6 +33,28 @@ namespace SEN381_Project_Group17.DataLayer
             return customerData;
         }
 
+        //GetCount
+        public string getCount()
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlCommand cmd = new SqlCommand("spPolicyCount", cn);
+
+            cn.Open();
+            var addressCount = cmd.ExecuteScalar();
+
+            Console.WriteLine(addressCount.ToString());
+
+            if (addressCount != null)
+            {
+                return addressCount.ToString();
+            }
+            else
+            {
+                return "0";
+            }
+        }
+
         //Update
         public string update(policy_b policy)
         {
