@@ -704,14 +704,14 @@ GO
 CREATE PROC spAddressCount
 AS
 BEGIN
-	SELECT COUNT(addressID) + 1 FROM address
+	SELECT TOP 1 * FROM [address] ORDER BY addressID DESC
 END
 GO
 
 CREATE PROC spPolicyCount
 AS
 BEGIN
-	SELECT COUNT(policyID) + 1 FROM policy
+	SELECT TOP 1 SUBSTRING(policyID, 7, 6) AS id FROM policy ORDER BY id DESC
 END
 GO
 
@@ -721,7 +721,7 @@ CREATE PROC spCustomerCount
 )
 AS
 BEGIN
-	SELECT COUNT(customerID) + 1 FROM customer WHERE customerID LIKE @id + '%'
+	SELECT TOP 1 * FROM customer where customerID LIKE @id + '%' ORDER BY customerID DESC
 END
 GO
 
@@ -763,15 +763,15 @@ INSERT INTO [employee] (empName, email, phoneNumber, [role], userName, [password
 VALUES ('Stefan', 'stefan@gamil.com', '0648721320', 'Manager', 'stefan123', '123Stefan');
 
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021DA00001' ,'Full', 120000, 380, 100000);
+VALUES ('2021DA000001' ,'Full', 120000, 380, 100000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2019ZC00002' ,'Full', 134000, 385, 130000);
+VALUES ('2019ZC000002' ,'Full', 134000, 385, 130000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021JA00003' ,'Full', 203000, 400, 200000);
+VALUES ('2021JA000003' ,'Full', 203000, 400, 200000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021EB00004' ,'Full', 320000, 450, 320000);
+VALUES ('2021EB000004' ,'Full', 320000, 450, 320000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2017HD00005' ,'Full', 100000, 350, 90000);
+VALUES ('2017HD000005' ,'Full', 100000, 350, 90000);
 
 INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
 VALUES ('E00000001', 1, '12:00:00', '12:30:00', '2022-10-14');
@@ -796,22 +796,22 @@ INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
 VALUES ('J00000001', 2000, '2022-10-30');
 
 INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
-VALUES ('Cholestrol', 'COL', '2021DA00001');
+VALUES ('Cholestrol', 'COL', '2021DA000001');
 INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
-VALUES ('Diabetes', 'DIAB', '2019ZC00002');
+VALUES ('Diabetes', 'DIAB', '2019ZC000002');
 INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
-VALUES ('Acne', 'ACNE', '2021JA00003');
+VALUES ('Acne', 'ACNE', '2021JA000003');
 
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.4, 'Availible', '2021EB00004');
+VALUES (0.4, 'Availible', '2021EB000004');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.5, 'Availible', '2021JA00003');
+VALUES (0.5, 'Availible', '2021JA000003');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.3, 'Availible', '2019ZC00002');
+VALUES (0.3, 'Availible', '2019ZC000002');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.2, 'Availible', '2021DA00001');
+VALUES (0.2, 'Availible', '2021DA000001');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.25, 'Availible', '2017HD00005');
+VALUES (0.25, 'Availible', '2017HD000005');
 
 INSERT INTO [product_history] ([start], [end], historyProductID)
 VALUES ('2013-09-24', '2023-08-02', 1);
