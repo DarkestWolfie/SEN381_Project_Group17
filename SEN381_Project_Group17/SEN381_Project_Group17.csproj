@@ -72,6 +72,30 @@
     <Compile Include="DataLayer\product_history_d.cs" />
     <Compile Include="DataLayer\provider_d.cs" />
     <Compile Include="DataLayer\treatment_d.cs" />
+    <Compile Include="PresentationLayer\Application.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Application.Designer.cs">
+      <DependentUpon>Application.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Condition.Designer.cs">
+      <DependentUpon>Condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerAccount.Designer.cs">
+      <DependentUpon>CustomerAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerHistory.Designer.cs">
+      <DependentUpon>CustomerHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +107,30 @@
     </Compile>
     <Compile Include="PresentationLayer\ClientInfo.Designer.cs">
       <DependentUpon>ClientInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Policy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Policy.Designer.cs">
+      <DependentUpon>Policy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\ProductHistory%27.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\ProductHistory%27.Designer.cs">
+      <DependentUpon>ProductHistory%27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Treatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Treatment.Designer.cs">
+      <DependentUpon>Treatment.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\UkupholisaHub.cs">
       <SubType>Form</SubType>
@@ -110,11 +158,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="PresentationLayer\Application.resx">
+      <DependentUpon>Application.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Condition.resx">
+      <DependentUpon>Condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\CustomerAccount.resx">
+      <DependentUpon>CustomerAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\CustomerHistory.resx">
+      <DependentUpon>CustomerHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\ClientInfo.resx">
       <DependentUpon>ClientInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Policy.resx">
+      <DependentUpon>Policy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\ProductHistory%27.resx">
+      <DependentUpon>ProductHistory%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Treatment.resx">
+      <DependentUpon>Treatment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\UkupholisaHub.resx">
       <DependentUpon>UkupholisaHub.cs</DependentUpon>
