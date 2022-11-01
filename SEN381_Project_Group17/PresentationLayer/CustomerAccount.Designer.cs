@@ -192,6 +192,7 @@
             this.Controls.Add(this.clientID);
             this.Name = "CustomerAccount";
             this.Text = "CustomerAccount";
+            this.Load += new System.EventHandler(this.CustomerAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

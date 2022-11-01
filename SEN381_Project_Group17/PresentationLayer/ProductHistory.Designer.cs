@@ -1,6 +1,6 @@
 ﻿namespace SEN381_Project_Group17.PresentationLayer
 {
-    partial class ProductHistory_
+    partial class ProductHistory
     {
         /// <summary>
         /// Required designer variable.
@@ -172,7 +172,7 @@
             this.start.Size = new System.Drawing.Size(100, 26);
             this.start.TabIndex = 94;
             // 
-            // ProductHistory_
+            // ProductHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,8 +190,9 @@
             this.Controls.Add(this.productID);
             this.Controls.Add(this.end);
             this.Controls.Add(this.start);
-            this.Name = "ProductHistory_";
-            this.Text = "ProductHistory_";
+            this.Name = "ProductHistory";
+            this.Text = "ProductHistory";
+            this.Load += new System.EventHandler(this.ProductHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

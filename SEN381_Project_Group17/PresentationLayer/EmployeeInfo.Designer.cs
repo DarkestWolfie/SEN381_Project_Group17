@@ -47,10 +47,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button7 = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.add = new System.Windows.Forms.Button();
+            this.delete = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -177,33 +179,33 @@ namespace SEN381_Project_Group17.PresentationLayer
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(118, 61);
+            this.textBox2.Location = new System.Drawing.Point(126, 61);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 26);
+            this.textBox2.Size = new System.Drawing.Size(177, 26);
             this.textBox2.TabIndex = 31;
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(118, 99);
+            this.textBox3.Location = new System.Drawing.Point(126, 99);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 26);
+            this.textBox3.Size = new System.Drawing.Size(177, 26);
             this.textBox3.TabIndex = 32;
             // 
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(118, 136);
+            this.textBox4.Location = new System.Drawing.Point(126, 136);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(185, 26);
+            this.textBox4.Size = new System.Drawing.Size(177, 26);
             this.textBox4.TabIndex = 33;
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(118, 177);
+            this.textBox5.Location = new System.Drawing.Point(126, 177);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(185, 26);
+            this.textBox5.Size = new System.Drawing.Size(177, 26);
             this.textBox5.TabIndex = 34;
             // 
             // textBox6
@@ -232,25 +234,14 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(21, 302);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(282, 38);
-            this.button7.TabIndex = 39;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.pnlTitle);
+            this.pnlContainer.Controls.Add(this.delete);
             this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.button7);
+            this.pnlContainer.Controls.Add(this.update);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.textBox7);
             this.pnlContainer.Controls.Add(this.button3);
@@ -269,7 +260,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(800, 360);
+            this.pnlContainer.Size = new System.Drawing.Size(800, 421);
             this.pnlContainer.TabIndex = 40;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
@@ -296,11 +287,48 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label8.TabIndex = 21;
             this.label8.Text = "Employee Information";
             // 
+            // add
+            // 
+            this.add.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add.Location = new System.Drawing.Point(12, 359);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(230, 47);
+            this.add.TabIndex = 41;
+            this.add.Text = "Add";
+            this.add.UseVisualStyleBackColor = true;
+            // 
+            // delete
+            // 
+            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete.Location = new System.Drawing.Point(558, 359);
+            this.delete.Name = "delete";
+            this.delete.Size = new System.Drawing.Size(230, 47);
+            this.delete.TabIndex = 42;
+            this.delete.Text = "Delete";
+            this.delete.UseVisualStyleBackColor = true;
+            // 
+            // update
+            // 
+            this.update.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update.Location = new System.Drawing.Point(286, 359);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(230, 47);
+            this.update.TabIndex = 43;
+            this.update.Text = "Update";
+            this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
             // EmployeeInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 360);
+            this.ClientSize = new System.Drawing.Size(800, 421);
             this.Controls.Add(this.pnlContainer);
             this.Name = "EmployeeInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -339,9 +367,11 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button add;
+        private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button update;
     }
 }
