@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace SEN381_Project_Group17.PresentationLayer
         public Condition()
         {
             InitializeComponent();
+        }
+
+        condition_d condition_d = new condition_d();
+        BindingSource conditionSource = new BindingSource();
+
+        private void Condition_Load(object sender, EventArgs e)
+        {
+            conditionSource.DataSource = condition_d.getAll();
+            dataGridView1.DataSource = conditionSource;
         }
     }
 }

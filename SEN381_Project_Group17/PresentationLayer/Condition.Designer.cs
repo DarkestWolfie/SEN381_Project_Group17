@@ -192,6 +192,7 @@
             this.Controls.Add(this.name);
             this.Name = "Condition";
             this.Text = "Condition";
+            this.Load += new System.EventHandler(this.Condition_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

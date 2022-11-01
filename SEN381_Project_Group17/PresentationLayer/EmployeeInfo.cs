@@ -148,12 +148,6 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
-            MessageBox.Show(employee.update(employeeObj));
-        }
-
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             
@@ -285,6 +279,12 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void EmployeeInfo_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+            MessageBox.Show(employee.update(employeeObj));
         }
     }
 }

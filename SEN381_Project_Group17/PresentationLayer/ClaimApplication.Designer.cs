@@ -1,6 +1,6 @@
 ﻿namespace SEN381_Project_Group17.PresentationLayer
 {
-    partial class Application
+    partial class ClaimApplication
     {
         /// <summary>
         /// Required designer variable.
@@ -236,6 +236,7 @@
             this.Controls.Add(this.date);
             this.Name = "Application";
             this.Text = "Application";
+            this.Load += new System.EventHandler(this.Application_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -72,11 +72,11 @@
     <Compile Include="DataLayer\product_history_d.cs" />
     <Compile Include="DataLayer\provider_d.cs" />
     <Compile Include="DataLayer\treatment_d.cs" />
-    <Compile Include="PresentationLayer\Application.cs">
+    <Compile Include="PresentationLayer\ClaimApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\Application.Designer.cs">
-      <DependentUpon>Application.cs</DependentUpon>
+    <Compile Include="PresentationLayer\ClaimApplication.Designer.cs">
+      <DependentUpon>ClaimApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Condition.cs">
       <SubType>Form</SubType>
@@ -120,11 +120,11 @@
     <Compile Include="PresentationLayer\Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\ProductHistory%27.cs">
+    <Compile Include="PresentationLayer\ProductHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\ProductHistory%27.Designer.cs">
-      <DependentUpon>ProductHistory%27.cs</DependentUpon>
+    <Compile Include="PresentationLayer\ProductHistory.Designer.cs">
+      <DependentUpon>ProductHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Treatment.cs">
       <SubType>Form</SubType>
@@ -158,8 +158,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\Application.resx">
-      <DependentUpon>Application.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\ClaimApplication.resx">
+      <DependentUpon>ClaimApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Condition.resx">
       <DependentUpon>Condition.cs</DependentUpon>
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="PresentationLayer\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\ProductHistory%27.resx">
-      <DependentUpon>ProductHistory%27.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\ProductHistory.resx">
+      <DependentUpon>ProductHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Treatment.resx">
       <DependentUpon>Treatment.cs</DependentUpon>

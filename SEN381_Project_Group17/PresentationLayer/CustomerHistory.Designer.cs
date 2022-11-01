@@ -236,6 +236,7 @@
             this.Controls.Add(this.start);
             this.Name = "CustomerHistory";
             this.Text = "CustomerHistory";
+            this.Load += new System.EventHandler(this.CustomerHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

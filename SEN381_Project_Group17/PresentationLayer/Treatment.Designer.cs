@@ -236,6 +236,7 @@
             this.Controls.Add(this.name);
             this.Name = "Treatment";
             this.Text = "Treatment";
+            this.Load += new System.EventHandler(this.Treatment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

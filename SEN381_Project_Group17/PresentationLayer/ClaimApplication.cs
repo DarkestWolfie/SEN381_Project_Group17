@@ -11,20 +11,20 @@ using System.Windows.Forms;
 
 namespace SEN381_Project_Group17.PresentationLayer
 {
-    public partial class Treatment : Form
+    public partial class ClaimApplication : Form
     {
-        public Treatment()
+        public ClaimApplication()
         {
             InitializeComponent();
         }
 
-        treatment_d treatment_d = new treatment_d();
-        BindingSource treatmentSource = new BindingSource();
+        application_d application_d = new application_d();
+        BindingSource applicationSource = new BindingSource();
 
-        private void Treatment_Load(object sender, EventArgs e)
+        private void Application_Load(object sender, EventArgs e)
         {
-            treatmentSource.DataSource = treatment_d.getAll();
-            dataGridView1.DataSource = treatmentSource;
+            applicationSource.DataSource = application_d.getAll();
+            dataGridView1.DataSource = applicationSource;
         }
     }
 }
