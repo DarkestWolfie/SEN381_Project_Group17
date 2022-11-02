@@ -50,10 +50,10 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.add = new System.Windows.Forms.Button();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -285,6 +285,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.add.Text = "Add";
             this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // pnlTitle
             // 
@@ -299,6 +300,16 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle.Size = new System.Drawing.Size(800, 50);
             this.pnlTitle.TabIndex = 40;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(99, 60);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -342,16 +353,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.update.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 60);
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
             // 
             // EmployeeInfo
             // 

@@ -285,6 +285,18 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
             MessageBox.Show(employee.update(employeeObj));
+
+            employeeSource.DataSource = employee.getAll();
+            dataGridView1.DataSource = employeeSource;
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+            MessageBox.Show(employee.add(employeeObj));
+
+            employeeSource.DataSource = employee.getAll();
+            dataGridView1.DataSource = employeeSource;
         }
     }
 }

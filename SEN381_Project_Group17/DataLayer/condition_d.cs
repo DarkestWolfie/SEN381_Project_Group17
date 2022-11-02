@@ -17,6 +17,30 @@ namespace SEN381_Project_Group17.DataLayer
 
         string con = "Server=.; Initial Catalog=ukupholisa; Integrated Security=SSPI";
 
+        //Search
+        public DataTable search(int id)
+        {
+            using (SqlConnection cn = new SqlConnection(con))
+            {
+                SqlCommand cmd = new SqlCommand("spSearchCondition", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cn.Open();
+
+                DataTable data = new DataTable();
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    data.Load(dr);
+
+                    return data;
+                }
+            }
+        }
+
         //Get
         public DataTable getAll()
         {
@@ -34,7 +58,7 @@ namespace SEN381_Project_Group17.DataLayer
         }
 
         //Update
-        public string update(condition_b condition, int policyID)
+        public string update(condition_b condition)
         {
             try
             {
@@ -47,7 +71,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@id", condition.ConditionID);
                     cmd.Parameters.AddWithValue("@conditionName", condition.ConditionName);
                     cmd.Parameters.AddWithValue("@conditioncode", condition.ConditionCode);
-                    cmd.Parameters.AddWithValue("@conditionPolicyID", policyID);
+                    cmd.Parameters.AddWithValue("@conditionPolicyID", condition.ConditionPolicyID);
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     cn.Close();
@@ -58,6 +82,33 @@ namespace SEN381_Project_Group17.DataLayer
             catch (Exception eA)
             {
                 return "The following error was encountered while trying to update Condition data:\n\n" + eA.Message;
+            }
+        }
+
+        //Add
+        public string add(condition_b condition)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddCondition", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@conditionName", condition.ConditionName);
+                    cmd.Parameters.AddWithValue("@conditioncode", condition.ConditionCode);
+                    cmd.Parameters.AddWithValue("@conditionPolicyID", condition.ConditionPolicyID);
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Condition data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Condition data:\n\n" + eA.Message;
             }
         }
     }

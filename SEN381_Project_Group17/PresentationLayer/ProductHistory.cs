@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,59 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int prodHistoryID;
+
+        private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (prodHistorySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
+
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
+
+                prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            prodHistorySource.DataSource = prodHistory_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = prodHistorySource;
+
+            if (prodHistorySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
+
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
+
+                prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start.Text, end.Text);
+            MessageBox.Show(prodHistory_d.add(historyObj));
+
+            prodHistorySource.DataSource = prodHistory_d.getAll();
+            dataGridView1.DataSource = prodHistorySource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start.Text, end.Text);
+            MessageBox.Show(prodHistory_d.update(historyObj));
+
+            prodHistorySource.DataSource = prodHistory_d.getAll();
+            dataGridView1.DataSource = prodHistorySource;
         }
     }
 }

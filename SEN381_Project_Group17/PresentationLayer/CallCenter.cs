@@ -138,6 +138,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             call_history_b callObj = new call_history_b(callID,textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, textBox6.Text);
 
             MessageBox.Show(call.update(callObj));
+
+            callSource.DataSource = call.getAll();
+            dataGridView1.DataSource = callSource;
         }
 
         private void CallCenter_Load(object sender, EventArgs e)
@@ -268,6 +271,16 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void CallCenter_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            call_history_b callAdd = new call_history_b(callID, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, textBox6.Text);
+
+            MessageBox.Show(call.add(callAdd));
+
+            callSource.DataSource = call.getAll();
+            dataGridView1.DataSource = callSource;
         }
     }
 }

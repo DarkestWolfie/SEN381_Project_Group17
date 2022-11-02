@@ -47,10 +47,10 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.search = new System.Windows.Forms.TextBox();
             this.add = new System.Windows.Forms.Button();
             this.pnlTitle = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -111,7 +111,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.TabIndex = 44;
             this.button3.Text = "Find";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -229,6 +228,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.find.Text = "Find";
             this.find.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.find.UseVisualStyleBackColor = true;
+            this.find.Click += new System.EventHandler(this.find_Click);
             // 
             // search
             // 
@@ -253,6 +253,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.add.Text = "Add";
             this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // pnlTitle
             // 
@@ -268,6 +269,16 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle.Size = new System.Drawing.Size(1081, 50);
             this.pnlTitle.TabIndex = 71;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(99, 50);
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
             // 
             // label5
             // 
@@ -310,16 +321,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.update.Text = "Update";
             this.update.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.update.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(99, 50);
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // ProviderInfo
             // 

@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,63 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int custHistoryID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (cusHistorySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[cusHistorySource.Position];
+
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                active.Text = row.Cells["active"].Value.ToString();
+                customerID.Text = row.Cells["historyCustomerID"].Value.ToString();
+                productID.Text = row.Cells["historyProductHistoryID"].Value.ToString();
+
+                custHistoryID = int.Parse(row.Cells["cusHistoryID"].Value.ToString());
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            cusHistorySource.DataSource = cusHistory_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = cusHistorySource;
+
+            if (cusHistorySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[cusHistorySource.Position];
+
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                active.Text = row.Cells["active"].Value.ToString();
+                customerID.Text = row.Cells["historyCustomerID"].Value.ToString();
+                productID.Text = row.Cells["historyProductHistoryID"].Value.ToString();
+
+                custHistoryID = int.Parse(row.Cells["cusHistoryID"].Value.ToString());
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start.Text, end.Text, active.Text);
+
+            MessageBox.Show(cusHistory_d.add(custObj));
+
+            cusHistorySource.DataSource = cusHistory_d.getAll();
+            dataGridView1.DataSource = cusHistorySource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start.Text, end.Text, active.Text);
+
+            MessageBox.Show(cusHistory_d.update(custObj));
+
+            cusHistorySource.DataSource = cusHistory_d.getAll();
+            dataGridView1.DataSource = cusHistorySource;
         }
     }
 }

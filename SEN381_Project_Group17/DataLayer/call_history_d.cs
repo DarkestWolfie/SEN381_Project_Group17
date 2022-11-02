@@ -87,5 +87,35 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to update Call History data:\n\n" + eA.Message;
             }
         }
+
+        //Add
+        public string add(call_history_b call)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddCallHistory", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@callCustomerID", call.CallCustomerID);
+                    cmd.Parameters.AddWithValue("@callEmployeeID", call.CallEmployeeID);
+                    cmd.Parameters.AddWithValue("@start", call.Strat);
+                    cmd.Parameters.AddWithValue("@end", call.End);
+                    cmd.Parameters.AddWithValue("@dateCreated", call.DateCreated);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Call History data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Call History data:\n\n" + eA.Message;
+            }
+        }
     }
 }

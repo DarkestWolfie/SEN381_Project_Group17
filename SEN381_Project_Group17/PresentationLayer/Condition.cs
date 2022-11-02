@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,61 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int conditionID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (conditionSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[conditionSource.Position];
+
+                name.Text = row.Cells["conditionName"].Value.ToString();
+                code.Text = row.Cells["conitionCode"].Value.ToString();
+                policyID.Text = row.Cells["conditionPolicyID"].Value.ToString();
+
+                conditionID = int.Parse(row.Cells["conditionID"].Value.ToString());
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            conditionSource.DataSource = condition_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = conditionSource;
+
+            if (conditionSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[conditionSource.Position];
+
+                name.Text = row.Cells["conditionName"].Value.ToString();
+                code.Text = row.Cells["conitionCode"].Value.ToString();
+                policyID.Text = row.Cells["conditionPolicyID"].Value.ToString();
+
+                conditionID = int.Parse(row.Cells["conditionID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
+
+            MessageBox.Show(condition_d.add(conditionObj));
+
+            conditionSource.DataSource = condition_d.getAll();
+            dataGridView1.DataSource = conditionSource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
+
+            MessageBox.Show(condition_d.update(conditionObj));
+
+            conditionSource.DataSource = condition_d.getAll();
+            dataGridView1.DataSource = conditionSource;
         }
     }
 }

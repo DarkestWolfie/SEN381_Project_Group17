@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,63 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int treatmentID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (treatmentSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[treatmentSource.Position];
+
+                name.Text = row.Cells["treatmentName"].Value.ToString();
+                description.Text = row.Cells["description"].Value.ToString();
+                cost.Text = row.Cells["cost"].Value.ToString();
+                conditionID.Text = row.Cells["treatmentConditionID"].Value.ToString();
+                providerID.Text = row.Cells["treatmentProviderID"].Value.ToString();
+
+                treatmentID = int.Parse(row.Cells["treatmentID"].Value.ToString());
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            treatmentSource.DataSource = treatment_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = treatmentSource;
+
+            if (treatmentSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[treatmentSource.Position];
+
+                name.Text = row.Cells["treatmentName"].Value.ToString();
+                description.Text = row.Cells["description"].Value.ToString();
+                cost.Text = row.Cells["cost"].Value.ToString();
+                conditionID.Text = row.Cells["treatmentConditionID"].Value.ToString();
+                providerID.Text = row.Cells["treatmentProviderID"].Value.ToString();
+
+                treatmentID = int.Parse(row.Cells["treatmentID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
+            MessageBox.Show(treatment_d.add(treatmentObj));
+
+            treatmentSource.DataSource = treatment_d.getAll();
+            dataGridView1.DataSource = treatmentSource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
+            MessageBox.Show(treatment_d.update(treatmentObj));
+
+            treatmentSource.DataSource = treatment_d.getAll();
+            dataGridView1.DataSource = treatmentSource;
         }
     }
 }

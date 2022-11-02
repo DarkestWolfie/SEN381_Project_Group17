@@ -88,5 +88,36 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to update Employee data:\n\n" + eA.Message;
             }
         }
+
+        //Add
+        public string add(employee_b employee)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddEmployee", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@empName", employee.EmployeeName);
+                    cmd.Parameters.AddWithValue("@email", employee.Email);
+                    cmd.Parameters.AddWithValue("@phoneNumber", employee.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@role", employee.Role);
+                    cmd.Parameters.AddWithValue("@userName", employee.UserName);
+                    cmd.Parameters.AddWithValue("@password", employee.Password);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Employee data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Employee data:\n\n" + eA.Message;
+            }
+        }
     }
 }
