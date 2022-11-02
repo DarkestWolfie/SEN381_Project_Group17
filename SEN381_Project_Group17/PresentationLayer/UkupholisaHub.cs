@@ -18,7 +18,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         //Form Design:
         private int borderRadius = 30;
         private int borderSize = 2;
-        private Color borderColor = Color.FromArgb(128, 128, 255);
+        private Color borderColor = Color.FromArgb(0, 255, 178);
         
         //Constructor
         public UkupholisaHub()
@@ -218,7 +218,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         }
 
         //Event Methods
-
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
@@ -265,6 +264,75 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void UkupholisaHub_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void button3_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Policy POL = new Policy();
+            this.Hide();
+            POL.ShowDialog();
+            this.Close();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            ClaimApplication CA = new ClaimApplication();
+            this.Hide();
+            CA.ShowDialog();
+            this.Close();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Condition CO = new Condition();
+            this.Hide();
+            CO.ShowDialog();
+            this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            CustomerAccount CUA = new CustomerAccount();
+            this.Hide();
+            CUA.ShowDialog();
+            this.Close();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            CustomerHistory CH = new CustomerHistory();
+            this.Hide();
+            CH.ShowDialog();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Product PR = new Product();
+            this.Hide();
+            PR.ShowDialog();
+            this.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            ProductHistory PH = new ProductHistory();
+            this.Hide();
+            PH.ShowDialog();
+            this.Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Treatment TR = new Treatment();
+            this.Hide();
+            TR.ShowDialog();
+            this.Close();
         }
     }
 }

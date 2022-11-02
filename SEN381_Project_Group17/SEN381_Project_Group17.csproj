@@ -202,18 +202,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -225,6 +225,102 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\logout.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\sign-out-3300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\UH+Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\x-10326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\close-cancel-10387.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\close-877.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\close-x-10323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\x-10325.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\emergency-call-14169.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\search-employee-8970.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\team-5707.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\team-5706.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\employees.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\team-5701.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\doctor-292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\client-5250.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\heart-beat-3517.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\claim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\claimapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\dollar-3477.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\history-13467.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\policy-1737.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\medicine-3198.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\hospital-clinic-10719.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\ProdHistory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\phone-534.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\phone-5981.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\red-phone-7151.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\search-2904.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\search-7525.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\add-button-12004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\delete-10406.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Resources\reload-arrows-2846.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

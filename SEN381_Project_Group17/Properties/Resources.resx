@@ -118,7 +118,67 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>logout.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_button_12004" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\add-button-12004.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="claimapp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\claimapp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="client_5250" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\client-5250.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_10406" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\delete-10406.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doctor_292" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\doctor-292.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dollar_3477" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dollar-3477.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emergency_call_14169" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\emergency-call-14169.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart_beat_3517" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\heart-beat-3517.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="history_13467" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\history-13467.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hospital_clinic_10719" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\hospital-clinic-10719.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="medicine_3198" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\medicine-3198.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="phone_5981" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\phone-5981.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="policy_1737" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\policy-1737.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProdHistory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ProdHistory.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_phone_7151" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\red-phone-7151.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reload_arrows_2846" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\reload-arrows-2846.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_7525" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\search-7525.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sign_out_3300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sign-out-3300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="team_5701" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\team-5701.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UH_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\UH+Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x_10325" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\x-10325.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

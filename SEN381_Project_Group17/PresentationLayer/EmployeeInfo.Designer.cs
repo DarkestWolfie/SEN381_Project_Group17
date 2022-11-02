@@ -48,14 +48,16 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.add = new System.Windows.Forms.Button();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.add = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -139,14 +141,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             // button3
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Image = global::SEN381_Project_Group17.Properties.Resources.search_7525;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.Location = new System.Drawing.Point(640, 302);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(148, 38);
             this.button3.TabIndex = 21;
             this.button3.Text = "Find";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -155,11 +161,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Image = global::SEN381_Project_Group17.Properties.Resources.sign_out_3300;
             this.button2.Location = new System.Drawing.Point(677, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 50);
             this.button2.TabIndex = 20;
-            this.button2.Text = "Logout";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -168,11 +174,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::SEN381_Project_Group17.Properties.Resources.x_10325;
             this.button1.Location = new System.Drawing.Point(750, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 19;
-            this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -236,7 +242,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             // pnlContainer
             // 
-            this.pnlContainer.BackColor = System.Drawing.Color.AliceBlue;
+            this.pnlContainer.BackColor = System.Drawing.Color.Azure;
             this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.delete);
@@ -264,9 +270,26 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.TabIndex = 40;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
+            // add
+            // 
+            this.add.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
+            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
+            this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.add.Location = new System.Drawing.Point(12, 359);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(230, 47);
+            this.add.TabIndex = 41;
+            this.add.Text = "Add";
+            this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.add.UseVisualStyleBackColor = true;
+            // 
             // pnlTitle
             // 
-            this.pnlTitle.BackColor = System.Drawing.Color.LightBlue;
+            this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
+            this.pnlTitle.Controls.Add(this.pictureBox1);
             this.pnlTitle.Controls.Add(this.label8);
             this.pnlTitle.Controls.Add(this.button2);
             this.pnlTitle.Controls.Add(this.button1);
@@ -281,48 +304,54 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(27, 10);
+            this.label8.Location = new System.Drawing.Point(301, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(245, 25);
             this.label8.TabIndex = 21;
             this.label8.Text = "Employee Information";
             // 
-            // add
-            // 
-            this.add.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
-            this.add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add.Location = new System.Drawing.Point(12, 359);
-            this.add.Name = "add";
-            this.add.Size = new System.Drawing.Size(230, 47);
-            this.add.TabIndex = 41;
-            this.add.Text = "Add";
-            this.add.UseVisualStyleBackColor = true;
-            // 
             // delete
             // 
-            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
+            this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.delete.Location = new System.Drawing.Point(558, 359);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(230, 47);
             this.delete.TabIndex = 42;
             this.delete.Text = "Delete";
+            this.delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.delete.UseVisualStyleBackColor = true;
             // 
             // update
             // 
-            this.update.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
+            this.update.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.update.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
             this.update.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
+            this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.update.Location = new System.Drawing.Point(286, 359);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 43;
             this.update.Text = "Update";
+            this.update.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.update.UseVisualStyleBackColor = true;
             this.update.Click += new System.EventHandler(this.update_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(-1, -10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(99, 60);
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
             // 
             // EmployeeInfo
             // 
@@ -344,6 +373,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.PerformLayout();
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,5 +403,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

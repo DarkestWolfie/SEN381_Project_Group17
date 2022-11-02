@@ -52,7 +52,7 @@ namespace SEN381_Project_Group17.DataLayer
 
             DataTable customerData = new DataTable();
 
-            adapter.Fill(customerData); //uncomment this out later
+            adapter.Fill(customerData);
 
             return customerData;
         }

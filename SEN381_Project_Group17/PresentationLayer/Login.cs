@@ -17,7 +17,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         //Form Design:
         private int borderRadius = 30;
         private int borderSize = 2;
-        private Color borderColor = Color.LightGreen;
+        private Color borderColor = Color.FromArgb(0, 255, 178);
 
         //Constructor
         public Login()
