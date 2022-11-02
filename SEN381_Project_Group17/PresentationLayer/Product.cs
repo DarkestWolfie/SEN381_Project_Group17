@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,59 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int productID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (productSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[productSource.Position];
+
+                diacount.Text = row.Cells["policyDiscount"].Value.ToString();
+                availability.Text = row.Cells["availability"].Value.ToString();
+                policyID.Text = row.Cells["productPolicyID"].Value.ToString();;
+
+                productID = int.Parse(row.Cells["productID"].Value.ToString());
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            productSource.DataSource = product_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = productSource;
+
+            if (productSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[productSource.Position];
+
+                diacount.Text = row.Cells["policyDiscount"].Value.ToString();
+                availability.Text = row.Cells["availability"].Value.ToString();
+                policyID.Text = row.Cells["productPolicyID"].Value.ToString(); ;
+
+                productID = int.Parse(row.Cells["productID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+            MessageBox.Show(product_d.add(productObj));
+
+            productSource.DataSource = product_d.getAll();
+            dataGridView1.DataSource = productSource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+            MessageBox.Show(product_d.update(productObj));
+
+            productSource.DataSource = product_d.getAll();
+            dataGridView1.DataSource = productSource;
         }
     }
 }

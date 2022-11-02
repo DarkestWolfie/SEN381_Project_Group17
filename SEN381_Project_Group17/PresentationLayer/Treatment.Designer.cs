@@ -117,6 +117,7 @@
             this.find.Text = "Find";
             this.find.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.find.UseVisualStyleBackColor = true;
+            this.find.Click += new System.EventHandler(this.find_Click);
             // 
             // search
             // 
@@ -141,6 +142,7 @@
             this.add.Text = "Add";
             this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.add.UseVisualStyleBackColor = true;
+            this.add.Click += new System.EventHandler(this.add_Click);
             // 
             // delete
             // 
@@ -173,6 +175,7 @@
             this.update.Text = "Update";
             this.update.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.update.UseVisualStyleBackColor = true;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // dataGridView1
             // 
@@ -181,6 +184,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(518, 161);
             this.dataGridView1.TabIndex = 122;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label2
             // 

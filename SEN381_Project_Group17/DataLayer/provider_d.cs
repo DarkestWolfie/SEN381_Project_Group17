@@ -85,5 +85,33 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to update Provider data:\n\n" + eA.Message;
             }
         }
+
+        //Add
+        public string add(provider_b provider)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spAddProvider", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@providerName", provider.ProviderName);
+                    cmd.Parameters.AddWithValue("@status", provider.Status);
+                    cmd.Parameters.AddWithValue("@province", provider.Province);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Provider data added successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to add Provider data:\n\n" + eA.Message;
+            }
+        }
     }
 }

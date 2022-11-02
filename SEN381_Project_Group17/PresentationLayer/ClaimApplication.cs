@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,6 +97,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         application_d application_d = new application_d();
         BindingSource applicationSource = new BindingSource();
+        int applicationID;
 
         private void Application_Load(object sender, EventArgs e)
         {
@@ -219,6 +221,63 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void ClaimApplication_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            applicationSource.DataSource = application_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = applicationSource;
+
+            if (applicationSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
+
+                date.Text = row.Cells["applicationDate"].Value.ToString();
+                status.Text = row.Cells["status"].Value.ToString();
+                customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
+                conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
+                providerID.Text = row.Cells["applicationProviderID"].Value.ToString();
+
+                applicationID = int.Parse(row.Cells["applicationID"].Value.ToString());
+
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (applicationSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
+
+                date.Text = row.Cells["applicationDate"].Value.ToString();
+                status.Text = row.Cells["status"].Value.ToString();
+                customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
+                conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
+                providerID.Text = row.Cells["applicationProviderID"].Value.ToString();
+
+                applicationID = int.Parse(row.Cells["applicationID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date.Text, status.Text);
+
+            MessageBox.Show(application_d.add(applicationObj));
+
+            applicationSource.DataSource = application_d.getAll();
+            dataGridView1.DataSource = applicationSource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date.Text, status.Text);
+
+            MessageBox.Show(application_d.update(applicationObj));
+
+            applicationSource.DataSource = application_d.getAll();
+            dataGridView1.DataSource = applicationSource;
         }
     }
 }

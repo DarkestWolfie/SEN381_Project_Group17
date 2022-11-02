@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,61 @@ namespace SEN381_Project_Group17.PresentationLayer
             Form hub = new UkupholisaHub();
             hub.ShowDialog();
             this.Close();
+        }
+
+        int accountID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (accountSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[accountSource.Position];
+
+                clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
+                due.Text = row.Cells["amountDue"].Value.ToString();
+                installment.Text = row.Cells["installmentDate"].Value.ToString();
+
+                accountID = int.Parse(row.Cells["accountID"].Value.ToString());
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            accountSource.DataSource = account_d.search(int.Parse(search.Text));
+            dataGridView1.DataSource = accountSource;
+
+            if (accountSource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[accountSource.Position];
+
+                clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
+                due.Text = row.Cells["amountDue"].Value.ToString();
+                installment.Text = row.Cells["installmentDate"].Value.ToString();
+
+                accountID = int.Parse(row.Cells["accountID"].Value.ToString());
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), installment.Text);
+
+            MessageBox.Show(account_d.add(accountObj));
+
+            accountSource.DataSource = account_d.getAll();
+            dataGridView1.DataSource = accountSource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), installment.Text);
+
+            MessageBox.Show(account_d.update(accountObj));
+
+            accountSource.DataSource = account_d.getAll();
+            dataGridView1.DataSource = accountSource;
         }
     }
 }

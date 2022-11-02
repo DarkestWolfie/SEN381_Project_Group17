@@ -352,7 +352,7 @@ CREATE PROC spAddCondition
 (
 	@conditionName varchar(45) ,
 	@conditionCode varchar(10),
-	@conditionPolicyID int
+	@conditionPolicyID varchar(12)
 )
 AS
 BEGIN
@@ -560,7 +560,7 @@ CREATE PROC spUpdateCondition
 	@id int,
 	@conditionName varchar(45) ,
 	@conditionCode varchar(10),
-	@conditionPolicyID int
+	@conditionPolicyID varchar(12)
 )
 AS
 BEGIN
@@ -698,6 +698,86 @@ CREATE PROC spSearchAddress
 AS
 BEGIN
 	SELECT * FROM address WHERE addressID = @id;
+END
+GO
+
+CREATE PROC spSearchAccount
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM customer_account WHERE accountID = @id;
+END
+GO
+
+CREATE PROC spSearchApplication
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM application WHERE applicationID = @id;
+END
+GO
+
+CREATE PROC spSearchCondition
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM condition WHERE conditionID = @id;
+END
+GO
+
+CREATE PROC spSearchCustomerHistory
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM customer_history WHERE cusHistoryID = @id;
+END
+GO
+
+CREATE PROC spSearchPolicy
+(
+	@id varchar(12)
+)
+AS
+BEGIN
+	SELECT * FROM policy WHERE policyID = @id;
+END
+GO
+
+CREATE PROC spSearchProduct
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM product WHERE productID = @id;
+END
+GO
+
+CREATE PROC spSearchProductHistory
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM product_history WHERE proHistoryID = @id;
+END
+GO
+
+CREATE PROC spSearchTreatment
+(
+	@id int
+)
+AS
+BEGIN
+	SELECT * FROM treatment WHERE treatmentID = @id;
 END
 GO
 

@@ -8,14 +8,14 @@ namespace SEN381_Project_Group17.BusinessLayer
 {
     internal class condition_b
     {
-        int conditionID, conditionPolicyID;
-        String conditionName, conditionCode;
+        int conditionID;
+        String conditionName, conditionCode, conditionPolicyID;
 
         public condition_b()
         {
         }
 
-        public condition_b(int conditionID, int conditionPolicyID, string conditionCode, string conditionName)
+        public condition_b(int conditionID, string conditionPolicyID, string conditionCode, string conditionName)
         {
             this.ConditionID = conditionID;
             this.ConditionPolicyID = conditionPolicyID;
@@ -24,7 +24,7 @@ namespace SEN381_Project_Group17.BusinessLayer
         }
 
         public int ConditionID { get => conditionID; set => conditionID = value; }
-        public int ConditionPolicyID { get => conditionPolicyID; set => conditionPolicyID = value; }
+        public string ConditionPolicyID { get => conditionPolicyID; set => conditionPolicyID = value; }
         public string ConditionName { get => conditionName; set => conditionName = value; }
         public string ConditionCode { get => conditionCode; set => conditionCode = value; }
     }

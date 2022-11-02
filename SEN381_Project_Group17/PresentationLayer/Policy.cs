@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -219,6 +220,61 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void Policy_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        string policyID;
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (policySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[policySource.Position];
+
+                name.Text = row.Cells["policyName"].Value.ToString();
+                price.Text = row.Cells["price"].Value.ToString();
+                installment.Text = row.Cells["installment"].Value.ToString();
+                payout.Text = row.Cells["payout"].Value.ToString();
+
+                policyID = row.Cells["policyID"].Value.ToString();
+
+            }
+        }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            policySource.DataSource = policy_d.search(search.Text);
+            dataGridView1.DataSource = policySource;
+
+            if (policySource.Position >= 0)
+            {
+                DataGridViewRow row = this.dataGridView1.Rows[policySource.Position];
+
+                name.Text = row.Cells["policyName"].Value.ToString();
+                price.Text = row.Cells["price"].Value.ToString();
+                installment.Text = row.Cells["installment"].Value.ToString();
+                payout.Text = row.Cells["payout"].Value.ToString();
+
+                policyID = row.Cells["policyID"].Value.ToString();
+
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+            MessageBox.Show(policy_d.add(policyObj));
+
+            policySource.DataSource = policy_d.getAll();
+            dataGridView1.DataSource = policySource;
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+            MessageBox.Show(policy_d.update(policyObj));
+
+            policySource.DataSource = policy_d.getAll();
+            dataGridView1.DataSource = policySource;
         }
     }
 }
