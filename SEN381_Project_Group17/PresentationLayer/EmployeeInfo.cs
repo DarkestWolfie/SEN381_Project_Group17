@@ -298,5 +298,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             employeeSource.DataSource = employee.getAll();
             dataGridView1.DataSource = employeeSource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(employee.delete(employeeID));
+
+            employeeSource.DataSource = employee.getAll();
+            dataGridView1.DataSource = employeeSource;
+        }
     }
 }

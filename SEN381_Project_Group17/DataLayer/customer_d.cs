@@ -152,5 +152,31 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to add Customer data:\n\n" + eA.Message;
             }
         }
+
+        //Delete
+        public string delete(string customer)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteCustomer", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", customer);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Customer data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Customer data:\n\n" + eA.Message;
+            }
+        }
     }
 }

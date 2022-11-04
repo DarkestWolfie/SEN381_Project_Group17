@@ -284,5 +284,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             providerSource.DataSource = provider.getAll();
             dataGridView1.DataSource = providerSource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(provider.delete(providerID));
+
+            providerSource.DataSource = provider.getAll();
+            dataGridView1.DataSource = providerSource;
+        }
     }
 }

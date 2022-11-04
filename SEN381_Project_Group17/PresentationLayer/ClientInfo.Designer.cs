@@ -65,8 +65,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2 = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -131,6 +131,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.delete.Text = "Delete";
             this.delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
             // 
             // add
             // 
@@ -473,16 +474,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle.TabIndex = 61;
             this.pnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(420, 10);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(203, 25);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Client Information";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::SEN381_Project_Group17.Properties.Resources.UH_Logo;
@@ -492,6 +483,16 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pictureBox1.Size = new System.Drawing.Size(99, 50);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(420, 10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(203, 25);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Client Information";
             // 
             // ClientInfo
             // 

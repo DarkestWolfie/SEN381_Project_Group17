@@ -30,8 +30,12 @@ namespace SEN381_Project_Group17.BusinessLayer
         public double Installment { get => installment; set => installment = value; }
         public double Payout { get => payout; set => payout = value; }
 
-        public string GenerateID(string Date, String Importance)
+        public string GenerateID()
         {
+
+            DateTime now = DateTime.Today;
+            string Date = now.ToString("yyyy");
+
             string newPolicyID = "";
 
             DataLayer.policy_d policy = new DataLayer.policy_d();
@@ -69,7 +73,9 @@ namespace SEN381_Project_Group17.BusinessLayer
 
             newPolicyID += randomLetter;
 
-            newPolicyID += Importance;
+            char importance = Convert.ToChar(rnd.Next(65, 68));
+
+            newPolicyID += importance;
 
             if (count == "")
             {

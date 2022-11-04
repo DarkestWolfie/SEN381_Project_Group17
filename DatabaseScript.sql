@@ -52,6 +52,16 @@ CREATE TABLE [employee]
   PRIMARY KEY (employeeID)
 );
 
+--CREATE TABLE [login] 
+--(
+--  loginID int NOT NULL IDENTITY,
+--  userName varchar(45) ,
+--  [password] varchar(45) ,
+--  [role] varchar(25) ,
+--  employeeID int FOREIGN KEY REFERENCES employee(employeeID),
+--  PRIMARY KEY (loginID)
+--);
+
 CREATE TABLE [policy] 
 (
   policyID varchar(12) NOT NULL UNIQUE,
@@ -802,6 +812,113 @@ CREATE PROC spCustomerCount
 AS
 BEGIN
 	SELECT TOP 1 * FROM customer where customerID LIKE @id + '%' ORDER BY customerID DESC
+END
+GO
+
+CREATE PROC spLogin
+(
+	@userName varchar(25),
+	@password varchar(25)
+)
+AS
+BEGIN
+	SELECT role FROM employee where userName = @userName AND password = @password
+END
+GO
+
+CREATE PROC spDeleteApplication
+(
+	@id int
+)
+AS
+BEGIN
+	DELETE FROM application WHERE applicationID = @id;
+END
+GO
+
+CREATE PROC spDeleteCondition
+(
+	@id int
+)
+AS
+BEGIN
+	DELETE FROM condition WHERE conditionID = @id;
+	DELETE FROM application WHERE applicationConditionID = @id;
+	DELETE FROM treatment WHERE treatmentConditionID = @id;
+END
+GO
+
+CREATE PROC spDeleteCustomer
+(
+	@id varchar(9)
+)
+AS
+BEGIN
+	DECLARE @Aid int;
+	SELECT @Aid = customerAddressID FROM customer where customerID = @id;
+
+	DELETE FROM customer WHERE customerID = @id;
+	DELETE FROM address WHERE addressID = @Aid;
+	DELETE FROM customer_account WHERE accountCustomerID = @id;
+	DELETE FROM call_history WHERE callCustomerID = @id;
+	DELETE FROM customer_history WHERE historyCustomerID = @id;
+	DELETE FROM application WHERE applicationCustomerID = @id;
+END
+GO
+
+CREATE PROC spDeleteEmployee
+(
+	@id int
+)
+AS
+BEGIN
+	DELETE FROM employee WHERE employeeID = @id;
+END
+GO
+
+--CREATE PROC spDeletePolicy
+--(
+--	@id varchar(12) 
+--)
+--AS
+--BEGIN
+--	Update [policy]
+--	SET policyStstus = 'Deleted'
+--	WHERE policyID = @id
+--END
+--GO
+
+--CREATE PROC spDeleteProduct
+--(
+--	@id int 
+--)
+--AS
+--BEGIN
+--	Update [prodyct]
+--	SET productStstus = 'Deleted'
+--	WHERE productID = @id
+--END
+--GO
+
+CREATE PROC spDeleteProvider
+(
+	@id int
+)
+AS
+BEGIN
+	DELETE FROM provider WHERE providerID = @id;
+	DELETE FROM treatment WHERE treatmentProviderID = @id;
+	DELETE FROM application WHERE applicationProviderID = @id;
+END
+GO
+
+CREATE PROC spDeleteTreatment
+(
+	@id int
+)
+AS
+BEGIN
+	DELETE FROM treatment WHERE treatmentID = @id;
 END
 GO
 

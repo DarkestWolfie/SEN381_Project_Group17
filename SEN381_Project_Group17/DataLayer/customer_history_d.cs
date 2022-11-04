@@ -68,7 +68,7 @@ namespace SEN381_Project_Group17.DataLayer
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@id", customerHistory.HistoryCustomerID);
+                    cmd.Parameters.AddWithValue("@id", customerHistory.CusHistoryID);
                     cmd.Parameters.AddWithValue("@start", customerHistory.Start);
                     cmd.Parameters.AddWithValue("@end", customerHistory.End);
                     cmd.Parameters.AddWithValue("@active", customerHistory.Active);

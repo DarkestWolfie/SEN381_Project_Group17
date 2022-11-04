@@ -120,6 +120,7 @@ namespace SEN381_Project_Group17.DataLayer
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.AddWithValue("@policyID", policy.PolicyID);
                     cmd.Parameters.AddWithValue("@policyName", policy.PolicyName);
                     cmd.Parameters.AddWithValue("@price", policy.Price);
                     cmd.Parameters.AddWithValue("@installment", policy.Installment);

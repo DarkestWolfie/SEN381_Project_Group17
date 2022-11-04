@@ -96,6 +96,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         }
 
         policy_d policy_d = new policy_d();
+        policy_b pol_b = new policy_b();
         BindingSource policySource = new BindingSource();
 
         private void Policy_Load(object sender, EventArgs e)
@@ -261,7 +262,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+            string newPolID = pol_b.GenerateID();
+
+            policy_b policyObj = new policy_b(newPolID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
             MessageBox.Show(policy_d.add(policyObj));
 
             policySource.DataSource = policy_d.getAll();

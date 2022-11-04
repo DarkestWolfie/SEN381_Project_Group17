@@ -347,5 +347,15 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
             }
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(customer_d.delete(customerID));
+
+            customerSource.DataSource = customer_d.getAll();
+            dataGridView1.DataSource = customerSource;
+            dataGridView2.Visible = true;
+            dataGridView2.DataSource = addressSource;
+        }
     }
 }
