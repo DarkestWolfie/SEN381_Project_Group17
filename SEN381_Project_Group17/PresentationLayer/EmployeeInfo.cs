@@ -16,19 +16,23 @@ namespace SEN381_Project_Group17.PresentationLayer
 {
     public partial class EmployeeInfo : Form
     {
+        string role;
+
         //Form Design:
         private int borderRadius = 30;
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(0, 255, 178);
 
         //Constructor
-        public EmployeeInfo()
+        public EmployeeInfo(string role)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.Padding = new Padding(borderSize);
             this.pnlTitle.BackColor = borderColor;
             this.BackColor = borderColor;
+
+            this.role = role;
         }
 
         //Drag Form
@@ -102,9 +106,8 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Application.Exit();
             this.Hide();
-            Form hub = new UkupholisaHub();
+            Form hub = new UkupholisaHub(role);
             hub.ShowDialog();
             this.Close();
         }
