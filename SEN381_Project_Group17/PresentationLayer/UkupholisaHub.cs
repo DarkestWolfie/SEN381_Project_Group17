@@ -14,6 +14,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 {
     public partial class UkupholisaHub : Form
     {
+        string role;
 
         //Form Design:
         private int borderRadius = 30;
@@ -21,13 +22,15 @@ namespace SEN381_Project_Group17.PresentationLayer
         private Color borderColor = Color.FromArgb(0, 255, 178);
         
         //Constructor
-        public UkupholisaHub()
+        public UkupholisaHub(string role)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.Padding = new Padding(borderSize);
             this.pnlTitle.BackColor = borderColor;
             this.BackColor = borderColor;
+
+            this.role = role;
         }
 
         //Drag Form
@@ -101,7 +104,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CallCenter CC = new CallCenter();
+            CallCenter CC = new CallCenter(role);
             this.Hide();
             CC.ShowDialog();
             this.Close();
@@ -109,7 +112,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ClientInfo CI = new ClientInfo();
+            ClientInfo CI = new ClientInfo(role);
             this.Hide();
             CI.ShowDialog();
             this.Close();
@@ -118,7 +121,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            EmployeeInfo EI = new EmployeeInfo();
+            EmployeeInfo EI = new EmployeeInfo(role);
             this.Hide();
             EI.ShowDialog();
             this.Close();
@@ -126,7 +129,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button6_Click(object sender, EventArgs e)
         {
-            ProviderInfo PI = new ProviderInfo();
+            ProviderInfo PI = new ProviderInfo(role);
             this.Hide();
             PI.ShowDialog();
             this.Close();
@@ -273,7 +276,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button11_Click(object sender, EventArgs e)
         {
-            Policy POL = new Policy();
+            Policy POL = new Policy(role);
             this.Hide();
             POL.ShowDialog();
             this.Close();
@@ -281,7 +284,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button14_Click(object sender, EventArgs e)
         {
-            ClaimApplication CA = new ClaimApplication();
+            ClaimApplication CA = new ClaimApplication(role);
             this.Hide();
             CA.ShowDialog();
             this.Close();
@@ -289,7 +292,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button13_Click(object sender, EventArgs e)
         {
-            Condition CO = new Condition();
+            Condition CO = new Condition(role);
             this.Hide();
             CO.ShowDialog();
             this.Close();
@@ -297,7 +300,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button8_Click(object sender, EventArgs e)
         {
-            CustomerAccount CUA = new CustomerAccount();
+            CustomerAccount CUA = new CustomerAccount(role);
             this.Hide();
             CUA.ShowDialog();
             this.Close();
@@ -305,7 +308,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button10_Click(object sender, EventArgs e)
         {
-            CustomerHistory CH = new CustomerHistory();
+            CustomerHistory CH = new CustomerHistory(role);
             this.Hide();
             CH.ShowDialog();
             this.Close();
@@ -313,7 +316,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Product PR = new Product();
+            Product PR = new Product(role);
             this.Hide();
             PR.ShowDialog();
             this.Close();
@@ -321,7 +324,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button9_Click(object sender, EventArgs e)
         {
-            ProductHistory PH = new ProductHistory();
+            ProductHistory PH = new ProductHistory(role);
             this.Hide();
             PH.ShowDialog();
             this.Close();
@@ -329,7 +332,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button12_Click(object sender, EventArgs e)
         {
-            Treatment TR = new Treatment();
+            Treatment TR = new Treatment(role);
             this.Hide();
             TR.ShowDialog();
             this.Close();

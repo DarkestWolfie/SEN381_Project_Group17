@@ -822,7 +822,7 @@ CREATE PROC spLogin
 )
 AS
 BEGIN
-	SELECT role FROM employee where userName = @userName AND password = @password
+	SELECT role FROM employee where userName = @userName COLLATE SQL_Latin1_General_CP1_CS_AS AND password = @password COLLATE SQL_Latin1_General_CP1_CS_AS
 END
 GO
 

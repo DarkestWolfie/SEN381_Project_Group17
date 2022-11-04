@@ -67,7 +67,6 @@
     <Compile Include="DataLayer\customer_d.cs" />
     <Compile Include="DataLayer\customer_history_d.cs" />
     <Compile Include="DataLayer\employee_d.cs" />
-    <Compile Include="DataLayer\login_d.cs" />
     <Compile Include="DataLayer\policy_d.cs" />
     <Compile Include="DataLayer\product_d.cs" />
     <Compile Include="DataLayer\product_history_d.cs" />

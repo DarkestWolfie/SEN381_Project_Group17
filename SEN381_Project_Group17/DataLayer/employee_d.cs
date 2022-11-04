@@ -156,7 +156,7 @@ namespace SEN381_Project_Group17.DataLayer
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@userName", userName);
-            cmd.Parameters.AddWithValue("@passowrd", password);
+            cmd.Parameters.AddWithValue("@password", password);
 
             cn.Open();
             var role = cmd.ExecuteScalar();
@@ -168,7 +168,7 @@ namespace SEN381_Project_Group17.DataLayer
             }
             else
             {
-                return "No user founnd";
+                return "Invalid username or password.";
             }
 
         }

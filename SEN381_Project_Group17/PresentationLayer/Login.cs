@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SEN381_Project_Group17.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -213,9 +214,36 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Invalidate();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+        employee_d emp = new employee_d();
+        string role;
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string message = emp.checkLogin(textBox1.Text, textBox2.Text);
+
+            switch (message)
+            {
+                case "Call agent":
+                    role = "Call Agent";
+
+                    CallCenter CC = new CallCenter(role);
+                    this.Hide();
+                    CC.ShowDialog();
+                    this.Close();
+                    break;
+
+                case "Manager":
+                    role = "Admin";
+                    UkupholisaHub hub = new UkupholisaHub(role);
+                    this.Hide();
+                    hub.ShowDialog();
+                    this.Close();
+                    break;
+
+                default:
+                    MessageBox.Show(message);
+                    break;
+            }
         }
     }
 }
