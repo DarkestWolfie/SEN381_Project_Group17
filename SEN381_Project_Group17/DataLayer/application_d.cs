@@ -88,7 +88,7 @@ namespace SEN381_Project_Group17.DataLayer
             }
         }
 
-        //Update
+        //Add
         public string add(application_b application)
         {
             try
@@ -115,6 +115,32 @@ namespace SEN381_Project_Group17.DataLayer
             catch (Exception eA)
             {
                 return "The following error was encountered while trying to add Application data:\n\n" + eA.Message;
+            }
+        }
+
+        //Delete
+        public string delete(int application)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteApplication", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", application);
+                    
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Application data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Application data:\n\n" + eA.Message;
             }
         }
     }

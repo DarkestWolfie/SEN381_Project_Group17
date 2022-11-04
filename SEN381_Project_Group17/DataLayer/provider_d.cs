@@ -113,5 +113,31 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to add Provider data:\n\n" + eA.Message;
             }
         }
+
+        //Delete
+        public string delete(int provider)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteProvider", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", provider);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Provider data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Provider data:\n\n" + eA.Message;
+            }
+        }
     }
 }

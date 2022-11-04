@@ -117,5 +117,31 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to add Treatment data:\n\n" + eA.Message;
             }
         }
+
+        //Delete
+        public string delete(int treatment)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteTreatment", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", treatment);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Treatment data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Treatment data:\n\n" + eA.Message;
+            }
+        }
     }
 }

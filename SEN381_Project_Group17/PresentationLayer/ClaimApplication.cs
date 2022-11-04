@@ -279,5 +279,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             applicationSource.DataSource = application_d.getAll();
             dataGridView1.DataSource = applicationSource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(application_d.delete(applicationID));
+
+            applicationSource.DataSource = application_d.getAll();
+            dataGridView1.DataSource = applicationSource;
+        }
     }
 }

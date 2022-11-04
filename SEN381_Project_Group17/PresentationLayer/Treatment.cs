@@ -278,5 +278,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             treatmentSource.DataSource = treatment_d.getAll();
             dataGridView1.DataSource = treatmentSource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(treatment_d.delete(treatmentID));
+
+            treatmentSource.DataSource = treatment_d.getAll();
+            dataGridView1.DataSource = treatmentSource;
+        }
     }
 }

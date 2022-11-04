@@ -119,5 +119,58 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to add Employee data:\n\n" + eA.Message;
             }
         }
+
+        //Delete
+        public string delete(int employee)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteEmployee", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", employee);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Employee data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Employee data:\n\n" + eA.Message;
+            }
+        }
+
+        //Check Login
+        public string checkLogin(string userName, string password)
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlCommand cmd = new SqlCommand("spLogin", cn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@userName", userName);
+            cmd.Parameters.AddWithValue("@passowrd", password);
+
+            cn.Open();
+            var role = cmd.ExecuteScalar();
+            cn.Close();
+
+            if (role != null)
+            {
+                return role.ToString();
+            }
+            else
+            {
+                return "No user founnd";
+            }
+
+        }
     }
 }

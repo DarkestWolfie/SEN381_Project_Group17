@@ -276,5 +276,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             conditionSource.DataSource = condition_d.getAll();
             dataGridView1.DataSource = conditionSource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(condition_d.delete(conditionID));
+
+            conditionSource.DataSource = condition_d.getAll();
+            dataGridView1.DataSource = conditionSource;
+        }
     }
 }
