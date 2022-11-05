@@ -236,7 +236,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
 
-                date.Text = row.Cells["applicationDate"].Value.ToString();
+                string date = row.Cells["applicationDate"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 status.Text = row.Cells["status"].Value.ToString();
                 customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
                 conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
@@ -253,7 +255,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
 
-                date.Text = row.Cells["applicationDate"].Value.ToString();
+                string date = row.Cells["applicationDate"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 status.Text = row.Cells["status"].Value.ToString();
                 customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
                 conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
@@ -266,7 +270,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date.Text, status.Text);
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
 
             MessageBox.Show(application_d.add(applicationObj));
 
@@ -276,7 +284,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date.Text, status.Text);
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
 
             MessageBox.Show(application_d.update(applicationObj));
 

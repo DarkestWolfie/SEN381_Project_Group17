@@ -51,6 +51,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(141, 26);
             this.textBox2.TabIndex = 11;
+            this.textBox2.Text = "123Stefan";
             // 
             // textBox1
             // 
@@ -59,6 +60,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(141, 26);
             this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "stefan123";
             // 
             // label2
             // 

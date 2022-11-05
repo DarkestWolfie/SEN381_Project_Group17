@@ -136,7 +136,10 @@ namespace SEN381_Project_Group17.PresentationLayer
                 textBox3.Text = row.Cells["callEmployeeID"].Value.ToString();
                 textBox4.Text = row.Cells["start"].Value.ToString();
                 textBox5.Text = row.Cells["end"].Value.ToString();
-                textBox6.Text = row.Cells["dateCreated"].Value.ToString();
+                string date = row.Cells["dateCreated"].Value.ToString();
+                string[] splits = date.Split('-');
+                datePicker.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                 
 
                 callID = int.Parse(row.Cells["callID"].Value.ToString());
             }
@@ -149,7 +152,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            call_history_b callObj = new call_history_b(callID,textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, textBox6.Text);
+            string date = datePicker.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            call_history_b callObj = new call_history_b(callID,textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, date);
 
             MessageBox.Show(call.update(callObj));
 
@@ -173,7 +180,9 @@ namespace SEN381_Project_Group17.PresentationLayer
                 textBox3.Text = row.Cells["callEmployeeID"].Value.ToString();
                 textBox4.Text = row.Cells["start"].Value.ToString();
                 textBox5.Text = row.Cells["end"].Value.ToString();
-                textBox6.Text = row.Cells["dateCreated"].Value.ToString();
+                string date = row.Cells["dateCreated"].Value.ToString();
+                string[] splits = date.Split('-');
+                datePicker.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
                 callID = int.Parse(row.Cells["callID"].Value.ToString());
             }
@@ -289,7 +298,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            call_history_b callAdd = new call_history_b(callID, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, textBox6.Text);
+            string date = datePicker.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            call_history_b callAdd = new call_history_b(callID, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, date);
 
             MessageBox.Show(call.add(callAdd));
 

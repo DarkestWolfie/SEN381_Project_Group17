@@ -236,7 +236,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
                 due.Text = row.Cells["amountDue"].Value.ToString();
-                installment.Text = row.Cells["installmentDate"].Value.ToString();
+                string date = row.Cells["installmentDate"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
                 accountID = int.Parse(row.Cells["accountID"].Value.ToString());
 
@@ -254,7 +256,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
                 due.Text = row.Cells["amountDue"].Value.ToString();
-                installment.Text = row.Cells["installmentDate"].Value.ToString();
+                string date = row.Cells["installmentDate"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
                 accountID = int.Parse(row.Cells["accountID"].Value.ToString());
 
@@ -263,7 +267,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), installment.Text);
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
 
             MessageBox.Show(account_d.add(accountObj));
 
@@ -273,7 +281,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), installment.Text);
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
 
             MessageBox.Show(account_d.update(accountObj));
 

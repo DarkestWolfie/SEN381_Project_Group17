@@ -38,14 +38,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.productID = new System.Windows.Forms.TextBox();
-            this.end = new System.Windows.Forms.TextBox();
-            this.start = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.productID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -150,7 +150,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 110);
+            this.label2.Location = new System.Drawing.Point(14, 107);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 18);
             this.label2.TabIndex = 91;
@@ -170,47 +170,23 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 175);
+            this.label4.Location = new System.Drawing.Point(14, 171);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 18);
             this.label4.TabIndex = 93;
             this.label4.Text = "Product ID";
             // 
-            // productID
-            // 
-            this.productID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productID.Location = new System.Drawing.Point(109, 175);
-            this.productID.Name = "productID";
-            this.productID.Size = new System.Drawing.Size(126, 26);
-            this.productID.TabIndex = 96;
-            // 
-            // end
-            // 
-            this.end.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.end.Location = new System.Drawing.Point(109, 141);
-            this.end.Name = "end";
-            this.end.Size = new System.Drawing.Size(126, 26);
-            this.end.TabIndex = 95;
-            // 
-            // start
-            // 
-            this.start.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start.Location = new System.Drawing.Point(109, 106);
-            this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(126, 26);
-            this.start.TabIndex = 94;
-            // 
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.productID);
+            this.pnlContainer.Controls.Add(this.dateTimePicker2);
+            this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.start);
             this.pnlContainer.Controls.Add(this.find);
-            this.pnlContainer.Controls.Add(this.end);
             this.pnlContainer.Controls.Add(this.search);
-            this.pnlContainer.Controls.Add(this.productID);
             this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.label4);
             this.pnlContainer.Controls.Add(this.delete);
@@ -272,6 +248,32 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(109, 102);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(126, 26);
+            this.dateTimePicker1.TabIndex = 104;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(109, 136);
+            this.dateTimePicker2.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(126, 26);
+            this.dateTimePicker2.TabIndex = 105;
+            // 
+            // productID
+            // 
+            this.productID.FormattingEnabled = true;
+            this.productID.Location = new System.Drawing.Point(109, 168);
+            this.productID.Name = "productID";
+            this.productID.Size = new System.Drawing.Size(126, 21);
+            this.productID.TabIndex = 106;
+            // 
             // ProductHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,13 +310,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox productID;
-        private System.Windows.Forms.TextBox end;
-        private System.Windows.Forms.TextBox start;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox productID;
     }
 }

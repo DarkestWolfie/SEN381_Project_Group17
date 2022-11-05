@@ -136,7 +136,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
             address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
 
             MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
@@ -163,7 +167,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 name.Text = row.Cells["custName"].Value.ToString();
                 surname.Text = row.Cells["custSurname"].Value.ToString();
-                dob.Text = row.Cells["dob"].Value.ToString();
+                string date = row.Cells["dob"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 idNum.Text = row.Cells["idNumber"].Value.ToString();
                 familyID.Text = row.Cells["familyID"].Value.ToString();
                 familyRole.Text = row.Cells["familyRole"].Value.ToString();
@@ -303,8 +309,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             int newAddressID = address_d.getCount();
             string newCustomerID = customer_b.GenerateID(surname.Text);
 
+            string date = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = date.Split('/');
+            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
             address_b addressAdd = new address_b(addressLine.Text, city.Text, province.Text, postalCode.Text);
-            customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, dob.Text);
+            customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
 
             MessageBox.Show(address_d.add(addressAdd) + "\n\n" + customer_d.add(customerAdd));
 
@@ -327,7 +337,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 name.Text = row.Cells["custName"].Value.ToString();
                 surname.Text = row.Cells["custSurname"].Value.ToString();
-                dob.Text = row.Cells["dob"].Value.ToString();
+                string date = row.Cells["dob"].Value.ToString();
+                string[] splits = date.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 idNum.Text = row.Cells["idNumber"].Value.ToString();
                 familyID.Text = row.Cells["familyID"].Value.ToString();
                 familyRole.Text = row.Cells["familyRole"].Value.ToString();
