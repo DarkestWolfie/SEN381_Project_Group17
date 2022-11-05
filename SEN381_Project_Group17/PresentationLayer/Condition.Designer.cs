@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.policyID = new System.Windows.Forms.TextBox();
             this.code = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
@@ -46,6 +45,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.policyID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -177,14 +177,6 @@
             this.label4.TabIndex = 78;
             this.label4.Text = "Policy ID";
             // 
-            // policyID
-            // 
-            this.policyID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.policyID.Location = new System.Drawing.Point(133, 354);
-            this.policyID.Name = "policyID";
-            this.policyID.Size = new System.Drawing.Size(150, 26);
-            this.policyID.TabIndex = 82;
-            // 
             // code
             // 
             this.code.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,6 +196,7 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.policyID);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label1);
@@ -211,7 +204,6 @@
             this.pnlContainer.Controls.Add(this.find);
             this.pnlContainer.Controls.Add(this.code);
             this.pnlContainer.Controls.Add(this.search);
-            this.pnlContainer.Controls.Add(this.policyID);
             this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.label4);
             this.pnlContainer.Controls.Add(this.delete);
@@ -273,6 +265,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // policyID
+            // 
+            this.policyID.FormattingEnabled = true;
+            this.policyID.Location = new System.Drawing.Point(133, 358);
+            this.policyID.Name = "policyID";
+            this.policyID.Size = new System.Drawing.Size(150, 21);
+            this.policyID.TabIndex = 14;
+            // 
             // Condition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,7 +312,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox policyID;
         private System.Windows.Forms.TextBox code;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Panel pnlContainer;
@@ -320,5 +319,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox policyID;
     }
 }

@@ -132,8 +132,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
 
-                textBox2.Text = row.Cells["callCustomerID"].Value.ToString();
-                textBox3.Text = row.Cells["callEmployeeID"].Value.ToString();
+                comboBox1.Text = row.Cells["callCustomerID"].Value.ToString();
+                comboBox2.Text = row.Cells["callEmployeeID"].Value.ToString();
                 textBox4.Text = row.Cells["start"].Value.ToString();
                 textBox5.Text = row.Cells["end"].Value.ToString();
                 string date = row.Cells["dateCreated"].Value.ToString();
@@ -156,7 +156,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             string[] dateS = date.Split('/');
             date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            call_history_b callObj = new call_history_b(callID,textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, date);
+            call_history_b callObj = new call_history_b(callID,comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
 
             MessageBox.Show(call.update(callObj));
 
@@ -164,10 +164,26 @@ namespace SEN381_Project_Group17.PresentationLayer
             dataGridView1.DataSource = callSource;
         }
 
+        validation validation = new validation();
+
         private void CallCenter_Load(object sender, EventArgs e)
         {
             callSource.DataSource = call.getAll();
             dataGridView1.DataSource = callSource;
+
+            List<customer_b> list = validation.populateCustomer();
+
+            foreach (customer_b item in list)
+            {
+                comboBox1.Items.Add(item.CustomerID);
+            }
+
+            List<employee_b> list2 = validation.populateEmployee();
+
+            foreach (employee_b item in list2)
+            {
+                comboBox2.Items.Add(item.EmployeeID);
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -176,8 +192,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
 
-                textBox2.Text = row.Cells["callCustomerID"].Value.ToString();
-                textBox3.Text = row.Cells["callEmployeeID"].Value.ToString();
+                comboBox1.Text = row.Cells["callCustomerID"].Value.ToString();
+                comboBox2.Text = row.Cells["callEmployeeID"].Value.ToString();
                 textBox4.Text = row.Cells["start"].Value.ToString();
                 textBox5.Text = row.Cells["end"].Value.ToString();
                 string date = row.Cells["dateCreated"].Value.ToString();
@@ -302,12 +318,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             string[] dateS = date.Split('/');
             date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            call_history_b callAdd = new call_history_b(callID, textBox2.Text, int.Parse(textBox3.Text), textBox4.Text, textBox5.Text, date);
+            call_history_b callAdd = new call_history_b(callID, comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
 
             MessageBox.Show(call.add(callAdd));
 
             callSource.DataSource = call.getAll();
             dataGridView1.DataSource = callSource;
         }
+
     }
 }

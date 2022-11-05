@@ -113,5 +113,31 @@ namespace SEN381_Project_Group17.DataLayer
                 return "The following error was encountered while trying to add Product data:\n\n" + eA.Message;
             }
         }
+
+        //Delete
+        public string delete(int product)
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(con))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteProduct", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id", product);
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                }
+
+                return "Product data deleted successfully.";
+            }
+            catch (Exception eA)
+            {
+                return "The following error was encountered while trying to delete Product data:\n\n" + eA.Message;
+            }
+        }
     }
 }

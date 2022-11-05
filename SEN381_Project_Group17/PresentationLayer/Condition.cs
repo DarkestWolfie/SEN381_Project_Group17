@@ -102,10 +102,20 @@ namespace SEN381_Project_Group17.PresentationLayer
         condition_d condition_d = new condition_d();
         BindingSource conditionSource = new BindingSource();
 
+        validation validation = new validation();
+
         private void Condition_Load(object sender, EventArgs e)
         {
             conditionSource.DataSource = condition_d.getAll();
             dataGridView1.DataSource = conditionSource;
+
+            List<policy_b> list = validation.populatePolicy();
+
+            foreach (policy_b item in list)
+            {
+                policyID.Items.Add(item.PolicyID);
+
+            }
         }
 
         private void Condition_MouseDown(object sender, MouseEventArgs e)

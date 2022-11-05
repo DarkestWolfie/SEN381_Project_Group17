@@ -33,26 +33,25 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -95,7 +94,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(155, 580);
+            this.button7.Location = new System.Drawing.Point(226, 580);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(126, 41);
             this.button7.TabIndex = 19;
@@ -103,22 +102,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(298, 580);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(126, 41);
-            this.button6.TabIndex = 18;
-            this.button6.Text = "Delete";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -128,7 +111,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(12, 580);
+            this.button5.Location = new System.Drawing.Point(83, 580);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 41);
             this.button5.TabIndex = 17;
@@ -161,22 +144,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(213, 26);
             this.textBox4.TabIndex = 63;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(210, 428);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(213, 26);
-            this.textBox3.TabIndex = 62;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(210, 388);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 26);
-            this.textBox2.TabIndex = 61;
             // 
             // label6
             // 
@@ -231,6 +198,8 @@ namespace SEN381_Project_Group17.PresentationLayer
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.comboBox2);
+            this.pnlContainer.Controls.Add(this.comboBox1);
             this.pnlContainer.Controls.Add(this.datePicker);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
@@ -238,10 +207,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Controls.Add(this.button2);
             this.pnlContainer.Controls.Add(this.textBox4);
             this.pnlContainer.Controls.Add(this.button3);
-            this.pnlContainer.Controls.Add(this.textBox3);
             this.pnlContainer.Controls.Add(this.button5);
-            this.pnlContainer.Controls.Add(this.textBox2);
-            this.pnlContainer.Controls.Add(this.button6);
             this.pnlContainer.Controls.Add(this.label6);
             this.pnlContainer.Controls.Add(this.button7);
             this.pnlContainer.Controls.Add(this.label5);
@@ -258,6 +224,30 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Size = new System.Drawing.Size(436, 633);
             this.pnlContainer.TabIndex = 66;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(210, 428);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(213, 26);
+            this.comboBox2.TabIndex = 70;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(210, 388);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(213, 26);
+            this.comboBox1.TabIndex = 69;
+            // 
+            // datePicker
+            // 
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(210, 540);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(213, 26);
+            this.datePicker.TabIndex = 67;
             // 
             // pnlTitle
             // 
@@ -344,14 +334,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // datePicker
-            // 
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePicker.Location = new System.Drawing.Point(210, 540);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(213, 26);
-            this.datePicker.TabIndex = 67;
-            // 
             // CallCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,7 +366,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
@@ -392,8 +373,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -403,5 +382,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker datePicker;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

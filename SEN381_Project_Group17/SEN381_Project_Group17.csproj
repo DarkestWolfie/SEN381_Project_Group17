@@ -59,6 +59,7 @@
     <Compile Include="BusinessLayer\product_history_b.cs" />
     <Compile Include="BusinessLayer\provider_b.cs" />
     <Compile Include="BusinessLayer\treatment_b.cs" />
+    <Compile Include="BusinessLayer\validation.cs" />
     <Compile Include="DataLayer\account_d.cs" />
     <Compile Include="DataLayer\address_d.cs" />
     <Compile Include="DataLayer\application_d.cs" />

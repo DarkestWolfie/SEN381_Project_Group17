@@ -102,10 +102,19 @@ namespace SEN381_Project_Group17.PresentationLayer
         account_d account_d = new account_d();
         BindingSource accountSource = new BindingSource();
 
+        validation validation = new validation();
+
         private void CustomerAccount_Load(object sender, EventArgs e)
         {
             accountSource.DataSource = account_d.getAll();
             dataGridView1.DataSource = accountSource;
+
+            List<customer_b> list = validation.populateCustomer();
+
+            foreach (customer_b item in list)
+            {
+                clientID.Items.Add(item.CustomerID);
+            }
         }
 
         private void CustomerAccount_MouseDown(object sender, MouseEventArgs e)

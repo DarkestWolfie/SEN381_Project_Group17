@@ -103,10 +103,36 @@ namespace SEN381_Project_Group17.PresentationLayer
         BindingSource applicationSource = new BindingSource();
         int applicationID;
 
+        validation validation = new validation();
+
         private void Application_Load(object sender, EventArgs e)
         {
             applicationSource.DataSource = application_d.getAll();
             dataGridView1.DataSource = applicationSource;
+
+            List<condition_b> list = validation.populateCondition();
+
+            foreach (condition_b item in list)
+            {
+                conditionID.Items.Add(item.ConditionID);
+
+            }
+
+            List<provider_b> list2 = validation.populateProvider();
+
+            foreach (provider_b item in list2)
+            {
+                providerID.Items.Add(item.ProviderID);
+
+            }
+
+            List<customer_b> list3 = validation.populateCustomer();
+
+            foreach (customer_b item in list3)
+            {
+                customerID.Items.Add(item.CustomerID);
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

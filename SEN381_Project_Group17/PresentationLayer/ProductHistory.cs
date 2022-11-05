@@ -101,12 +101,19 @@ namespace SEN381_Project_Group17.PresentationLayer
         product_history_d prodHistory_d = new product_history_d();
         BindingSource prodHistorySource = new BindingSource();
 
+        validation validation = new validation();
+
         private void ProductHistory_Load(object sender, EventArgs e)
         {
             prodHistorySource.DataSource = prodHistory_d.getAll();
             dataGridView1.DataSource = prodHistorySource;
 
-            populateProduct();
+            List<product_b> productsList = validation.populateProduct();
+
+            foreach (product_b item in productsList)
+            {
+                productID.Items.Add(item.ProductID);
+            }
         }
 
         private void ProductHistory_MouseDown(object sender, MouseEventArgs e)
@@ -302,26 +309,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             dataGridView1.DataSource = prodHistorySource;
         }
 
-        private void populateProduct()
+        private void delete_Click(object sender, EventArgs e)
         {
-            List<product_b> productsList = new List<product_b>();
 
-            product_d pro = new product_d();
-
-            DataTable dt = pro.getAll();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                product_b product = new product_b();
-                product.ProductID = Convert.ToInt32(dt.Rows[i]["productID"]);
-
-                productsList.Add(product);
-            }
-
-            foreach (product_b item in productsList)
-            {
-                productID.Items.Add(item.ProductID);
-            }
         }
     }
 }

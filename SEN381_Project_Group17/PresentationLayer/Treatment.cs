@@ -102,10 +102,28 @@ namespace SEN381_Project_Group17.PresentationLayer
         treatment_d treatment_d = new treatment_d();
         BindingSource treatmentSource = new BindingSource();
 
+        validation validation = new validation();
+
         private void Treatment_Load(object sender, EventArgs e)
         {
             treatmentSource.DataSource = treatment_d.getAll();
             dataGridView1.DataSource = treatmentSource;
+
+            List<condition_b> list = validation.populateCondition();
+
+            foreach (condition_b item in list)
+            {
+                conditionID.Items.Add(item.ConditionID);
+
+            }
+
+            List<provider_b> list2 = validation.populateProvider();
+
+            foreach (provider_b item in list2)
+            {
+                providerID.Items.Add(item.ProviderID);
+
+            }
         }
 
         private void Treatment_MouseDown(object sender, MouseEventArgs e)
