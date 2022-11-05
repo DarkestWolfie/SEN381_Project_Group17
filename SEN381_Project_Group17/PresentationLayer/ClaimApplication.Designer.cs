@@ -30,8 +30,6 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.providerID = new System.Windows.Forms.TextBox();
-            this.customerID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.find = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
@@ -42,15 +40,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.conditionID = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.customerID = new System.Windows.Forms.ComboBox();
+            this.conditionID = new System.Windows.Forms.ComboBox();
+            this.providerID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -76,22 +76,6 @@
             this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 136;
             this.label7.Text = "Provider ID";
-            // 
-            // providerID
-            // 
-            this.providerID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.providerID.Location = new System.Drawing.Point(133, 437);
-            this.providerID.Name = "providerID";
-            this.providerID.Size = new System.Drawing.Size(156, 26);
-            this.providerID.TabIndex = 138;
-            // 
-            // customerID
-            // 
-            this.customerID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerID.Location = new System.Drawing.Point(133, 366);
-            this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(156, 26);
-            this.customerID.TabIndex = 137;
             // 
             // label1
             // 
@@ -218,14 +202,6 @@
             this.label4.TabIndex = 125;
             this.label4.Text = "Condition ID";
             // 
-            // conditionID
-            // 
-            this.conditionID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionID.Location = new System.Drawing.Point(133, 402);
-            this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(156, 26);
-            this.conditionID.TabIndex = 128;
-            // 
             // status
             // 
             this.status.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,15 +213,15 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.providerID);
+            this.pnlContainer.Controls.Add(this.conditionID);
+            this.pnlContainer.Controls.Add(this.customerID);
             this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.label6);
             this.pnlContainer.Controls.Add(this.label7);
             this.pnlContainer.Controls.Add(this.status);
-            this.pnlContainer.Controls.Add(this.providerID);
-            this.pnlContainer.Controls.Add(this.conditionID);
-            this.pnlContainer.Controls.Add(this.customerID);
             this.pnlContainer.Controls.Add(this.label4);
             this.pnlContainer.Controls.Add(this.label1);
             this.pnlContainer.Controls.Add(this.label3);
@@ -261,6 +237,15 @@
             this.pnlContainer.Size = new System.Drawing.Size(583, 481);
             this.pnlContainer.TabIndex = 139;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 297);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(4, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
+            this.dateTimePicker1.TabIndex = 140;
             // 
             // pnlTitle
             // 
@@ -318,14 +303,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // customerID
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 297);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
-            this.dateTimePicker1.TabIndex = 140;
+            this.customerID.FormattingEnabled = true;
+            this.customerID.Location = new System.Drawing.Point(133, 367);
+            this.customerID.Name = "customerID";
+            this.customerID.Size = new System.Drawing.Size(156, 21);
+            this.customerID.TabIndex = 141;
+            // 
+            // conditionID
+            // 
+            this.conditionID.FormattingEnabled = true;
+            this.conditionID.Location = new System.Drawing.Point(133, 403);
+            this.conditionID.Name = "conditionID";
+            this.conditionID.Size = new System.Drawing.Size(156, 21);
+            this.conditionID.TabIndex = 142;
+            // 
+            // providerID
+            // 
+            this.providerID.FormattingEnabled = true;
+            this.providerID.Location = new System.Drawing.Point(133, 438);
+            this.providerID.Name = "providerID";
+            this.providerID.Size = new System.Drawing.Size(156, 21);
+            this.providerID.TabIndex = 143;
             // 
             // ClaimApplication
             // 
@@ -357,8 +357,6 @@
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox providerID;
-        private System.Windows.Forms.TextBox customerID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button find;
         private System.Windows.Forms.TextBox search;
@@ -369,7 +367,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox conditionID;
         private System.Windows.Forms.TextBox status;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
@@ -378,5 +375,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox providerID;
+        private System.Windows.Forms.ComboBox conditionID;
+        private System.Windows.Forms.ComboBox customerID;
     }
 }

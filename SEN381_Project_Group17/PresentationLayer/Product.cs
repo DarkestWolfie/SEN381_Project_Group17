@@ -102,10 +102,20 @@ namespace SEN381_Project_Group17.PresentationLayer
         product_d product_d = new product_d();
         BindingSource productSource = new BindingSource();
 
+        validation validation = new validation();
+
         private void Product_Load(object sender, EventArgs e)
         {
             productSource.DataSource = product_d.getAll();
             dataGridView1.DataSource = productSource;
+
+            List<policy_b> list = validation.populatePolicy();
+
+            foreach (policy_b item in list)
+            {
+                policyID.Items.Add(item.PolicyID);
+
+            }
         }
 
         private void Product_MouseDown(object sender, MouseEventArgs e)
@@ -274,6 +284,14 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
             MessageBox.Show(product_d.update(productObj));
+
+            productSource.DataSource = product_d.getAll();
+            dataGridView1.DataSource = productSource;
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(product_d.delete(productID));
 
             productSource.DataSource = product_d.getAll();
             dataGridView1.DataSource = productSource;

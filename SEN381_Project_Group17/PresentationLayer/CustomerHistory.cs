@@ -102,10 +102,28 @@ namespace SEN381_Project_Group17.PresentationLayer
         customer_history_d cusHistory_d = new customer_history_d();
         BindingSource cusHistorySource = new BindingSource();
 
+        validation validation = new validation();
+
         private void CustomerHistory_Load(object sender, EventArgs e)
         {
             cusHistorySource.DataSource = cusHistory_d.getAll();
             dataGridView1.DataSource = cusHistorySource;
+
+            List<customer_b> list = validation.populateCustomer();
+
+            foreach (customer_b item in list)
+            {
+                customerID.Items.Add(item.CustomerID);
+
+            }
+
+            List<product_history_b> list2 = validation.populateProHistory();
+
+            foreach (product_history_b item in list2)
+            {
+                productID.Items.Add(item.PorHistoryID);
+
+            }
         }
 
         private void CustomerHistory_MouseDown(object sender, MouseEventArgs e)
@@ -305,6 +323,11 @@ namespace SEN381_Project_Group17.PresentationLayer
 
             cusHistorySource.DataSource = cusHistory_d.getAll();
             dataGridView1.DataSource = cusHistorySource;
+        }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

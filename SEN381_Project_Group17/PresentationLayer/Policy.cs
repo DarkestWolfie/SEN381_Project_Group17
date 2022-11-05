@@ -283,5 +283,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             policySource.DataSource = policy_d.getAll();
             dataGridView1.DataSource = policySource;
         }
+
+        private void delete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(policy_d.delete(policyID));
+
+            policySource.DataSource = policy_d.getAll();
+            dataGridView1.DataSource = policySource;
+        }
     }
 }

@@ -52,16 +52,6 @@ CREATE TABLE [employee]
   PRIMARY KEY (employeeID)
 );
 
---CREATE TABLE [login] 
---(
---  loginID int NOT NULL IDENTITY,
---  userName varchar(45) ,
---  [password] varchar(45) ,
---  [role] varchar(25) ,
---  employeeID int FOREIGN KEY REFERENCES employee(employeeID),
---  PRIMARY KEY (loginID)
---);
-
 CREATE TABLE [policy] 
 (
   policyID varchar(12) NOT NULL UNIQUE,
@@ -69,6 +59,7 @@ CREATE TABLE [policy]
   price float ,
   installment float ,
   payout float ,
+  policyStatus varchar(25),
   PRIMARY KEY (policyID)
 );
 
@@ -107,6 +98,7 @@ CREATE TABLE [product]
   policyDiscount float ,
   [availability] varchar(45) ,
   productPolicyID varchar(12) FOREIGN KEY REFERENCES policy (policyID),
+  productStatus varchar(25),
   PRIMARY KEY (productID)
 );
 
@@ -185,7 +177,7 @@ GO
 CREATE PROC spGetPolicy
 AS
 BEGIN
-	SELECT * FROM [policy];
+	SELECT policyID, policyName, price, installment, payout FROM [policy] WHERE NOT policyStatus = 'deleted';
 END
 GO
 
@@ -213,7 +205,7 @@ GO
 CREATE PROC spGetProduct
 AS
 BEGIN
-	SELECT * FROM [product];
+	SELECT productID, policyDiscount, availability, productPolicyID FROM [product] WHERE NOT productStatus = 'deleted';
 END
 GO
 
@@ -876,29 +868,29 @@ BEGIN
 END
 GO
 
---CREATE PROC spDeletePolicy
---(
---	@id varchar(12) 
---)
---AS
---BEGIN
---	Update [policy]
---	SET policyStstus = 'Deleted'
---	WHERE policyID = @id
---END
---GO
+CREATE PROC spDeletePolicy
+(
+	@id varchar(12) 
+)
+AS
+BEGIN
+	Update [policy]
+	SET policyStatus = 'Deleted'
+	WHERE policyID = @id
+END
+GO
 
---CREATE PROC spDeleteProduct
---(
---	@id int 
---)
---AS
---BEGIN
---	Update [prodyct]
---	SET productStstus = 'Deleted'
---	WHERE productID = @id
---END
---GO
+CREATE PROC spDeleteProduct
+(
+	@id int 
+)
+AS
+BEGIN
+	Update [product]
+	SET productStatus = 'Deleted'
+	WHERE productID = @id
+END
+GO
 
 CREATE PROC spDeleteProvider
 (
@@ -1058,3 +1050,27 @@ SELECT * FROM product_history;
 SELECT * FROM treatment;
 SELECT * FROM application;
 SELECT * FROM address;
+
+USE master;  
+DROP CERTIFICATE MyServerCert; 
+GO
+
+USE master;  
+DROP MASTER KEY;  
+GO 
+
+USE master;
+GO
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0ur5up&r5tr0ngP@55w0rd';
+go
+CREATE CERTIFICATE MyServerCert WITH SUBJECT = 'My DEK Certificate';
+go
+USE ukupholisa
+GO
+CREATE DATABASE ENCRYPTION KEY
+WITH ALGORITHM = AES_256
+ENCRYPTION BY SERVER CERTIFICATE MyServerCert;
+GO
+ALTER DATABASE ukupholisa
+SET ENCRYPTION ON;
+GO

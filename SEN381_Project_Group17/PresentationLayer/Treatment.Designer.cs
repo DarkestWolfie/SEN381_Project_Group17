@@ -30,8 +30,6 @@
         {
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.providerID = new System.Windows.Forms.TextBox();
-            this.conditionID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.find = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
@@ -50,6 +48,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.conditionID = new System.Windows.Forms.ComboBox();
+            this.providerID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,22 +75,6 @@
             this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 136;
             this.label7.Text = "Provider ID";
-            // 
-            // providerID
-            // 
-            this.providerID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.providerID.Location = new System.Drawing.Point(124, 236);
-            this.providerID.Name = "providerID";
-            this.providerID.Size = new System.Drawing.Size(132, 26);
-            this.providerID.TabIndex = 138;
-            // 
-            // conditionID
-            // 
-            this.conditionID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionID.Location = new System.Drawing.Point(124, 202);
-            this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(132, 26);
-            this.conditionID.TabIndex = 137;
             // 
             // label1
             // 
@@ -292,6 +276,8 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.providerID);
+            this.pnlContainer.Controls.Add(this.conditionID);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.dataGridView1);
@@ -301,9 +287,7 @@
             this.pnlContainer.Controls.Add(this.description);
             this.pnlContainer.Controls.Add(this.label7);
             this.pnlContainer.Controls.Add(this.cost);
-            this.pnlContainer.Controls.Add(this.providerID);
             this.pnlContainer.Controls.Add(this.label4);
-            this.pnlContainer.Controls.Add(this.conditionID);
             this.pnlContainer.Controls.Add(this.label3);
             this.pnlContainer.Controls.Add(this.find);
             this.pnlContainer.Controls.Add(this.label2);
@@ -316,6 +300,22 @@
             this.pnlContainer.Size = new System.Drawing.Size(800, 354);
             this.pnlContainer.TabIndex = 140;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // conditionID
+            // 
+            this.conditionID.FormattingEnabled = true;
+            this.conditionID.Location = new System.Drawing.Point(124, 203);
+            this.conditionID.Name = "conditionID";
+            this.conditionID.Size = new System.Drawing.Size(132, 21);
+            this.conditionID.TabIndex = 14;
+            // 
+            // providerID
+            // 
+            this.providerID.FormattingEnabled = true;
+            this.providerID.Location = new System.Drawing.Point(124, 237);
+            this.providerID.Name = "providerID";
+            this.providerID.Size = new System.Drawing.Size(132, 21);
+            this.providerID.TabIndex = 140;
             // 
             // Treatment
             // 
@@ -348,8 +348,6 @@
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox providerID;
-        private System.Windows.Forms.TextBox conditionID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button find;
         private System.Windows.Forms.TextBox search;
@@ -368,5 +366,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlContainer;
+        private System.Windows.Forms.ComboBox providerID;
+        private System.Windows.Forms.ComboBox conditionID;
     }
 }

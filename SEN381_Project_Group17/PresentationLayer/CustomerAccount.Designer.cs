@@ -32,20 +32,19 @@
             this.find = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.add = new System.Windows.Forms.Button();
-            this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.due = new System.Windows.Forms.TextBox();
-            this.clientID = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.clientID = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -95,7 +94,7 @@
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(375, 267);
+            this.add.Location = new System.Drawing.Point(375, 271);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 84;
@@ -103,22 +102,6 @@
             this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
-            // 
-            // delete
-            // 
-            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
-            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
-            this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete.Location = new System.Drawing.Point(375, 373);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(230, 47);
-            this.delete.TabIndex = 85;
-            this.delete.Text = "Delete";
-            this.delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delete.UseVisualStyleBackColor = true;
             // 
             // update
             // 
@@ -128,7 +111,7 @@
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(375, 320);
+            this.update.Location = new System.Drawing.Point(375, 324);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 86;
@@ -184,37 +167,45 @@
             this.due.Size = new System.Drawing.Size(234, 26);
             this.due.TabIndex = 81;
             // 
-            // clientID
-            // 
-            this.clientID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientID.Location = new System.Drawing.Point(114, 278);
-            this.clientID.Name = "clientID";
-            this.clientID.Size = new System.Drawing.Size(234, 26);
-            this.clientID.TabIndex = 80;
-            // 
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.clientID);
             this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.clientID);
             this.pnlContainer.Controls.Add(this.find);
             this.pnlContainer.Controls.Add(this.due);
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.label4);
-            this.pnlContainer.Controls.Add(this.delete);
             this.pnlContainer.Controls.Add(this.label3);
             this.pnlContainer.Controls.Add(this.update);
             this.pnlContainer.Controls.Add(this.label2);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(625, 430);
+            this.pnlContainer.Size = new System.Drawing.Size(625, 387);
             this.pnlContainer.TabIndex = 90;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // clientID
+            // 
+            this.clientID.FormattingEnabled = true;
+            this.clientID.Location = new System.Drawing.Point(114, 282);
+            this.clientID.Name = "clientID";
+            this.clientID.Size = new System.Drawing.Size(234, 21);
+            this.clientID.TabIndex = 92;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(114, 345);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(4, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(234, 26);
+            this.dateTimePicker1.TabIndex = 91;
             // 
             // pnlTitle
             // 
@@ -264,21 +255,12 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(114, 345);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(234, 26);
-            this.dateTimePicker1.TabIndex = 91;
-            // 
             // CustomerAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(625, 430);
+            this.ClientSize = new System.Drawing.Size(625, 387);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContainer);
             this.Name = "CustomerAccount";
@@ -306,19 +288,18 @@
         private System.Windows.Forms.Button find;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button add;
-        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox due;
-        private System.Windows.Forms.TextBox clientID;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox clientID;
     }
 }

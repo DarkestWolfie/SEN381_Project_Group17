@@ -32,20 +32,19 @@
             this.find = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.add = new System.Windows.Forms.Button();
-            this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.productID = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.productID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -95,7 +94,7 @@
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(29, 278);
+            this.add.Location = new System.Drawing.Point(169, 282);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 97;
@@ -103,22 +102,6 @@
             this.add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.add.UseVisualStyleBackColor = true;
             this.add.Click += new System.EventHandler(this.add_Click);
-            // 
-            // delete
-            // 
-            this.delete.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
-            this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
-            this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete.Location = new System.Drawing.Point(547, 278);
-            this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(230, 47);
-            this.delete.TabIndex = 98;
-            this.delete.Text = "Delete";
-            this.delete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delete.UseVisualStyleBackColor = true;
             // 
             // update
             // 
@@ -128,7 +111,7 @@
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(287, 278);
+            this.update.Location = new System.Drawing.Point(427, 282);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 99;
@@ -189,7 +172,6 @@
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.add);
             this.pnlContainer.Controls.Add(this.label4);
-            this.pnlContainer.Controls.Add(this.delete);
             this.pnlContainer.Controls.Add(this.label3);
             this.pnlContainer.Controls.Add(this.update);
             this.pnlContainer.Controls.Add(this.label2);
@@ -199,6 +181,32 @@
             this.pnlContainer.Size = new System.Drawing.Size(800, 341);
             this.pnlContainer.TabIndex = 103;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // productID
+            // 
+            this.productID.FormattingEnabled = true;
+            this.productID.Location = new System.Drawing.Point(109, 168);
+            this.productID.Name = "productID";
+            this.productID.Size = new System.Drawing.Size(126, 21);
+            this.productID.TabIndex = 106;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(109, 136);
+            this.dateTimePicker2.MinimumSize = new System.Drawing.Size(4, 26);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(126, 26);
+            this.dateTimePicker2.TabIndex = 105;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(109, 102);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(4, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(126, 26);
+            this.dateTimePicker1.TabIndex = 104;
             // 
             // pnlTitle
             // 
@@ -248,32 +256,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(109, 102);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(126, 26);
-            this.dateTimePicker1.TabIndex = 104;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(109, 136);
-            this.dateTimePicker2.MinimumSize = new System.Drawing.Size(0, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(126, 26);
-            this.dateTimePicker2.TabIndex = 105;
-            // 
-            // productID
-            // 
-            this.productID.FormattingEnabled = true;
-            this.productID.Location = new System.Drawing.Point(109, 168);
-            this.productID.Name = "productID";
-            this.productID.Size = new System.Drawing.Size(126, 21);
-            this.productID.TabIndex = 106;
-            // 
             // ProductHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,7 +286,6 @@
         private System.Windows.Forms.Button find;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Button add;
-        private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
