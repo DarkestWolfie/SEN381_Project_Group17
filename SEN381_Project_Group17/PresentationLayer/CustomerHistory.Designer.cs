@@ -39,8 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.active = new System.Windows.Forms.TextBox();
-            this.end = new System.Windows.Forms.TextBox();
-            this.start = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.productID = new System.Windows.Forms.TextBox();
@@ -50,6 +48,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -154,7 +154,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 107);
+            this.label2.Location = new System.Drawing.Point(8, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 18);
             this.label2.TabIndex = 104;
@@ -164,7 +164,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 138);
+            this.label3.Location = new System.Drawing.Point(8, 145);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 18);
             this.label3.TabIndex = 105;
@@ -174,7 +174,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 172);
+            this.label4.Location = new System.Drawing.Point(8, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 106;
@@ -188,27 +188,11 @@
             this.active.Size = new System.Drawing.Size(100, 26);
             this.active.TabIndex = 109;
             // 
-            // end
-            // 
-            this.end.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.end.Location = new System.Drawing.Point(124, 138);
-            this.end.Name = "end";
-            this.end.Size = new System.Drawing.Size(100, 26);
-            this.end.TabIndex = 108;
-            // 
-            // start
-            // 
-            this.start.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.start.Location = new System.Drawing.Point(124, 103);
-            this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(100, 26);
-            this.start.TabIndex = 107;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 204);
+            this.label6.Location = new System.Drawing.Point(8, 207);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 117;
@@ -218,7 +202,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 238);
+            this.label7.Location = new System.Drawing.Point(8, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 18);
             this.label7.TabIndex = 118;
@@ -243,12 +227,12 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.dateTimePicker2);
+            this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label6);
-            this.pnlContainer.Controls.Add(this.start);
             this.pnlContainer.Controls.Add(this.label7);
-            this.pnlContainer.Controls.Add(this.end);
             this.pnlContainer.Controls.Add(this.productID);
             this.pnlContainer.Controls.Add(this.active);
             this.pnlContainer.Controls.Add(this.customerID);
@@ -316,6 +300,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(124, 107);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(100, 26);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(124, 140);
+            this.dateTimePicker2.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(100, 26);
+            this.dateTimePicker2.TabIndex = 123;
+            // 
             // CustomerHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,8 +358,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox active;
-        private System.Windows.Forms.TextBox end;
-        private System.Windows.Forms.TextBox start;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox productID;
@@ -367,5 +367,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

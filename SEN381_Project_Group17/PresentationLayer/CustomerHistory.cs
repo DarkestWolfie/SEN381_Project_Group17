@@ -234,8 +234,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[cusHistorySource.Position];
 
-                start.Text = row.Cells["start"].Value.ToString();
-                end.Text = row.Cells["end"].Value.ToString();
+                string start = row.Cells["start"].Value.ToString();
+                string[] splitStart = start.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                string end = row.Cells["end"].Value.ToString();
+                string[] splitEnd = end.Split('-');
+                dateTimePicker2.Value = DateTime.Parse(splitEnd[0] + "/" + splitEnd[1] + "/" + splitEnd[2]);
                 active.Text = row.Cells["active"].Value.ToString();
                 customerID.Text = row.Cells["historyCustomerID"].Value.ToString();
                 productID.Text = row.Cells["historyProductHistoryID"].Value.ToString();
@@ -253,8 +257,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[cusHistorySource.Position];
 
-                start.Text = row.Cells["start"].Value.ToString();
-                end.Text = row.Cells["end"].Value.ToString();
+                string start = row.Cells["start"].Value.ToString();
+                string[] splitStart = start.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                string end = row.Cells["end"].Value.ToString();
+                string[] splitEnd = end.Split('-');
+                dateTimePicker2.Value = DateTime.Parse(splitEnd[0] + "/" + splitEnd[1] + "/" + splitEnd[2]); ;
                 active.Text = row.Cells["active"].Value.ToString();
                 customerID.Text = row.Cells["historyCustomerID"].Value.ToString();
                 productID.Text = row.Cells["historyProductHistoryID"].Value.ToString();
@@ -265,7 +273,15 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start.Text, end.Text, active.Text);
+            string start = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = start.Split('/');
+            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            string end = dateTimePicker1.Value.ToShortDateString();
+            string[] dateE = end.Split('/');
+            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+
+            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
 
             MessageBox.Show(cusHistory_d.add(custObj));
 
@@ -275,7 +291,15 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start.Text, end.Text, active.Text);
+            string start = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = start.Split('/');
+            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            string end = dateTimePicker1.Value.ToShortDateString();
+            string[] dateE = end.Split('/');
+            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+
+            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
 
             MessageBox.Show(cusHistory_d.update(custObj));
 

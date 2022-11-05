@@ -105,6 +105,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             prodHistorySource.DataSource = prodHistory_d.getAll();
             dataGridView1.DataSource = prodHistorySource;
+
+            populateProduct();
         }
 
         private void ProductHistory_MouseDown(object sender, MouseEventArgs e)
@@ -233,8 +235,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
 
-                start.Text = row.Cells["start"].Value.ToString();
-                end.Text = row.Cells["end"].Value.ToString();
+                string start = row.Cells["start"].Value.ToString();
+                string[] splitStart = start.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                string end = row.Cells["end"].Value.ToString();
+                string[] splitEnd = end.Split('-');
                 productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
 
                 prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
@@ -251,8 +256,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
 
-                start.Text = row.Cells["start"].Value.ToString();
-                end.Text = row.Cells["end"].Value.ToString();
+                string start = row.Cells["start"].Value.ToString();
+                string[] splitStart = start.Split('-');
+                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                string end = row.Cells["end"].Value.ToString();
+                string[] splitEnd = end.Split('-');
                 productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
 
                 prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
@@ -262,7 +270,15 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start.Text, end.Text);
+            string start = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = start.Split('/');
+            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            string end = dateTimePicker1.Value.ToShortDateString();
+            string[] dateE = end.Split('/');
+            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+
+            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
             MessageBox.Show(prodHistory_d.add(historyObj));
 
             prodHistorySource.DataSource = prodHistory_d.getAll();
@@ -271,11 +287,41 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start.Text, end.Text);
+            string start = dateTimePicker1.Value.ToShortDateString();
+            string[] dateS = start.Split('/');
+            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+
+            string end = dateTimePicker1.Value.ToShortDateString();
+            string[] dateE = end.Split('/');
+            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+
+            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
             MessageBox.Show(prodHistory_d.update(historyObj));
 
             prodHistorySource.DataSource = prodHistory_d.getAll();
             dataGridView1.DataSource = prodHistorySource;
+        }
+
+        private void populateProduct()
+        {
+            List<product_b> productsList = new List<product_b>();
+
+            product_d pro = new product_d();
+
+            DataTable dt = pro.getAll();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                product_b product = new product_b();
+                product.ProductID = Convert.ToInt32(dt.Rows[i]["productID"]);
+
+                productsList.Add(product);
+            }
+
+            foreach (product_b item in productsList)
+            {
+                productID.Items.Add(item.ProductID);
+            }
         }
     }
 }

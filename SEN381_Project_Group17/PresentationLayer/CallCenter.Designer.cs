@@ -36,7 +36,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.datePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -146,14 +146,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(210, 543);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(213, 26);
-            this.textBox6.TabIndex = 65;
-            // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,9 +231,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.datePicker);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
-            this.pnlContainer.Controls.Add(this.textBox6);
             this.pnlContainer.Controls.Add(this.textBox5);
             this.pnlContainer.Controls.Add(this.button2);
             this.pnlContainer.Controls.Add(this.textBox4);
@@ -352,6 +344,14 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // datePicker
+            // 
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(210, 540);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(213, 26);
+            this.datePicker.TabIndex = 67;
+            // 
             // CallCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,7 +390,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
@@ -403,5 +402,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker datePicker;
     }
 }

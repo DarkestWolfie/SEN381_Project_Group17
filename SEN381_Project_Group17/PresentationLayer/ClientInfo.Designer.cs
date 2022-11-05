@@ -41,7 +41,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.familyRole = new System.Windows.Forms.TextBox();
             this.familyID = new System.Windows.Forms.TextBox();
             this.idNum = new System.Windows.Forms.TextBox();
-            this.dob = new System.Windows.Forms.TextBox();
             this.surname = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -203,14 +203,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.idNum.Name = "idNum";
             this.idNum.Size = new System.Drawing.Size(151, 26);
             this.idNum.TabIndex = 48;
-            // 
-            // dob
-            // 
-            this.dob.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dob.Location = new System.Drawing.Point(120, 169);
-            this.dob.Name = "dob";
-            this.dob.Size = new System.Drawing.Size(151, 26);
-            this.dob.TabIndex = 47;
             // 
             // surname
             // 
@@ -385,6 +377,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.label14);
             this.pnlContainer.Controls.Add(this.button2);
             this.pnlContainer.Controls.Add(this.search);
@@ -415,7 +408,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Controls.Add(this.label6);
             this.pnlContainer.Controls.Add(this.idNum);
             this.pnlContainer.Controls.Add(this.label7);
-            this.pnlContainer.Controls.Add(this.dob);
             this.pnlContainer.Controls.Add(this.label8);
             this.pnlContainer.Controls.Add(this.surname);
             this.pnlContainer.Controls.Add(this.name);
@@ -494,6 +486,15 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label13.TabIndex = 8;
             this.label13.Text = "Client Information";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(119, 169);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(152, 30);
+            this.dateTimePicker1.TabIndex = 93;
+            // 
             // ClientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,7 +535,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.TextBox familyRole;
         private System.Windows.Forms.TextBox familyID;
         private System.Windows.Forms.TextBox idNum;
-        private System.Windows.Forms.TextBox dob;
         private System.Windows.Forms.TextBox surname;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Label label8;
@@ -560,5 +560,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -44,13 +44,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.conditionID = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.TextBox();
-            this.date = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -234,21 +234,13 @@
             this.status.Size = new System.Drawing.Size(156, 26);
             this.status.TabIndex = 127;
             // 
-            // date
-            // 
-            this.date.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(133, 299);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(156, 26);
-            this.date.TabIndex = 126;
-            // 
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.dateTimePicker1);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.label6);
-            this.pnlContainer.Controls.Add(this.date);
             this.pnlContainer.Controls.Add(this.label7);
             this.pnlContainer.Controls.Add(this.status);
             this.pnlContainer.Controls.Add(this.providerID);
@@ -326,6 +318,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 297);
+            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
+            this.dateTimePicker1.TabIndex = 140;
+            // 
             // ClaimApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,12 +371,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox conditionID;
         private System.Windows.Forms.TextBox status;
-        private System.Windows.Forms.TextBox date;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
