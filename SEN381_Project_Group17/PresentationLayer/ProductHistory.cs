@@ -277,36 +277,50 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            string start = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = start.Split('/');
-            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.prodHistoryVal(productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            {
+                string start = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = start.Split('/');
+                start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            string end = dateTimePicker1.Value.ToShortDateString();
-            string[] dateE = end.Split('/');
-            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+                string end = dateTimePicker1.Value.ToShortDateString();
+                string[] dateE = end.Split('/');
+                end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 
-            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
-            MessageBox.Show(prodHistory_d.add(historyObj));
+                product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
+                MessageBox.Show(prodHistory_d.add(historyObj));
 
-            prodHistorySource.DataSource = prodHistory_d.getAll();
-            dataGridView1.DataSource = prodHistorySource;
+                prodHistorySource.DataSource = prodHistory_d.getAll();
+                dataGridView1.DataSource = prodHistorySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            string start = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = start.Split('/');
-            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.prodHistoryVal(productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            {
+                string start = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = start.Split('/');
+                start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            string end = dateTimePicker1.Value.ToShortDateString();
-            string[] dateE = end.Split('/');
-            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+                string end = dateTimePicker1.Value.ToShortDateString();
+                string[] dateE = end.Split('/');
+                end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 
-            product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
-            MessageBox.Show(prodHistory_d.update(historyObj));
+                product_history_b historyObj = new product_history_b(prodHistoryID, int.Parse(productID.Text), start, end);
+                MessageBox.Show(prodHistory_d.update(historyObj));
 
-            prodHistorySource.DataSource = prodHistory_d.getAll();
-            dataGridView1.DataSource = prodHistorySource;
+                prodHistorySource.DataSource = prodHistory_d.getAll();
+                dataGridView1.DataSource = prodHistorySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

@@ -73,6 +73,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@callEmployeeID", call.CallEmployeeID);
                     cmd.Parameters.AddWithValue("@start", call.Strat);
                     cmd.Parameters.AddWithValue("@end", call.End);
+                    cmd.Parameters.AddWithValue("@duration", call.Duration);
                     cmd.Parameters.AddWithValue("@dateCreated", call.DateCreated);
 
                     cn.Open();
@@ -103,6 +104,7 @@ namespace SEN381_Project_Group17.DataLayer
                     cmd.Parameters.AddWithValue("@callEmployeeID", call.CallEmployeeID);
                     cmd.Parameters.AddWithValue("@start", call.Strat);
                     cmd.Parameters.AddWithValue("@end", call.End);
+                    cmd.Parameters.AddWithValue("@duration", call.Duration);
                     cmd.Parameters.AddWithValue("@dateCreated", call.DateCreated);
 
                     cn.Open();

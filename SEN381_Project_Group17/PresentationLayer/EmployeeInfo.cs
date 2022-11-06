@@ -286,20 +286,36 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
-            MessageBox.Show(employee.update(employeeObj));
+            if (validation.empInfoVal(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text))
+            {
+                employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                MessageBox.Show(employee.update(employeeObj));
 
-            employeeSource.DataSource = employee.getAll();
-            dataGridView1.DataSource = employeeSource;
+                employeeSource.DataSource = employee.getAll();
+                dataGridView1.DataSource = employeeSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
+
+        validation validation = new validation();
 
         private void add_Click(object sender, EventArgs e)
         {
-            employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
-            MessageBox.Show(employee.add(employeeObj));
+            if (validation.empInfoVal(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text))
+            {
+                employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                MessageBox.Show(employee.add(employeeObj));
 
-            employeeSource.DataSource = employee.getAll();
-            dataGridView1.DataSource = employeeSource;
+                employeeSource.DataSource = employee.getAll();
+                dataGridView1.DataSource = employeeSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

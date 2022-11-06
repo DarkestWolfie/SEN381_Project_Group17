@@ -1,4 +1,5 @@
-﻿using SEN381_Project_Group17.DataLayer;
+﻿using SEN381_Project_Group17.BusinessLayer;
+using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -216,33 +217,46 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         employee_d emp = new employee_d();
         string role;
+        int id;
+        validation validation = new validation();
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string message = emp.checkLogin(textBox1.Text, textBox2.Text);
 
-            switch (message)
+            if (validation.loginValidation(textBox1.Text, textBox2.Text) == true)
             {
-                case "Call agent":
-                    role = "Call Agent";
+                string message = emp.checkLogin(textBox1.Text, textBox2.Text);
 
-                    CallCenter CC = new CallCenter(role);
-                    this.Hide();
-                    CC.ShowDialog();
-                    this.Close();
-                    break;
+                switch (message)
+                {
+                    case "Call agent":
+                        role = "Call Agent";
 
-                case "Manager":
-                    role = "Admin";
-                    UkupholisaHub hub = new UkupholisaHub(role);
-                    this.Hide();
-                    hub.ShowDialog();
-                    this.Close();
-                    break;
+                        id = emp.getID(textBox1.Text, textBox2.Text);
+                        CallCenter CC = new CallCenter(role, id);
+                        this.Hide();
+                        CC.ShowDialog();
+                        this.Close();
+                        break;
 
-                default:
-                    MessageBox.Show(message);
-                    break;
+                    case "Manager":
+                        role = "Admin";
+
+                        id = emp.getID(textBox1.Text, textBox2.Text);
+                        UkupholisaHub hub = new UkupholisaHub(role, id);
+                        this.Hide();
+                        hub.ShowDialog();
+                        this.Close();
+                        break;
+
+                    default:
+                        MessageBox.Show(message);
+                        break;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
             }
         }
     }

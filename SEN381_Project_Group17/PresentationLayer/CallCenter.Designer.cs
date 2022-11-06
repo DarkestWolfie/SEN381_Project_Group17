@@ -29,33 +29,39 @@ namespace SEN381_Project_Group17.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.datePicker = new System.Windows.Forms.DateTimePicker();
+            this.start = new System.Windows.Forms.DateTimePicker();
+            this.end = new System.Windows.Forms.DateTimePicker();
+            this.duration = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.employeeID = new System.Windows.Forms.ComboBox();
+            this.customerID = new System.Windows.Forms.ComboBox();
+            this.dateCreated = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -125,27 +131,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 157);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(411, 216);
+            this.dataGridView1.Size = new System.Drawing.Size(411, 206);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(210, 506);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(213, 26);
-            this.textBox5.TabIndex = 64;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(210, 466);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(213, 26);
-            this.textBox4.TabIndex = 63;
             // 
             // label6
             // 
@@ -161,7 +149,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 509);
+            this.label5.Location = new System.Drawing.Point(12, 479);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 57;
@@ -171,7 +159,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 469);
+            this.label4.Location = new System.Drawing.Point(13, 447);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 56;
@@ -181,7 +169,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 431);
+            this.label3.Location = new System.Drawing.Point(13, 415);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 18);
             this.label3.TabIndex = 55;
@@ -191,7 +179,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 391);
+            this.label10.Location = new System.Drawing.Point(12, 383);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 18);
             this.label10.TabIndex = 54;
@@ -200,14 +188,17 @@ namespace SEN381_Project_Group17.PresentationLayer
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
-            this.pnlContainer.Controls.Add(this.comboBox2);
-            this.pnlContainer.Controls.Add(this.comboBox1);
-            this.pnlContainer.Controls.Add(this.datePicker);
+            this.pnlContainer.Controls.Add(this.dataGridView2);
+            this.pnlContainer.Controls.Add(this.start);
+            this.pnlContainer.Controls.Add(this.end);
+            this.pnlContainer.Controls.Add(this.duration);
+            this.pnlContainer.Controls.Add(this.label7);
+            this.pnlContainer.Controls.Add(this.employeeID);
+            this.pnlContainer.Controls.Add(this.customerID);
+            this.pnlContainer.Controls.Add(this.dateCreated);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
-            this.pnlContainer.Controls.Add(this.textBox5);
             this.pnlContainer.Controls.Add(this.button2);
-            this.pnlContainer.Controls.Add(this.textBox4);
             this.pnlContainer.Controls.Add(this.button3);
             this.pnlContainer.Controls.Add(this.button5);
             this.pnlContainer.Controls.Add(this.label6);
@@ -227,31 +218,74 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.TabIndex = 66;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
-            // comboBox2
+            // start
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(210, 428);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(213, 26);
-            this.comboBox2.TabIndex = 70;
+            this.start.Enabled = false;
+            this.start.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.start.Location = new System.Drawing.Point(211, 444);
+            this.start.Name = "start";
+            this.start.Size = new System.Drawing.Size(213, 26);
+            this.start.TabIndex = 74;
+            this.start.Value = new System.DateTime(2022, 11, 6, 12, 56, 45, 0);
             // 
-            // comboBox1
+            // end
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(210, 388);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(213, 26);
-            this.comboBox1.TabIndex = 69;
+            this.end.Enabled = false;
+            this.end.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.end.Location = new System.Drawing.Point(210, 476);
+            this.end.Name = "end";
+            this.end.Size = new System.Drawing.Size(213, 26);
+            this.end.TabIndex = 73;
+            this.end.Value = new System.DateTime(2022, 11, 6, 12, 56, 40, 0);
             // 
-            // datePicker
+            // duration
             // 
-            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePicker.Location = new System.Drawing.Point(210, 540);
-            this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(213, 26);
-            this.datePicker.TabIndex = 67;
+            this.duration.Enabled = false;
+            this.duration.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.duration.Location = new System.Drawing.Point(210, 508);
+            this.duration.Name = "duration";
+            this.duration.Size = new System.Drawing.Size(213, 26);
+            this.duration.TabIndex = 72;
+            this.duration.Value = new System.DateTime(2022, 11, 6, 12, 56, 33, 0);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 511);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 18);
+            this.label7.TabIndex = 71;
+            this.label7.Text = "Duration";
+            // 
+            // employeeID
+            // 
+            this.employeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.employeeID.FormattingEnabled = true;
+            this.employeeID.Location = new System.Drawing.Point(210, 412);
+            this.employeeID.Name = "employeeID";
+            this.employeeID.Size = new System.Drawing.Size(213, 26);
+            this.employeeID.TabIndex = 70;
+            // 
+            // customerID
+            // 
+            this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerID.FormattingEnabled = true;
+            this.customerID.Location = new System.Drawing.Point(210, 380);
+            this.customerID.Name = "customerID";
+            this.customerID.Size = new System.Drawing.Size(213, 26);
+            this.customerID.TabIndex = 69;
+            this.customerID.SelectedValueChanged += new System.EventHandler(this.customerID_SelectedValueChanged);
+            // 
+            // dateCreated
+            // 
+            this.dateCreated.Enabled = false;
+            this.dateCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateCreated.Location = new System.Drawing.Point(210, 540);
+            this.dateCreated.Name = "dateCreated";
+            this.dateCreated.Size = new System.Drawing.Size(213, 26);
+            this.dateCreated.TabIndex = 67;
+            this.dateCreated.Value = new System.DateTime(2022, 11, 6, 12, 56, 49, 0);
             // 
             // pnlTitle
             // 
@@ -321,6 +355,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.Text = "Decline Call";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button8
             // 
@@ -338,6 +373,19 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 157);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(411, 206);
+            this.dataGridView2.TabIndex = 75;
             // 
             // CallCenter
             // 
@@ -360,6 +408,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,8 +425,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -386,8 +433,14 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox employeeID;
+        private System.Windows.Forms.ComboBox customerID;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker start;
+        private System.Windows.Forms.DateTimePicker end;
+        private System.Windows.Forms.DateTimePicker duration;
+        private System.Windows.Forms.DateTimePicker dateCreated;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

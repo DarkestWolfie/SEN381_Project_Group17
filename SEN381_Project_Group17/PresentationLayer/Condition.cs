@@ -273,22 +273,36 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
+            if (validation.conditionVal(name.Text, code.Text, policyID.Text))
+            {
+                condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
 
-            MessageBox.Show(condition_d.add(conditionObj));
+                MessageBox.Show(condition_d.add(conditionObj));
 
-            conditionSource.DataSource = condition_d.getAll();
-            dataGridView1.DataSource = conditionSource;
+                conditionSource.DataSource = condition_d.getAll();
+                dataGridView1.DataSource = conditionSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
+            if (validation.conditionVal(name.Text, code.Text, policyID.Text))
+            {
+                condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
 
-            MessageBox.Show(condition_d.update(conditionObj));
+                MessageBox.Show(condition_d.update(conditionObj));
 
-            conditionSource.DataSource = condition_d.getAll();
-            dataGridView1.DataSource = conditionSource;
+                conditionSource.DataSource = condition_d.getAll();
+                dataGridView1.DataSource = conditionSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

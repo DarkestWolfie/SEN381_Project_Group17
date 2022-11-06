@@ -285,20 +285,34 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
-            MessageBox.Show(treatment_d.add(treatmentObj));
+            if (validation.treatInfoVal(conditionID.Text, providerID.Text, name.Text, description.Text, cost.Text))
+            {
+                treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
+                MessageBox.Show(treatment_d.add(treatmentObj));
 
-            treatmentSource.DataSource = treatment_d.getAll();
-            dataGridView1.DataSource = treatmentSource;
+                treatmentSource.DataSource = treatment_d.getAll();
+                dataGridView1.DataSource = treatmentSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
-            MessageBox.Show(treatment_d.update(treatmentObj));
+            if (validation.treatInfoVal(conditionID.Text, providerID.Text, name.Text, description.Text, cost.Text))
+            {
+                treatment_b treatmentObj = new treatment_b(treatmentID, int.Parse(conditionID.Text), int.Parse(providerID.Text), name.Text, description.Text, double.Parse(cost.Text));
+                MessageBox.Show(treatment_d.update(treatmentObj));
 
-            treatmentSource.DataSource = treatment_d.getAll();
-            dataGridView1.DataSource = treatmentSource;
+                treatmentSource.DataSource = treatment_d.getAll();
+                dataGridView1.DataSource = treatmentSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

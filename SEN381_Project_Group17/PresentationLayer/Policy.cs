@@ -264,24 +264,40 @@ namespace SEN381_Project_Group17.PresentationLayer
             }
         }
 
+        validation validation = new validation();
+
         private void add_Click(object sender, EventArgs e)
         {
-            string newPolID = pol_b.GenerateID();
+            if (validation.polInfoVal(name.Text, price.Text, installment.Text, payout.Text))
+            {
+                string newPolID = pol_b.GenerateID();
 
-            policy_b policyObj = new policy_b(newPolID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
-            MessageBox.Show(policy_d.add(policyObj));
+                policy_b policyObj = new policy_b(newPolID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+                MessageBox.Show(policy_d.add(policyObj));
 
-            policySource.DataSource = policy_d.getAll();
-            dataGridView1.DataSource = policySource;
+                policySource.DataSource = policy_d.getAll();
+                dataGridView1.DataSource = policySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
-            MessageBox.Show(policy_d.update(policyObj));
+            if (validation.polInfoVal(name.Text, price.Text, installment.Text, payout.Text))
+            {
+                policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+                MessageBox.Show(policy_d.update(policyObj));
 
-            policySource.DataSource = policy_d.getAll();
-            dataGridView1.DataSource = policySource;
+                policySource.DataSource = policy_d.getAll();
+                dataGridView1.DataSource = policySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

@@ -11,15 +11,17 @@ namespace SEN381_Project_Group17.PresentationLayer
 {
     public partial class CallCenter : Form
     {
-
+        string[] durationTime = {"00", "00", "00"};
         string role;
+        int id;
+
         //Form Design:
         private int borderRadius = 30;
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(0, 255, 178);
 
         //Constructor
-        public CallCenter(string role)
+        public CallCenter(string role, int empNumber)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -28,6 +30,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.BackColor = borderColor;
 
             this.role = role;
+            this.id = empNumber;
         }
 
         //Drag Form
@@ -98,6 +101,8 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         call_history_d call = new call_history_d();
         BindingSource callSource = new BindingSource();
+        customer_d cust = new customer_d();
+        BindingSource custSource = new BindingSource();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -111,7 +116,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             else
             {
                 this.Hide();
-                Form hub = new UkupholisaHub(role);
+                Form hub = new UkupholisaHub(role, id);
                 hub.ShowDialog();
                 this.Close();
             }
@@ -127,13 +132,14 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
 
-                comboBox1.Text = row.Cells["callCustomerID"].Value.ToString();
-                comboBox2.Text = row.Cells["callEmployeeID"].Value.ToString();
-                textBox4.Text = row.Cells["start"].Value.ToString();
-                textBox5.Text = row.Cells["end"].Value.ToString();
+                customerID.Text = row.Cells["callCustomerID"].Value.ToString();
+                employeeID.Text = row.Cells["callEmployeeID"].Value.ToString();
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                duration.Text = row.Cells["duration"].Value.ToString();
                 string date = row.Cells["dateCreated"].Value.ToString();
                 string[] splits = date.Split('-');
-                datePicker.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                dateCreated.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
 
                 callID = int.Parse(row.Cells["callID"].Value.ToString());
@@ -147,37 +153,77 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string date = datePicker.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.callVal(customerID.Text, employeeID.Text, start.Text, end.Text, dateCreated.Text, duration.Text))
+            {
+                string date = dateCreated.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            call_history_b callObj = new call_history_b(callID, comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
+                call_history_b callObj = new call_history_b(callID, customerID.Text, int.Parse(employeeID.Text), start.Text, end.Text, date, duration.Text);
 
-            MessageBox.Show(call.update(callObj));
+                MessageBox.Show(call.update(callObj));
 
-            callSource.DataSource = call.getAll();
-            dataGridView1.DataSource = callSource;
+                callSource.DataSource = call.getAll();
+                dataGridView1.DataSource = callSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
+            
         }
 
         validation validation = new validation();
 
         private void CallCenter_Load(object sender, EventArgs e)
         {
-            callSource.DataSource = call.getAll();
-            dataGridView1.DataSource = callSource;
-
             List<customer_b> list = validation.populateCustomer();
 
             foreach (customer_b item in list)
             {
-                comboBox1.Items.Add(item.CustomerID);
+                customerID.Items.Add(item.CustomerID);
             }
 
             List<employee_b> list2 = validation.populateEmployee();
 
             foreach (employee_b item in list2)
             {
-                comboBox2.Items.Add(item.EmployeeID);
+                employeeID.Items.Add(item.EmployeeID);
+            }
+
+            start.Text = "00:00:00";
+            end.Text = "00:00:00";
+            duration.Text = "00:00:00";
+            dateCreated.Text = DateTime.Now.ToShortDateString();
+            employeeID.Text = id.ToString();
+
+            if (role != "Admin")
+            {
+                employeeID.Enabled = false;
+                button7.Hide();
+                button5.Hide();
+                dataGridView1.Hide();
+                dataGridView2.Show();
+                button3.Hide();
+                label1.Hide();
+                textBox1.Hide();
+                button8.Hide();
+
+                custSource.DataSource = cust.getAll();
+                dataGridView2.DataSource = custSource;
+            }
+            else
+            {
+                employeeID.Enabled = true;
+                button7.Show();
+                dataGridView2.Hide();
+                dataGridView1.Show();
+                label1.Show();
+                textBox1.Show();
+                button8.Show();
+
+                callSource.DataSource = call.getAll();
+                dataGridView1.DataSource = callSource;
             }
         }
 
@@ -187,13 +233,14 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
 
-                comboBox1.Text = row.Cells["callCustomerID"].Value.ToString();
-                comboBox2.Text = row.Cells["callEmployeeID"].Value.ToString();
-                textBox4.Text = row.Cells["start"].Value.ToString();
-                textBox5.Text = row.Cells["end"].Value.ToString();
+                customerID.Text = row.Cells["callCustomerID"].Value.ToString();
+                employeeID.Text = row.Cells["callEmployeeID"].Value.ToString();
+                start.Text = row.Cells["start"].Value.ToString();
+                end.Text = row.Cells["end"].Value.ToString();
+                duration.Text = row.Cells["duration"].Value.ToString();
                 string date = row.Cells["dateCreated"].Value.ToString();
                 string[] splits = date.Split('-');
-                datePicker.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                dateCreated.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
                 callID = int.Parse(row.Cells["callID"].Value.ToString());
             }
@@ -309,21 +356,76 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button5_Click(object sender, EventArgs e)
         {
-            string date = datePicker.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.callVal(customerID.Text, employeeID.Text, start.Text, end.Text, dateCreated.Text, duration.Text))
+            {
+                string date = dateCreated.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            call_history_b callAdd = new call_history_b(callID, comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
+                call_history_b callAdd = new call_history_b(callID, customerID.Text, int.Parse(employeeID.Text), start.Text, end.Text, date, duration.Text);
 
-            MessageBox.Show(call.add(callAdd));
+                MessageBox.Show(call.add(callAdd));
 
-            callSource.DataSource = call.getAll();
-            dataGridView1.DataSource = callSource;
+                callSource.DataSource = call.getAll();
+                dataGridView1.DataSource = callSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            button3.Show();
+            start.Text = DateTime.Now.ToLongTimeString();
 
+            timer1.Start();
+
+            timer1.Tick += new EventHandler(time);
+        }
+
+        private void time(object Sender, EventArgs e)
+        {
+            if (durationTime[2] == "60")
+            {
+                if (durationTime[1] == "60")
+                {
+                    durationTime[0] = (int.Parse(durationTime[0]) + 1).ToString();
+                }
+                else
+                {
+                    durationTime[1] = (int.Parse(durationTime[1]) + 1).ToString();
+                }
+            }
+            else
+            {
+                durationTime[2] = (int.Parse(durationTime[2]) + 1).ToString();
+            }
+
+            duration.Text = durationTime[0].ToString() + ":" + durationTime[1].ToString() + ":" + durationTime[2].ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button3.Hide();
+            timer1.Stop();
+            end.Text = DateTime.Now.ToLongTimeString();
+            button5.Show();
+            durationTime[0] = "00";
+            durationTime[1] = "00";
+            durationTime[2] = "00";
+
+
+        }
+
+        private void customerID_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (duration.Text != "00:00:00")
+            {
+                ClaimApplication ca = new ClaimApplication(role, true);
+                ca.Show();
+            }
         }
     }
 }
