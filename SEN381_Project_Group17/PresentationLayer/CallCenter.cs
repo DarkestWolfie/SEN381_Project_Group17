@@ -2,14 +2,9 @@
 using SEN381_Project_Group17.DataLayer;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SEN381_Project_Group17.PresentationLayer
@@ -37,9 +32,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
+        private static extern void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         protected override CreateParams CreateParams
         {
             get
@@ -120,7 +115,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 hub.ShowDialog();
                 this.Close();
             }
-            
+
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -139,7 +134,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 string date = row.Cells["dateCreated"].Value.ToString();
                 string[] splits = date.Split('-');
                 datePicker.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
-                 
+
 
                 callID = int.Parse(row.Cells["callID"].Value.ToString());
             }
@@ -156,7 +151,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             string[] dateS = date.Split('/');
             date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            call_history_b callObj = new call_history_b(callID,comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
+            call_history_b callObj = new call_history_b(callID, comboBox1.Text, int.Parse(comboBox2.Text), textBox4.Text, textBox5.Text, date);
 
             MessageBox.Show(call.update(callObj));
 
@@ -326,5 +321,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             dataGridView1.DataSource = callSource;
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
