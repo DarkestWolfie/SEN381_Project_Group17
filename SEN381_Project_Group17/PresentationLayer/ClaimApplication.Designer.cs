@@ -42,15 +42,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.status = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.providerID = new System.Windows.Forms.ComboBox();
+            this.conditionID = new System.Windows.Forms.ComboBox();
+            this.customerID = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.customerID = new System.Windows.Forms.ComboBox();
-            this.conditionID = new System.Windows.Forms.ComboBox();
-            this.providerID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -238,6 +238,33 @@
             this.pnlContainer.TabIndex = 139;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
+            // providerID
+            // 
+            this.providerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.providerID.FormattingEnabled = true;
+            this.providerID.Location = new System.Drawing.Point(133, 438);
+            this.providerID.Name = "providerID";
+            this.providerID.Size = new System.Drawing.Size(156, 21);
+            this.providerID.TabIndex = 143;
+            // 
+            // conditionID
+            // 
+            this.conditionID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.conditionID.FormattingEnabled = true;
+            this.conditionID.Location = new System.Drawing.Point(133, 403);
+            this.conditionID.Name = "conditionID";
+            this.conditionID.Size = new System.Drawing.Size(156, 21);
+            this.conditionID.TabIndex = 142;
+            // 
+            // customerID
+            // 
+            this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerID.FormattingEnabled = true;
+            this.customerID.Location = new System.Drawing.Point(133, 367);
+            this.customerID.Name = "customerID";
+            this.customerID.Size = new System.Drawing.Size(156, 21);
+            this.customerID.TabIndex = 141;
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -302,30 +329,6 @@
             this.button1.TabIndex = 13;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // customerID
-            // 
-            this.customerID.FormattingEnabled = true;
-            this.customerID.Location = new System.Drawing.Point(133, 367);
-            this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(156, 21);
-            this.customerID.TabIndex = 141;
-            // 
-            // conditionID
-            // 
-            this.conditionID.FormattingEnabled = true;
-            this.conditionID.Location = new System.Drawing.Point(133, 403);
-            this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(156, 21);
-            this.conditionID.TabIndex = 142;
-            // 
-            // providerID
-            // 
-            this.providerID.FormattingEnabled = true;
-            this.providerID.Location = new System.Drawing.Point(133, 438);
-            this.providerID.Name = "providerID";
-            this.providerID.Size = new System.Drawing.Size(156, 21);
-            this.providerID.TabIndex = 143;
             // 
             // ClaimApplication
             // 

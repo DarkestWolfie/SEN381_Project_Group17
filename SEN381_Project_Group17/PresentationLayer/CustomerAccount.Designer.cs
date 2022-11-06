@@ -192,6 +192,7 @@
             // 
             // clientID
             // 
+            this.clientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.clientID.FormattingEnabled = true;
             this.clientID.Location = new System.Drawing.Point(114, 282);
             this.clientID.Name = "clientID";

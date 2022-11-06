@@ -184,6 +184,7 @@
             // 
             // productID
             // 
+            this.productID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productID.FormattingEnabled = true;
             this.productID.Location = new System.Drawing.Point(109, 168);
             this.productID.Name = "productID";
