@@ -177,7 +177,7 @@ GO
 CREATE PROC spGetPolicy
 AS
 BEGIN
-	SELECT policyID, policyName, price, installment, payout FROM [policy] WHERE NOT policyStatus = 'deleted';
+	SELECT policyID, policyName, price, installment, payout FROM [policy] WHERE policyStatus IS NULL;
 END
 GO
 
@@ -205,7 +205,7 @@ GO
 CREATE PROC spGetProduct
 AS
 BEGIN
-	SELECT productID, policyDiscount, availability, productPolicyID FROM [product] WHERE NOT productStatus = 'deleted';
+	SELECT productID, policyDiscount, availability, productPolicyID FROM [product] where productStatus IS NULL
 END
 GO
 

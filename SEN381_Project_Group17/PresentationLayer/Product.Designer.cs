@@ -219,6 +219,7 @@
             // 
             // policyID
             // 
+            this.policyID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.policyID.FormattingEnabled = true;
             this.policyID.Location = new System.Drawing.Point(114, 175);
             this.policyID.Name = "policyID";

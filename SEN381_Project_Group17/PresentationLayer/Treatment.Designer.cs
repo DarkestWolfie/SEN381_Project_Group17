@@ -48,8 +48,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.conditionID = new System.Windows.Forms.ComboBox();
             this.providerID = new System.Windows.Forms.ComboBox();
+            this.conditionID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -301,21 +301,23 @@
             this.pnlContainer.TabIndex = 140;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
-            // conditionID
-            // 
-            this.conditionID.FormattingEnabled = true;
-            this.conditionID.Location = new System.Drawing.Point(124, 203);
-            this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(132, 21);
-            this.conditionID.TabIndex = 14;
-            // 
             // providerID
             // 
+            this.providerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.providerID.FormattingEnabled = true;
             this.providerID.Location = new System.Drawing.Point(124, 237);
             this.providerID.Name = "providerID";
             this.providerID.Size = new System.Drawing.Size(132, 21);
             this.providerID.TabIndex = 140;
+            // 
+            // conditionID
+            // 
+            this.conditionID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.conditionID.FormattingEnabled = true;
+            this.conditionID.Location = new System.Drawing.Point(124, 203);
+            this.conditionID.Name = "conditionID";
+            this.conditionID.Size = new System.Drawing.Size(132, 21);
+            this.conditionID.TabIndex = 14;
             // 
             // Treatment
             // 

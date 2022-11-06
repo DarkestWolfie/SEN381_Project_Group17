@@ -41,11 +41,11 @@
             this.code = new System.Windows.Forms.TextBox();
             this.name = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.policyID = new System.Windows.Forms.ComboBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.policyID = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
@@ -217,6 +217,15 @@
             this.pnlContainer.TabIndex = 90;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
+            // policyID
+            // 
+            this.policyID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.policyID.FormattingEnabled = true;
+            this.policyID.Location = new System.Drawing.Point(133, 358);
+            this.policyID.Name = "policyID";
+            this.policyID.Size = new System.Drawing.Size(150, 21);
+            this.policyID.TabIndex = 14;
+            // 
             // pnlTitle
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
@@ -264,14 +273,6 @@
             this.button1.TabIndex = 11;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // policyID
-            // 
-            this.policyID.FormattingEnabled = true;
-            this.policyID.Location = new System.Drawing.Point(133, 358);
-            this.policyID.Name = "policyID";
-            this.policyID.Size = new System.Drawing.Size(150, 21);
-            this.policyID.TabIndex = 14;
             // 
             // Condition
             // 

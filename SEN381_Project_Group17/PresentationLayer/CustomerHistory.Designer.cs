@@ -220,6 +220,7 @@
             // 
             // productID
             // 
+            this.productID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productID.FormattingEnabled = true;
             this.productID.Location = new System.Drawing.Point(124, 242);
             this.productID.Name = "productID";
@@ -228,6 +229,7 @@
             // 
             // customerID
             // 
+            this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerID.FormattingEnabled = true;
             this.customerID.Location = new System.Drawing.Point(124, 208);
             this.customerID.Name = "customerID";
