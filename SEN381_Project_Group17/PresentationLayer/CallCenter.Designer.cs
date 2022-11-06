@@ -134,6 +134,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(210, 506);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(213, 26);
             this.textBox5.TabIndex = 64;
             // 
@@ -142,6 +143,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.textBox4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(210, 466);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(213, 26);
             this.textBox4.TabIndex = 63;
             // 
@@ -302,6 +304,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2.Text = "Answer Call";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
