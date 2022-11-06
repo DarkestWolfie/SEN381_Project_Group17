@@ -172,5 +172,24 @@ namespace SEN381_Project_Group17.DataLayer
             }
 
         }
+
+        //Get Employee ID
+        public int getID(string userName, string password)
+        {
+            SqlConnection cn = new SqlConnection(con);
+
+            SqlCommand cmd = new SqlCommand("spGetEmpID", cn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@userName", userName);
+            cmd.Parameters.AddWithValue("@password", password);
+
+            cn.Open();
+            var id = cmd.ExecuteScalar();
+            cn.Close();
+
+            return int.Parse(id.ToString());
+        }
     }
 }

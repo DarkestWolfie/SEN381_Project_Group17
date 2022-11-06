@@ -16,7 +16,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 {
     public partial class ClaimApplication : Form
     {
-
+        bool call = false;
         string role;
         //Form Design:
         private int borderRadius = 30;
@@ -33,6 +33,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.BackColor = borderColor;
 
             this.role = role;
+        }
+
+        public ClaimApplication(string role, bool call)
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Padding = new Padding(borderSize);
+            this.pnlTitle.BackColor = borderColor;
+            this.BackColor = borderColor;
+
+            this.role = role;
+            this.call = call;
         }
 
         //Drag Form
@@ -137,10 +149,18 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form hub = new UkupholisaHub(role);
-            hub.ShowDialog();
-            this.Close();
+            if (call == true)
+            {
+                this.Hide();
+            }
+            else
+            {
+                this.Hide();
+                Form hub = new UkupholisaHub(role);
+                hub.ShowDialog();
+                this.Close();
+            }
+            
         }
 
         private void ClaimApplication_MouseDown(object sender, MouseEventArgs e)
@@ -296,30 +316,44 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, dateTimePicker1.Text, status.Text))
+            {
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
+                application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
 
-            MessageBox.Show(application_d.add(applicationObj));
+                MessageBox.Show(application_d.add(applicationObj));
 
-            applicationSource.DataSource = application_d.getAll();
-            dataGridView1.DataSource = applicationSource;
+                applicationSource.DataSource = application_d.getAll();
+                dataGridView1.DataSource = applicationSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, dateTimePicker1.Text, status.Text))
+            {
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
+                application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
 
-            MessageBox.Show(application_d.update(applicationObj));
+                MessageBox.Show(application_d.update(applicationObj));
 
-            applicationSource.DataSource = application_d.getAll();
-            dataGridView1.DataSource = applicationSource;
+                applicationSource.DataSource = application_d.getAll();
+                dataGridView1.DataSource = applicationSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

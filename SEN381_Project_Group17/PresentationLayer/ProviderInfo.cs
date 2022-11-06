@@ -269,22 +269,38 @@ namespace SEN381_Project_Group17.PresentationLayer
             }
         }
 
+        validation validation = new validation();
+
         private void update_Click(object sender, EventArgs e)
         {
-            provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
-            MessageBox.Show(provider.update(providerObj));
+            if (validation.provInfoVal(textBox2.Text, textBox3.Text, textBox4.Text))
+            {
+                provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+                MessageBox.Show(provider.update(providerObj));
 
-            providerSource.DataSource = provider.getAll();
-            dataGridView1.DataSource = providerSource;
+                providerSource.DataSource = provider.getAll();
+                dataGridView1.DataSource = providerSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
-            MessageBox.Show(provider.add(providerObj));
+            if (validation.provInfoVal(textBox2.Text, textBox3.Text, textBox4.Text))
+            {
+                provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+                MessageBox.Show(provider.add(providerObj));
 
-            providerSource.DataSource = provider.getAll();
-            dataGridView1.DataSource = providerSource;
+                providerSource.DataSource = provider.getAll();
+                dataGridView1.DataSource = providerSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

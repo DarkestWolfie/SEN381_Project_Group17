@@ -152,5 +152,169 @@ namespace SEN381_Project_Group17.BusinessLayer
 
             return list;
         }
+
+        public bool loginValidation(string username, string password)
+        {
+            if (username != string.Empty && password != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool clientClaimVal(string status, string custID, string condID, string provID, string date)
+        {
+            if (status != string.Empty && custID != string.Empty && condID != string.Empty && provID != string.Empty && date != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool clientInfoVal(string name, string surname, string ID, string famID,
+            string famRole, string gender, string addrLine, string city, string prov, string postcode)
+        {
+            if (name != string.Empty && surname != string.Empty && ID != string.Empty &&
+                famID != string.Empty && famRole != string.Empty && gender != string.Empty &&
+                addrLine != string.Empty && city != string.Empty && prov != string.Empty &&
+                postcode != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool conditionVal(string polName, string polCode, string polID)
+        {
+            if (polName != string.Empty && polCode != string.Empty && polID != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool custAccVal(string cID, string amntDue, string date)
+        {
+            if (cID != string.Empty && amntDue != string.Empty && date != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool custHistoryVal(string active, string custID, string prodID, string start, string end)
+        {
+            if (active != string.Empty && custID != string.Empty && prodID != string.Empty && start != string.Empty && end != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool empInfoVal(string name, string email, string num, string role, string username, string password)
+        {
+            if (name != string.Empty && email != string.Empty && num != string.Empty &&
+                role != string.Empty && password != string.Empty && username != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool polInfoVal(string name, string price, string installment, string payout)
+        {
+            if (name != string.Empty && price != string.Empty && installment != string.Empty &&
+                payout != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool prodInfoVal(string discount, string avail, string polID)
+        {
+            if (discount != string.Empty && avail != string.Empty && polID != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool prodHistoryVal(string prodID, string start, string end)
+        {
+            if (prodID != string.Empty && start != string.Empty && end != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool provInfoVal(string compName, string status, string province)
+        {
+            if (compName != string.Empty && status != string.Empty && province != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool treatInfoVal(string name, string desc, string cost, string condID, string provID)
+        {
+            if (name != string.Empty && desc != string.Empty && cost != string.Empty &&
+                condID != string.Empty && provID != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool callVal(string cusID, string empID, string start, string end, string duration, string date)
+        {
+            if (cusID != string.Empty && empID != string.Empty && start != string.Empty &&
+                end != string.Empty && duration != string.Empty && date != string.Empty)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

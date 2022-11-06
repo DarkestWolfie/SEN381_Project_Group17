@@ -70,6 +70,7 @@ CREATE TABLE [call_history]
   callEmployeeID int FOREIGN KEY REFERENCES employee (employeeID),
   [start] varchar(10)  ,
   [end] varchar(10) ,
+  duration varchar(10),
   dateCreated varchar(10) ,
   PRIMARY KEY (callID)
 );
@@ -326,13 +327,14 @@ CREATE PROC spAddCallHistory
 	@callEmployeeID int ,
 	@start varchar(10)  ,
 	@end varchar(10) ,
+	@duration varchar(10),
 	@dateCreated varchar(10)
 )
 AS
 BEGIN
 	INSERT INTO [call_history]
-	(callCustomerID, callEmployeeID, [start], [end], dateCreated)
-	VALUES (@callCustomerID, @callEmployeeID, @start, @end, @dateCreated);
+	(callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
+	VALUES (@callCustomerID, @callEmployeeID, @start, @end, @duration, @dateCreated);
 END
 GO
 
@@ -532,12 +534,13 @@ CREATE PROC spUpdateCallHistory
 	@callEmployeeID int ,
 	@start varchar(10)  ,
 	@end varchar(10) ,
+	@duration varchar(10),
 	@dateCreated varchar(10)
 )
 AS
 BEGIN
 	Update [call_history]
-	SET callCustomerID = @callCustomerID, callEmployeeID = @callEmployeeID, [start] = @start, [end] = @end, dateCreated = @dateCreated
+	SET callCustomerID = @callCustomerID, callEmployeeID = @callEmployeeID, [start] = @start, [end] = @end, duration = @duration, dateCreated = @dateCreated
 	WHERE callID = @id
 END
 GO
@@ -818,6 +821,17 @@ BEGIN
 END
 GO
 
+CREATE PROC spGetEmpID
+(
+	@userName varchar(25),
+	@password varchar(25)
+)
+AS
+BEGIN
+	SELECT employeeID FROM employee where userName = @userName COLLATE SQL_Latin1_General_CP1_CS_AS AND password = @password COLLATE SQL_Latin1_General_CP1_CS_AS
+END
+GO
+
 CREATE PROC spDeleteApplication
 (
 	@id int
@@ -962,14 +976,14 @@ VALUES ('2021EB000004' ,'Full', 320000, 450, 320000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
 VALUES ('2017HD000005' ,'Full', 100000, 350, 90000);
 
-INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
-VALUES ('E00000001', 1, '12:00:00', '12:30:00', '2022-10-14');
-INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
-VALUES ('S00000001', 3, '11:00:00', '11:30:00', '2022-10-17');
-INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
-VALUES ('J00000001', 1, '10:30:00', '11:00:00', '2022-10-16');
-INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], dateCreated)
-VALUES ('J00000001', 2, '14:00:00', '14:30:00', '2022-10-17');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
+VALUES ('E00000001', 1, '12:00:00', '12:30:00', '00:30:00', '2022-10-14');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
+VALUES ('S00000001', 3, '11:00:00', '11:30:00', '00:30:00', '2022-10-17');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
+VALUES ('J00000001', 1, '10:30:00', '11:00:00', '00:30:00', '2022-10-16');
+INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
+VALUES ('J00000001', 2, '14:00:00', '14:30:00', '00:30:00', '2022-10-17');
 
 INSERT INTO [customer_account] (accountCustomerID, amountDue, installmentDate)
 VALUES ('E00000001', 4800, '2022-10-30');

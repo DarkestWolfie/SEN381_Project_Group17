@@ -136,21 +136,28 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.clientInfoVal(name.Text, surname.Text, customerID, familyID.Text, familyRole.Text, gender.Text, addressLine.Text, city.Text, province.Text, postalCode.Text))
+            {
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
-            address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
+                customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
+                address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
 
-            MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
+                MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
 
-            customerSource.DataSource = customer_d.getAll();
-            dataGridView1.DataSource = customerSource;
+                customerSource.DataSource = customer_d.getAll();
+                dataGridView1.DataSource = customerSource;
 
-            addressSource.DataSource = address_d.search(addressID);
-            dataGridView2.Visible = true;
-            dataGridView2.DataSource = addressSource;
+                addressSource.DataSource = address_d.search(addressID);
+                dataGridView2.Visible = true;
+                dataGridView2.DataSource = addressSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void ClientInfo_Load(object sender, EventArgs e)
@@ -304,26 +311,35 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.Invalidate();
         }
 
+        validation validation = new validation();
+
         private void add_Click(object sender, EventArgs e)
         {
-            int newAddressID = address_d.getCount();
-            string newCustomerID = customer_b.GenerateID(surname.Text);
+            if (validation.clientInfoVal(name.Text, surname.Text, customerID, familyID.Text, familyRole.Text, gender.Text, addressLine.Text, city.Text, province.Text, postalCode.Text))
+            {
+                int newAddressID = address_d.getCount();
+                string newCustomerID = customer_b.GenerateID(surname.Text);
 
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            address_b addressAdd = new address_b(addressLine.Text, city.Text, province.Text, postalCode.Text);
-            customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
+                address_b addressAdd = new address_b(addressLine.Text, city.Text, province.Text, postalCode.Text);
+                customer_b customerAdd = new customer_b(newCustomerID, int.Parse(familyID.Text), newAddressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
 
-            MessageBox.Show(address_d.add(addressAdd) + "\n\n" + customer_d.add(customerAdd));
+                MessageBox.Show(address_d.add(addressAdd) + "\n\n" + customer_d.add(customerAdd));
 
-            customerSource.DataSource = customer_d.getAll();
-            dataGridView1.DataSource = customerSource;
+                customerSource.DataSource = customer_d.getAll();
+                dataGridView1.DataSource = customerSource;
 
-            addressSource.DataSource = address_d.search(newAddressID);
-            dataGridView2.Visible = true;
-            dataGridView2.DataSource = addressSource;
+                addressSource.DataSource = address_d.search(newAddressID);
+                dataGridView2.Visible = true;
+                dataGridView2.DataSource = addressSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

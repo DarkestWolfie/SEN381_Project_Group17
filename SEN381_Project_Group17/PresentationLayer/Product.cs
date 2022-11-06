@@ -273,20 +273,34 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
-            MessageBox.Show(product_d.add(productObj));
+            if (validation.prodInfoVal(diacount.Text, availability.Text, policyID.Text))
+            {
+                product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+                MessageBox.Show(product_d.add(productObj));
 
-            productSource.DataSource = product_d.getAll();
-            dataGridView1.DataSource = productSource;
+                productSource.DataSource = product_d.getAll();
+                dataGridView1.DataSource = productSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
-            MessageBox.Show(product_d.update(productObj));
+            if (validation.prodInfoVal(diacount.Text, availability.Text, policyID.Text))
+            {
+                product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+                MessageBox.Show(product_d.update(productObj));
 
-            productSource.DataSource = product_d.getAll();
-            dataGridView1.DataSource = productSource;
+                productSource.DataSource = product_d.getAll();
+                dataGridView1.DataSource = productSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace SEN381_Project_Group17.PresentationLayer
     public partial class UkupholisaHub : Form
     {
         string role;
+        int id;
 
         //Form Design:
         private int borderRadius = 30;
@@ -22,6 +23,17 @@ namespace SEN381_Project_Group17.PresentationLayer
         private Color borderColor = Color.FromArgb(0, 255, 178);
         
         //Constructor
+        public UkupholisaHub(string role, int id)
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Padding = new Padding(borderSize);
+            this.pnlTitle.BackColor = borderColor;
+            this.BackColor = borderColor;
+
+            this.role = role;
+            this.id = id;
+        }
         public UkupholisaHub(string role)
         {
             InitializeComponent();
@@ -104,7 +116,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CallCenter CC = new CallCenter(role);
+            CallCenter CC = new CallCenter(role, id);
             this.Hide();
             CC.ShowDialog();
             this.Close();

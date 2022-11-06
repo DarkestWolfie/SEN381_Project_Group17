@@ -291,38 +291,52 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            string start = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = start.Split('/');
-            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.custHistoryVal(active.Text, customerID.Text, productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            {
+                string start = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = start.Split('/');
+                start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            string end = dateTimePicker1.Value.ToShortDateString();
-            string[] dateE = end.Split('/');
-            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+                string end = dateTimePicker1.Value.ToShortDateString();
+                string[] dateE = end.Split('/');
+                end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 
-            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
+                customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
 
-            MessageBox.Show(cusHistory_d.add(custObj));
+                MessageBox.Show(cusHistory_d.add(custObj));
 
-            cusHistorySource.DataSource = cusHistory_d.getAll();
-            dataGridView1.DataSource = cusHistorySource;
+                cusHistorySource.DataSource = cusHistory_d.getAll();
+                dataGridView1.DataSource = cusHistorySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            string start = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = start.Split('/');
-            start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.custHistoryVal(active.Text, customerID.Text, productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            {
+                string start = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = start.Split('/');
+                start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            string end = dateTimePicker1.Value.ToShortDateString();
-            string[] dateE = end.Split('/');
-            end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
+                string end = dateTimePicker1.Value.ToShortDateString();
+                string[] dateE = end.Split('/');
+                end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 
-            customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
+                customer_history_b custObj = new customer_history_b(custHistoryID, customerID.Text, int.Parse(productID.Text), start, end, active.Text);
 
-            MessageBox.Show(cusHistory_d.update(custObj));
+                MessageBox.Show(cusHistory_d.update(custObj));
 
-            cusHistorySource.DataSource = cusHistory_d.getAll();
-            dataGridView1.DataSource = cusHistorySource;
+                cusHistorySource.DataSource = cusHistory_d.getAll();
+                dataGridView1.DataSource = cusHistorySource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void delete_Click(object sender, EventArgs e)

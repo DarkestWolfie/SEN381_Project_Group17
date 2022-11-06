@@ -276,30 +276,44 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.custAccVal(clientID.Text, due.Text, dateTimePicker1.Text))
+            {
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
+                customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
 
-            MessageBox.Show(account_d.add(accountObj));
+                MessageBox.Show(account_d.add(accountObj));
 
-            accountSource.DataSource = account_d.getAll();
-            dataGridView1.DataSource = accountSource;
+                accountSource.DataSource = account_d.getAll();
+                dataGridView1.DataSource = accountSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
 
         private void update_Click(object sender, EventArgs e)
         {
-            string date = dateTimePicker1.Value.ToShortDateString();
-            string[] dateS = date.Split('/');
-            date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+            if (validation.custAccVal(clientID.Text, due.Text, dateTimePicker1.Text))
+            {
+                string date = dateTimePicker1.Value.ToShortDateString();
+                string[] dateS = date.Split('/');
+                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-            customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
+                customer_account_b accountObj = new customer_account_b(accountID, clientID.Text, double.Parse(due.Text), date);
 
-            MessageBox.Show(account_d.update(accountObj));
+                MessageBox.Show(account_d.update(accountObj));
 
-            accountSource.DataSource = account_d.getAll();
-            dataGridView1.DataSource = accountSource;
+                accountSource.DataSource = account_d.getAll();
+                dataGridView1.DataSource = accountSource;
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in all the vields");
+            }
         }
     }
 }
