@@ -36,10 +36,10 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.showPassword = new System.Windows.Forms.CheckBox();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,7 +53,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(141, 26);
             this.password.TabIndex = 11;
-            this.password.Text = "123Stefan";
             // 
             // userName
             // 
@@ -62,7 +61,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(141, 26);
             this.userName.TabIndex = 10;
-            this.userName.Text = "stefan123";
             // 
             // label2
             // 
@@ -129,6 +127,17 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.TabIndex = 12;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
+            // showPassword
+            // 
+            this.showPassword.AutoSize = true;
+            this.showPassword.Location = new System.Drawing.Point(119, 152);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(102, 17);
+            this.showPassword.TabIndex = 13;
+            this.showPassword.Text = "Show Password";
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
+            // 
             // pnlTitle
             // 
             this.pnlTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(178)))));
@@ -161,17 +170,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Login";
-            // 
-            // showPassword
-            // 
-            this.showPassword.AutoSize = true;
-            this.showPassword.Location = new System.Drawing.Point(119, 152);
-            this.showPassword.Name = "showPassword";
-            this.showPassword.Size = new System.Drawing.Size(102, 17);
-            this.showPassword.TabIndex = 13;
-            this.showPassword.Text = "Show Password";
-            this.showPassword.UseVisualStyleBackColor = true;
-            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
             // 
             // Login
             // 
