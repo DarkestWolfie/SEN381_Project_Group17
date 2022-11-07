@@ -220,10 +220,11 @@
             // policyID
             // 
             this.policyID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.policyID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.policyID.FormattingEnabled = true;
-            this.policyID.Location = new System.Drawing.Point(114, 175);
+            this.policyID.Location = new System.Drawing.Point(114, 171);
             this.policyID.Name = "policyID";
-            this.policyID.Size = new System.Drawing.Size(111, 21);
+            this.policyID.Size = new System.Drawing.Size(111, 26);
             this.policyID.TabIndex = 14;
             // 
             // pnlTitle

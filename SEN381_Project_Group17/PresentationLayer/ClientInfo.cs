@@ -138,21 +138,29 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.clientInfoVal(name.Text, surname.Text, customerID, familyID.Text, familyRole.Text, gender.Text, addressLine.Text, city.Text, province.Text, postalCode.Text))
             {
-                string date = dateTimePicker1.Value.ToShortDateString();
-                string[] dateS = date.Split('/');
-                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+                if (customerID == "")
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    string date = dateTimePicker1.Value.ToShortDateString();
+                    string[] dateS = date.Split('/');
+                    date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-                customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
-                address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
+                    customer_b customerObj = new customer_b(customerID, int.Parse(familyID.Text), addressID, name.Text, surname.Text, idNum.Text, gender.Text, familyRole.Text, date);
+                    address_b addressObj = new address_b(addressID, addressLine.Text, city.Text, province.Text, postalCode.Text);
 
-                MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
+                    MessageBox.Show(customer_d.update(customerObj) + "\n\n" + address_d.update(addressObj));
 
-                customerSource.DataSource = customer_d.getAll();
-                dataGridView1.DataSource = customerSource;
+                    customerSource.DataSource = customer_d.getAll();
+                    dataGridView1.DataSource = customerSource;
 
-                addressSource.DataSource = address_d.search(addressID);
-                dataGridView2.Visible = true;
-                dataGridView2.DataSource = addressSource;
+                    addressSource.DataSource = address_d.search(addressID);
+                    dataGridView2.Visible = true;
+                    dataGridView2.DataSource = addressSource;
+                }
+                
             }
             else
             {

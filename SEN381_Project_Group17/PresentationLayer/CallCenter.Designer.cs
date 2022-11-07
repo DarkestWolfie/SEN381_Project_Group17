@@ -29,7 +29,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +41,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.start = new System.Windows.Forms.DateTimePicker();
             this.end = new System.Windows.Forms.DateTimePicker();
             this.duration = new System.Windows.Forms.DateTimePicker();
@@ -55,13 +55,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -218,6 +216,15 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.TabIndex = 66;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 157);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(411, 206);
+            this.dataGridView2.TabIndex = 75;
+            // 
             // start
             // 
             this.start.Enabled = false;
@@ -335,7 +342,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(198, 38);
             this.button2.TabIndex = 13;
-            this.button2.Text = "Answer Call";
+            this.button2.Text = "Start";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -374,19 +381,6 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 157);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(411, 206);
-            this.dataGridView2.TabIndex = 75;
-            // 
             // CallCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,10 +399,10 @@ namespace SEN381_Project_Group17.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.pnlTitle.ResumeLayout(false);
             this.pnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -440,7 +434,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.DateTimePicker end;
         private System.Windows.Forms.DateTimePicker duration;
         private System.Windows.Forms.DateTimePicker dateCreated;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

@@ -36,7 +36,6 @@
             this.payout = new System.Windows.Forms.TextBox();
             this.installment = new System.Windows.Forms.TextBox();
             this.price = new System.Windows.Forms.TextBox();
-            this.name = new System.Windows.Forms.TextBox();
             this.add = new System.Windows.Forms.Button();
             this.delete = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.find = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.name = new System.Windows.Forms.ComboBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -108,7 +108,7 @@
             this.payout.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.payout.Location = new System.Drawing.Point(106, 211);
             this.payout.Name = "payout";
-            this.payout.Size = new System.Drawing.Size(100, 26);
+            this.payout.Size = new System.Drawing.Size(118, 26);
             this.payout.TabIndex = 64;
             // 
             // installment
@@ -116,7 +116,7 @@
             this.installment.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.installment.Location = new System.Drawing.Point(107, 172);
             this.installment.Name = "installment";
-            this.installment.Size = new System.Drawing.Size(100, 26);
+            this.installment.Size = new System.Drawing.Size(118, 26);
             this.installment.TabIndex = 63;
             // 
             // price
@@ -124,16 +124,8 @@
             this.price.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price.Location = new System.Drawing.Point(107, 138);
             this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(100, 26);
+            this.price.Size = new System.Drawing.Size(118, 26);
             this.price.TabIndex = 62;
-            // 
-            // name
-            // 
-            this.name.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name.Location = new System.Drawing.Point(107, 103);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(100, 26);
-            this.name.TabIndex = 61;
             // 
             // add
             // 
@@ -224,10 +216,10 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.name);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.name);
             this.pnlContainer.Controls.Add(this.find);
             this.pnlContainer.Controls.Add(this.price);
             this.pnlContainer.Controls.Add(this.search);
@@ -246,6 +238,21 @@
             this.pnlContainer.Size = new System.Drawing.Size(800, 342);
             this.pnlContainer.TabIndex = 75;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // name
+            // 
+            this.name.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.FormattingEnabled = true;
+            this.name.Items.AddRange(new object[] {
+            "Budget",
+            "Standard",
+            "Premium",
+            "Premium Family"});
+            this.name.Location = new System.Drawing.Point(107, 104);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(118, 26);
+            this.name.TabIndex = 14;
             // 
             // pnlTitle
             // 
@@ -332,7 +339,6 @@
         private System.Windows.Forms.TextBox payout;
         private System.Windows.Forms.TextBox installment;
         private System.Windows.Forms.TextBox price;
-        private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button delete;
         private System.Windows.Forms.Button update;
@@ -344,5 +350,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox name;
     }
 }

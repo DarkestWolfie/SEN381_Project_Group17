@@ -292,12 +292,20 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.conditionVal(name.Text, code.Text, policyID.Text))
             {
-                condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
+                if (conditionID == 0)
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    condition_b conditionObj = new condition_b(conditionID, policyID.Text, code.Text, name.Text);
 
-                MessageBox.Show(condition_d.update(conditionObj));
+                    MessageBox.Show(condition_d.update(conditionObj));
 
-                conditionSource.DataSource = condition_d.getAll();
-                dataGridView1.DataSource = conditionSource;
+                    conditionSource.DataSource = condition_d.getAll();
+                    dataGridView1.DataSource = conditionSource;
+                }
+                
             }
             else
             {

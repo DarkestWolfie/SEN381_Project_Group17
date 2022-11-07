@@ -241,28 +241,31 @@
             // providerID
             // 
             this.providerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.providerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.providerID.FormattingEnabled = true;
             this.providerID.Location = new System.Drawing.Point(133, 438);
             this.providerID.Name = "providerID";
-            this.providerID.Size = new System.Drawing.Size(156, 21);
+            this.providerID.Size = new System.Drawing.Size(156, 26);
             this.providerID.TabIndex = 143;
             // 
             // conditionID
             // 
             this.conditionID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.conditionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionID.FormattingEnabled = true;
             this.conditionID.Location = new System.Drawing.Point(133, 403);
             this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(156, 21);
+            this.conditionID.Size = new System.Drawing.Size(156, 26);
             this.conditionID.TabIndex = 142;
             // 
             // customerID
             // 
             this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerID.FormattingEnabled = true;
             this.customerID.Location = new System.Drawing.Point(133, 367);
             this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(156, 21);
+            this.customerID.Size = new System.Drawing.Size(156, 26);
             this.customerID.TabIndex = 141;
             // 
             // dateTimePicker1
@@ -337,6 +340,7 @@
             this.ClientSize = new System.Drawing.Size(583, 481);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContainer);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ClaimApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application";

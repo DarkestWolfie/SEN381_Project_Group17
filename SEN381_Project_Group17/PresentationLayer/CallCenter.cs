@@ -155,16 +155,23 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.callVal(customerID.Text, employeeID.Text, start.Text, end.Text, dateCreated.Text, duration.Text))
             {
-                string date = dateCreated.Value.ToShortDateString();
-                string[] dateS = date.Split('/');
-                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+                if (callID == 0)
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    string date = dateCreated.Value.ToShortDateString();
+                    string[] dateS = date.Split('/');
+                    date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-                call_history_b callObj = new call_history_b(callID, customerID.Text, int.Parse(employeeID.Text), start.Text, end.Text, date, duration.Text);
+                    call_history_b callObj = new call_history_b(callID, customerID.Text, int.Parse(employeeID.Text), start.Text, end.Text, date, duration.Text);
 
-                MessageBox.Show(call.update(callObj));
+                    MessageBox.Show(call.update(callObj));
 
-                callSource.DataSource = call.getAll();
-                dataGridView1.DataSource = callSource;
+                    callSource.DataSource = call.getAll();
+                    dataGridView1.DataSource = callSource;
+                }
             }
             else
             {
@@ -375,22 +382,28 @@ namespace SEN381_Project_Group17.PresentationLayer
             }
         }
 
+        private static System.Timers.Timer t;
+
         private void button2_Click(object sender, EventArgs e)
         {
+            t = new System.Timers.Timer();
+            t.AutoReset = true;
+            t.Enabled = true;
+            t.Elapsed += ontime;
+            t.Interval = 1000;
+
             button3.Show();
             start.Text = DateTime.Now.ToLongTimeString();
-
-            timer1.Start();
-
-            timer1.Tick += new EventHandler(time);
         }
 
         private void time(object Sender, EventArgs e)
         {
-            if (durationTime[2] == "60")
+            if (durationTime[2] == "59")
             {
-                if (durationTime[1] == "60")
+                durationTime[2] = "00";
+                if (durationTime[1] == "59")
                 {
+                    durationTime[1] = "00";
                     durationTime[0] = (int.Parse(durationTime[0]) + 1).ToString();
                 }
                 else
@@ -406,17 +419,56 @@ namespace SEN381_Project_Group17.PresentationLayer
             duration.Text = durationTime[0].ToString() + ":" + durationTime[1].ToString() + ":" + durationTime[2].ToString();
         }
 
+        private void ontime(object Sender, EventArgs e)
+        {
+            if (durationTime[2] == "59")
+            {
+                durationTime[2] = "00";
+                if (durationTime[1] == "59")
+                {
+                    durationTime[1] = "00";
+                    durationTime[0] = (int.Parse(durationTime[0]) + 1).ToString();
+                }
+                else
+                {
+                    durationTime[1] = (int.Parse(durationTime[1]) + 1).ToString();
+                }
+            }
+            else
+            {
+                durationTime[2] = (int.Parse(durationTime[2]) + 1).ToString();
+            }
+
+            ExecuteSecure(() => duration.Text = durationTime[0].ToString() + ":" + durationTime[1].ToString() + ":" + durationTime[2].ToString());
+        }
+
+        private void ExecuteSecure(Action action)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new MethodInvoker(() =>
+                {
+                    action();
+                }));
+            }
+            else
+            {
+                action();
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             button3.Hide();
-            timer1.Stop();
+
+            t.Stop();
+            t.Dispose();
+
             end.Text = DateTime.Now.ToLongTimeString();
             button5.Show();
             durationTime[0] = "00";
             durationTime[1] = "00";
             durationTime[2] = "00";
-
-
         }
 
         private void customerID_SelectedValueChanged(object sender, EventArgs e)

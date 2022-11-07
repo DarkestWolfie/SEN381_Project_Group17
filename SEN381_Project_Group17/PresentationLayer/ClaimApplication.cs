@@ -339,16 +339,24 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, dateTimePicker1.Text, status.Text))
             {
-                string date = dateTimePicker1.Value.ToShortDateString();
-                string[] dateS = date.Split('/');
-                date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
+                if (applicationID == 0)
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    string date = dateTimePicker1.Value.ToShortDateString();
+                    string[] dateS = date.Split('/');
+                    date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-                application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
+                    application_b applicationObj = new application_b(applicationID, customerID.Text, int.Parse(conditionID.Text), int.Parse(providerID.Text), date, status.Text);
 
-                MessageBox.Show(application_d.update(applicationObj));
+                    MessageBox.Show(application_d.update(applicationObj));
 
-                applicationSource.DataSource = application_d.getAll();
-                dataGridView1.DataSource = applicationSource;
+                    applicationSource.DataSource = application_d.getAll();
+                    dataGridView1.DataSource = applicationSource;
+                }
+                
             }
             else
             {
