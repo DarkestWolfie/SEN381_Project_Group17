@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +47,7 @@
             this.providerID = new System.Windows.Forms.ComboBox();
             this.conditionID = new System.Windows.Forms.ComboBox();
             this.customerID = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -61,7 +63,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(18, 366);
+            this.label6.Location = new System.Drawing.Point(18, 364);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 135;
@@ -71,7 +73,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 437);
+            this.label7.Location = new System.Drawing.Point(18, 428);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 18);
             this.label7.TabIndex = 136;
@@ -81,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 73);
+            this.label1.Location = new System.Drawing.Point(198, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 133;
@@ -95,7 +97,7 @@
             this.find.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.find.Image = global::SEN381_Project_Group17.Properties.Resources.search_7525;
             this.find.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.find.Location = new System.Drawing.Point(359, 63);
+            this.find.Location = new System.Drawing.Point(425, 63);
             this.find.Name = "find";
             this.find.Size = new System.Drawing.Size(145, 38);
             this.find.TabIndex = 132;
@@ -107,9 +109,9 @@
             // search
             // 
             this.search.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(107, 70);
+            this.search.Location = new System.Drawing.Point(263, 70);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(222, 26);
+            this.search.Size = new System.Drawing.Size(156, 26);
             this.search.TabIndex = 134;
             // 
             // add
@@ -120,7 +122,7 @@
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(330, 299);
+            this.add.Location = new System.Drawing.Point(330, 297);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 129;
@@ -137,7 +139,7 @@
             this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
             this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete.Location = new System.Drawing.Point(330, 413);
+            this.delete.Location = new System.Drawing.Point(330, 404);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(230, 47);
             this.delete.TabIndex = 130;
@@ -154,7 +156,7 @@
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(330, 355);
+            this.update.Location = new System.Drawing.Point(330, 350);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 131;
@@ -165,7 +167,23 @@
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(12, 110);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(558, 176);
@@ -186,7 +204,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 334);
+            this.label3.Location = new System.Drawing.Point(18, 332);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 18);
             this.label3.TabIndex = 124;
@@ -196,7 +214,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 402);
+            this.label4.Location = new System.Drawing.Point(18, 396);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 18);
             this.label4.TabIndex = 125;
@@ -205,7 +223,7 @@
             // status
             // 
             this.status.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.Location = new System.Drawing.Point(133, 334);
+            this.status.Location = new System.Drawing.Point(133, 329);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(156, 26);
             this.status.TabIndex = 127;
@@ -216,7 +234,7 @@
             this.pnlContainer.Controls.Add(this.providerID);
             this.pnlContainer.Controls.Add(this.conditionID);
             this.pnlContainer.Controls.Add(this.customerID);
-            this.pnlContainer.Controls.Add(this.dateTimePicker1);
+            this.pnlContainer.Controls.Add(this.date);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.label6);
@@ -234,7 +252,7 @@
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(583, 481);
+            this.pnlContainer.Size = new System.Drawing.Size(583, 461);
             this.pnlContainer.TabIndex = 139;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
@@ -243,7 +261,7 @@
             this.providerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.providerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.providerID.FormattingEnabled = true;
-            this.providerID.Location = new System.Drawing.Point(133, 438);
+            this.providerID.Location = new System.Drawing.Point(133, 425);
             this.providerID.Name = "providerID";
             this.providerID.Size = new System.Drawing.Size(156, 26);
             this.providerID.TabIndex = 143;
@@ -253,7 +271,7 @@
             this.conditionID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.conditionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionID.FormattingEnabled = true;
-            this.conditionID.Location = new System.Drawing.Point(133, 403);
+            this.conditionID.Location = new System.Drawing.Point(133, 393);
             this.conditionID.Name = "conditionID";
             this.conditionID.Size = new System.Drawing.Size(156, 26);
             this.conditionID.TabIndex = 142;
@@ -263,19 +281,19 @@
             this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerID.FormattingEnabled = true;
-            this.customerID.Location = new System.Drawing.Point(133, 367);
+            this.customerID.Location = new System.Drawing.Point(133, 361);
             this.customerID.Name = "customerID";
             this.customerID.Size = new System.Drawing.Size(156, 26);
             this.customerID.TabIndex = 141;
             // 
-            // dateTimePicker1
+            // date
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 297);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(4, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(156, 26);
-            this.dateTimePicker1.TabIndex = 140;
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date.Location = new System.Drawing.Point(133, 297);
+            this.date.MinimumSize = new System.Drawing.Size(4, 26);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(156, 26);
+            this.date.TabIndex = 140;
             // 
             // pnlTitle
             // 
@@ -337,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(583, 481);
+            this.ClientSize = new System.Drawing.Size(583, 461);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContainer);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -381,7 +399,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date;
         private System.Windows.Forms.ComboBox providerID;
         private System.Windows.Forms.ComboBox conditionID;
         private System.Windows.Forms.ComboBox customerID;

@@ -119,7 +119,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button7_Click(object sender, EventArgs e)
         {
-            provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+            provider_b providerObj = new provider_b(providerID, name.Text, status.Text, province.Text);
             MessageBox.Show(provider.update(providerObj));
         }
 
@@ -135,9 +135,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[providerSource.Position];
 
-                textBox2.Text = row.Cells["providerName"].Value.ToString();
-                textBox3.Text = row.Cells["status"].Value.ToString();
-                textBox4.Text = row.Cells["province"].Value.ToString();
+                name.Text = row.Cells["providerName"].Value.ToString();
+                status.Text = row.Cells["status"].Value.ToString();
+                province.Text = row.Cells["province"].Value.ToString();
 
                 providerID = int.Parse(row.Cells["providerID"].Value.ToString());
             }
@@ -254,18 +254,26 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            providerSource.DataSource = provider.search(int.Parse(search.Text));
-            dataGridView1.DataSource = providerSource;
-
-            if (providerSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[providerSource.Position];
+                providerSource.DataSource = provider.getAll();
+                dataGridView1.DataSource = providerSource;
+            }
+            else
+            {
+                providerSource.DataSource = provider.search(int.Parse(search.Text));
+                dataGridView1.DataSource = providerSource;
 
-                textBox2.Text = row.Cells["providerName"].Value.ToString();
-                textBox3.Text = row.Cells["status"].Value.ToString();
-                textBox4.Text = row.Cells["province"].Value.ToString();
+                if (providerSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[providerSource.Position];
 
-                providerID = int.Parse(row.Cells["providerID"].Value.ToString());
+                    name.Text = row.Cells["providerName"].Value.ToString();
+                    status.Text = row.Cells["status"].Value.ToString();
+                    province.Text = row.Cells["province"].Value.ToString();
+
+                    providerID = int.Parse(row.Cells["providerID"].Value.ToString());
+                }
             }
         }
 
@@ -273,7 +281,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.provInfoVal(textBox2.Text, textBox3.Text, textBox4.Text))
+            if (validation.provInfoVal(name.Text, status.Text, province.Text))
             {
                 if (providerID == 0)
                 {
@@ -281,7 +289,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+                    provider_b providerObj = new provider_b(providerID, name.Text, status.Text, province.Text);
                     MessageBox.Show(provider.update(providerObj));
 
                     providerSource.DataSource = provider.getAll();
@@ -296,9 +304,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.provInfoVal(textBox2.Text, textBox3.Text, textBox4.Text))
+            if (validation.provInfoVal(name.Text, status.Text, province.Text))
             {
-                provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+                provider_b providerObj = new provider_b(providerID, name.Text, status.Text, province.Text);
                 MessageBox.Show(provider.add(providerObj));
 
                 providerSource.DataSource = provider.getAll();

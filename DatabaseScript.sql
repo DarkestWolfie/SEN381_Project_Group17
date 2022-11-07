@@ -178,7 +178,7 @@ GO
 CREATE PROC spGetPolicy
 AS
 BEGIN
-	SELECT policyID, policyName, price, installment, payout FROM [policy] WHERE policyStatus IS NULL;
+	SELECT policyID, policyName, price, installment, payout FROM [policy] WHERE policyStatus IS NULL ORDER BY SUBSTRING(policyID, 7, 6);
 END
 GO
 
@@ -1006,15 +1006,15 @@ INSERT INTO [condition] (conditionName, conitionCode, conditionPolicyID)
 VALUES ('Acne', 'ACNE', '2021JA000003');
 
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.4, 'Availible', '2021EB000004');
+VALUES (0.4, 'Available', '2021EB000004');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.5, 'Availible', '2021JA000003');
+VALUES (0.5, 'Available', '2021JA000003');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.3, 'Availible', '2019ZC000002');
+VALUES (0.3, 'Available', '2019ZC000002');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.2, 'Availible', '2021DA000001');
+VALUES (0.2, 'Available', '2021DA000001');
 INSERT INTO [product] (policyDiscount, [availability], productPolicyID)
-VALUES (0.25, 'Availible', '2017HD000005');
+VALUES (0.25, 'Available', '2017HD000005');
 
 INSERT INTO [product_history] ([start], [end], historyProductID)
 VALUES ('2013-09-24', '2023-08-02', 1);

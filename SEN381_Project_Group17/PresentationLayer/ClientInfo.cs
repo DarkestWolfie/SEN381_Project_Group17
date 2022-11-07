@@ -144,7 +144,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    string date = dateTimePicker1.Value.ToShortDateString();
+                    string date = this.date.Value.ToShortDateString();
                     string[] dateS = date.Split('/');
                     date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
@@ -184,7 +184,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 surname.Text = row.Cells["custSurname"].Value.ToString();
                 string date = row.Cells["dob"].Value.ToString();
                 string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                this.date.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 idNum.Text = row.Cells["idNumber"].Value.ToString();
                 familyID.Text = row.Cells["familyID"].Value.ToString();
                 familyRole.Text = row.Cells["familyRole"].Value.ToString();
@@ -328,7 +328,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 int newAddressID = address_d.getCount();
                 string newCustomerID = customer_b.GenerateID(surname.Text);
 
-                string date = dateTimePicker1.Value.ToShortDateString();
+                string date = this.date.Value.ToShortDateString();
                 string[] dateS = date.Split('/');
                 date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
@@ -352,40 +352,50 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            customerSource.DataSource = customer_d.search(search.Text);
-            dataGridView1.DataSource = customerSource;
-
-            if (customerSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[customerSource.Position];
-
-                name.Text = row.Cells["custName"].Value.ToString();
-                surname.Text = row.Cells["custSurname"].Value.ToString();
-                string date = row.Cells["dob"].Value.ToString();
-                string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
-                idNum.Text = row.Cells["idNumber"].Value.ToString();
-                familyID.Text = row.Cells["familyID"].Value.ToString();
-                familyRole.Text = row.Cells["familyRole"].Value.ToString();
-                gender.Text = row.Cells["gender"].Value.ToString();
-
-                customerID = row.Cells["customerID"].Value.ToString();
-                addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
-
-                addressSource.DataSource = address_d.search(addressID);
-                dataGridView2.Visible = true;
-                dataGridView2.DataSource = addressSource;
+                customerSource.DataSource = customer_d.getAll();
+                dataGridView1.DataSource = customerSource;
+                dataGridView2.Visible = false;
+            }
+            else
+            {
+                customerSource.DataSource = customer_d.search(search.Text);
+                dataGridView1.DataSource = customerSource;
 
                 if (customerSource.Position >= 0)
                 {
-                    DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
+                    DataGridViewRow row = this.dataGridView1.Rows[customerSource.Position];
 
-                    addressLine.Text = rowAddress.Cells["addressLine"].Value.ToString();
-                    city.Text = rowAddress.Cells["city"].Value.ToString();
-                    province.Text = rowAddress.Cells["province"].Value.ToString();
-                    postalCode.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                    name.Text = row.Cells["custName"].Value.ToString();
+                    surname.Text = row.Cells["custSurname"].Value.ToString();
+                    string date = row.Cells["dob"].Value.ToString();
+                    string[] splits = date.Split('-');
+                    this.date.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                    idNum.Text = row.Cells["idNumber"].Value.ToString();
+                    familyID.Text = row.Cells["familyID"].Value.ToString();
+                    familyRole.Text = row.Cells["familyRole"].Value.ToString();
+                    gender.Text = row.Cells["gender"].Value.ToString();
+
+                    customerID = row.Cells["customerID"].Value.ToString();
+                    addressID = int.Parse(row.Cells["customerAddressID"].Value.ToString());
+
+                    addressSource.DataSource = address_d.search(addressID);
+                    dataGridView2.Visible = true;
+                    dataGridView2.DataSource = addressSource;
+
+                    if (customerSource.Position >= 0)
+                    {
+                        DataGridViewRow rowAddress = this.dataGridView2.Rows[addressSource.Position];
+
+                        addressLine.Text = rowAddress.Cells["addressLine"].Value.ToString();
+                        city.Text = rowAddress.Cells["city"].Value.ToString();
+                        province.Text = rowAddress.Cells["province"].Value.ToString();
+                        postalCode.Text = rowAddress.Cells["postalCode"].Value.ToString();
+                    }
                 }
             }
+            
         }
 
         private void delete_Click(object sender, EventArgs e)

@@ -43,8 +43,8 @@
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.productID = new System.Windows.Forms.ComboBox();
             this.customerID = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.end = new System.Windows.Forms.DateTimePicker();
+            this.start = new System.Windows.Forms.DateTimePicker();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(332, 69);
+            this.label1.Location = new System.Drawing.Point(469, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 114;
@@ -85,9 +85,9 @@
             // search
             // 
             this.search.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(416, 66);
+            this.search.Location = new System.Drawing.Point(534, 66);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(204, 26);
+            this.search.Size = new System.Drawing.Size(100, 26);
             this.search.TabIndex = 115;
             // 
             // add
@@ -98,7 +98,7 @@
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(142, 284);
+            this.add.Location = new System.Drawing.Point(253, 284);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 110;
@@ -115,7 +115,7 @@
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(416, 284);
+            this.update.Location = new System.Drawing.Point(527, 284);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 112;
@@ -137,7 +137,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 112);
+            this.label2.Location = new System.Drawing.Point(12, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 18);
             this.label2.TabIndex = 104;
@@ -147,7 +147,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 145);
+            this.label3.Location = new System.Drawing.Point(12, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 18);
             this.label3.TabIndex = 105;
@@ -157,7 +157,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 175);
+            this.label4.Location = new System.Drawing.Point(12, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 18);
             this.label4.TabIndex = 106;
@@ -166,7 +166,7 @@
             // active
             // 
             this.active.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.active.Location = new System.Drawing.Point(124, 172);
+            this.active.Location = new System.Drawing.Point(121, 171);
             this.active.Name = "active";
             this.active.Size = new System.Drawing.Size(100, 26);
             this.active.TabIndex = 109;
@@ -175,7 +175,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 207);
+            this.label6.Location = new System.Drawing.Point(12, 206);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 18);
             this.label6.TabIndex = 117;
@@ -185,7 +185,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 241);
+            this.label7.Location = new System.Drawing.Point(12, 238);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 18);
             this.label7.TabIndex = 118;
@@ -196,8 +196,8 @@
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
             this.pnlContainer.Controls.Add(this.productID);
             this.pnlContainer.Controls.Add(this.customerID);
-            this.pnlContainer.Controls.Add(this.dateTimePicker2);
-            this.pnlContainer.Controls.Add(this.dateTimePicker1);
+            this.pnlContainer.Controls.Add(this.end);
+            this.pnlContainer.Controls.Add(this.start);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.dataGridView1);
             this.pnlContainer.Controls.Add(this.label6);
@@ -223,7 +223,7 @@
             this.productID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productID.FormattingEnabled = true;
-            this.productID.Location = new System.Drawing.Point(124, 242);
+            this.productID.Location = new System.Drawing.Point(121, 235);
             this.productID.Name = "productID";
             this.productID.Size = new System.Drawing.Size(100, 26);
             this.productID.TabIndex = 125;
@@ -233,28 +233,28 @@
             this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerID.FormattingEnabled = true;
-            this.customerID.Location = new System.Drawing.Point(124, 208);
+            this.customerID.Location = new System.Drawing.Point(121, 203);
             this.customerID.Name = "customerID";
             this.customerID.Size = new System.Drawing.Size(100, 26);
             this.customerID.TabIndex = 124;
             // 
-            // dateTimePicker2
+            // end
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(124, 140);
-            this.dateTimePicker2.MinimumSize = new System.Drawing.Size(4, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(100, 26);
-            this.dateTimePicker2.TabIndex = 123;
+            this.end.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.end.Location = new System.Drawing.Point(121, 139);
+            this.end.MinimumSize = new System.Drawing.Size(4, 26);
+            this.end.Name = "end";
+            this.end.Size = new System.Drawing.Size(100, 26);
+            this.end.TabIndex = 123;
             // 
-            // dateTimePicker1
+            // start
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(124, 107);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(4, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(100, 26);
-            this.dateTimePicker1.TabIndex = 14;
+            this.start.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.start.Location = new System.Drawing.Point(121, 107);
+            this.start.MinimumSize = new System.Drawing.Size(4, 26);
+            this.start.Name = "start";
+            this.start.Size = new System.Drawing.Size(100, 26);
+            this.start.TabIndex = 14;
             // 
             // pnlTitle
             // 
@@ -283,7 +283,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(258, 10);
+            this.label5.Location = new System.Drawing.Point(310, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(203, 26);
             this.label5.TabIndex = 12;
@@ -350,8 +350,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker end;
+        private System.Windows.Forms.DateTimePicker start;
         private System.Windows.Forms.ComboBox productID;
         private System.Windows.Forms.ComboBox customerID;
     }

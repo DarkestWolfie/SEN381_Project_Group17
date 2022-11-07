@@ -30,7 +30,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -72,19 +72,19 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label2.TabIndex = 23;
             this.label2.Text = "Call Center";
             // 
-            // textBox1
+            // search
             // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(90, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 26);
-            this.textBox1.TabIndex = 22;
+            this.search.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Location = new System.Drawing.Point(182, 115);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(120, 26);
+            this.search.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 117);
+            this.label1.Location = new System.Drawing.Point(117, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 21;
@@ -98,7 +98,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.Location = new System.Drawing.Point(226, 580);
+            this.button7.Location = new System.Drawing.Point(227, 521);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(126, 41);
             this.button7.TabIndex = 19;
@@ -115,7 +115,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.Location = new System.Drawing.Point(83, 580);
+            this.button5.Location = new System.Drawing.Point(84, 521);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 41);
             this.button5.TabIndex = 17;
@@ -127,9 +127,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 157);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 156);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(411, 206);
+            this.dataGridView1.Size = new System.Drawing.Size(411, 159);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -137,7 +137,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 546);
+            this.label6.Location = new System.Drawing.Point(10, 487);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 18);
             this.label6.TabIndex = 58;
@@ -147,7 +147,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 479);
+            this.label5.Location = new System.Drawing.Point(14, 423);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 57;
@@ -157,7 +157,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 447);
+            this.label4.Location = new System.Drawing.Point(14, 391);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 18);
             this.label4.TabIndex = 56;
@@ -167,7 +167,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 415);
+            this.label3.Location = new System.Drawing.Point(14, 356);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(102, 18);
             this.label3.TabIndex = 55;
@@ -177,7 +177,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 383);
+            this.label10.Location = new System.Drawing.Point(10, 324);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 18);
             this.label10.TabIndex = 54;
@@ -206,30 +206,30 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Controls.Add(this.label4);
             this.pnlContainer.Controls.Add(this.label1);
             this.pnlContainer.Controls.Add(this.label3);
-            this.pnlContainer.Controls.Add(this.textBox1);
+            this.pnlContainer.Controls.Add(this.search);
             this.pnlContainer.Controls.Add(this.label10);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(436, 633);
+            this.pnlContainer.Size = new System.Drawing.Size(436, 575);
             this.pnlContainer.TabIndex = 66;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 157);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 156);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(411, 206);
+            this.dataGridView2.Size = new System.Drawing.Size(411, 159);
             this.dataGridView2.TabIndex = 75;
             // 
             // start
             // 
             this.start.Enabled = false;
             this.start.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.start.Location = new System.Drawing.Point(211, 444);
+            this.start.Location = new System.Drawing.Point(212, 385);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(213, 26);
             this.start.TabIndex = 74;
@@ -239,7 +239,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.end.Enabled = false;
             this.end.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.end.Location = new System.Drawing.Point(210, 476);
+            this.end.Location = new System.Drawing.Point(211, 417);
             this.end.Name = "end";
             this.end.Size = new System.Drawing.Size(213, 26);
             this.end.TabIndex = 73;
@@ -249,7 +249,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.duration.Enabled = false;
             this.duration.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.duration.Location = new System.Drawing.Point(210, 508);
+            this.duration.Location = new System.Drawing.Point(211, 449);
             this.duration.Name = "duration";
             this.duration.Size = new System.Drawing.Size(213, 26);
             this.duration.TabIndex = 72;
@@ -259,7 +259,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 511);
+            this.label7.Location = new System.Drawing.Point(14, 455);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 18);
             this.label7.TabIndex = 71;
@@ -269,7 +269,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.employeeID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.employeeID.FormattingEnabled = true;
-            this.employeeID.Location = new System.Drawing.Point(210, 412);
+            this.employeeID.Location = new System.Drawing.Point(211, 353);
             this.employeeID.Name = "employeeID";
             this.employeeID.Size = new System.Drawing.Size(213, 26);
             this.employeeID.TabIndex = 70;
@@ -278,7 +278,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerID.FormattingEnabled = true;
-            this.customerID.Location = new System.Drawing.Point(210, 380);
+            this.customerID.Location = new System.Drawing.Point(211, 321);
             this.customerID.Name = "customerID";
             this.customerID.Size = new System.Drawing.Size(213, 26);
             this.customerID.TabIndex = 69;
@@ -288,7 +288,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.dateCreated.Enabled = false;
             this.dateCreated.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateCreated.Location = new System.Drawing.Point(210, 540);
+            this.dateCreated.Location = new System.Drawing.Point(211, 481);
             this.dateCreated.Name = "dateCreated";
             this.dateCreated.Size = new System.Drawing.Size(213, 26);
             this.dateCreated.TabIndex = 67;
@@ -359,7 +359,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(198, 38);
             this.button3.TabIndex = 14;
-            this.button3.Text = "Decline Call";
+            this.button3.Text = "End";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -372,7 +372,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.button8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Image = global::SEN381_Project_Group17.Properties.Resources.search_7525;
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button8.Location = new System.Drawing.Point(267, 110);
+            this.button8.Location = new System.Drawing.Point(308, 109);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(115, 32);
             this.button8.TabIndex = 20;
@@ -385,7 +385,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 633);
+            this.ClientSize = new System.Drawing.Size(436, 575);
             this.Controls.Add(this.pnlContainer);
             this.Name = "CallCenter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -410,7 +410,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;

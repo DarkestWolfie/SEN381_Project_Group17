@@ -59,7 +59,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(231, 104);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(558, 157);
+            this.dataGridView1.Size = new System.Drawing.Size(558, 122);
             this.dataGridView1.TabIndex = 54;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -77,7 +77,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 138);
+            this.label3.Location = new System.Drawing.Point(12, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 56;
@@ -87,7 +87,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 175);
+            this.label4.Location = new System.Drawing.Point(12, 171);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 18);
             this.label4.TabIndex = 57;
@@ -97,7 +97,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 211);
+            this.label5.Location = new System.Drawing.Point(12, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 18);
             this.label5.TabIndex = 58;
@@ -106,7 +106,7 @@
             // payout
             // 
             this.payout.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payout.Location = new System.Drawing.Point(106, 211);
+            this.payout.Location = new System.Drawing.Point(107, 200);
             this.payout.Name = "payout";
             this.payout.Size = new System.Drawing.Size(118, 26);
             this.payout.TabIndex = 64;
@@ -114,7 +114,7 @@
             // installment
             // 
             this.installment.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.installment.Location = new System.Drawing.Point(107, 172);
+            this.installment.Location = new System.Drawing.Point(107, 168);
             this.installment.Name = "installment";
             this.installment.Size = new System.Drawing.Size(118, 26);
             this.installment.TabIndex = 63;
@@ -122,7 +122,7 @@
             // price
             // 
             this.price.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.price.Location = new System.Drawing.Point(107, 138);
+            this.price.Location = new System.Drawing.Point(107, 136);
             this.price.Name = "price";
             this.price.Size = new System.Drawing.Size(118, 26);
             this.price.TabIndex = 62;
@@ -135,7 +135,7 @@
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(25, 285);
+            this.add.Location = new System.Drawing.Point(26, 254);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 69;
@@ -152,7 +152,7 @@
             this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
             this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete.Location = new System.Drawing.Point(548, 285);
+            this.delete.Location = new System.Drawing.Point(549, 254);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(230, 47);
             this.delete.TabIndex = 70;
@@ -169,7 +169,7 @@
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(287, 285);
+            this.update.Location = new System.Drawing.Point(288, 254);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 71;
@@ -182,7 +182,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 70);
+            this.label1.Location = new System.Drawing.Point(452, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 18);
             this.label1.TabIndex = 73;
@@ -196,7 +196,7 @@
             this.find.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.find.Image = global::SEN381_Project_Group17.Properties.Resources.search_7525;
             this.find.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.find.Location = new System.Drawing.Point(630, 60);
+            this.find.Location = new System.Drawing.Point(641, 60);
             this.find.Name = "find";
             this.find.Size = new System.Drawing.Size(148, 38);
             this.find.TabIndex = 72;
@@ -208,9 +208,9 @@
             // search
             // 
             this.search.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(371, 67);
+            this.search.Location = new System.Drawing.Point(517, 67);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(233, 26);
+            this.search.Size = new System.Drawing.Size(118, 26);
             this.search.TabIndex = 74;
             // 
             // pnlContainer
@@ -235,7 +235,7 @@
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(800, 342);
+            this.pnlContainer.Size = new System.Drawing.Size(800, 314);
             this.pnlContainer.TabIndex = 75;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
@@ -307,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 342);
+            this.ClientSize = new System.Drawing.Size(800, 314);
             this.ControlBox = false;
             this.Controls.Add(this.pnlContainer);
             this.Name = "Policy";
