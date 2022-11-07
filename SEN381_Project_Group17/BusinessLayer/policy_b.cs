@@ -30,7 +30,7 @@ namespace SEN381_Project_Group17.BusinessLayer
         public double Installment { get => installment; set => installment = value; }
         public double Payout { get => payout; set => payout = value; }
 
-        public string GenerateID()
+        public string GenerateID(string name)
         {
 
             DateTime now = DateTime.Today;
@@ -73,9 +73,22 @@ namespace SEN381_Project_Group17.BusinessLayer
 
             newPolicyID += randomLetter;
 
-            char importance = Convert.ToChar(rnd.Next(65, 68));
-
-            newPolicyID += importance;
+            if (name == "Budget")
+            {
+                newPolicyID += 'A';
+            }
+            else if (name == "Standard")
+            {
+                newPolicyID += 'B';
+            }
+            else if (name == "Premium")
+            {
+                newPolicyID += 'C';
+            }
+            else if (name == "Premium Family")
+            {
+                newPolicyID += 'D';
+            }
 
             if (count == "")
             {

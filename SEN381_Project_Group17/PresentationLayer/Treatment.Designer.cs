@@ -304,19 +304,21 @@
             // providerID
             // 
             this.providerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.providerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.providerID.FormattingEnabled = true;
             this.providerID.Location = new System.Drawing.Point(124, 237);
             this.providerID.Name = "providerID";
-            this.providerID.Size = new System.Drawing.Size(132, 21);
+            this.providerID.Size = new System.Drawing.Size(132, 26);
             this.providerID.TabIndex = 140;
             // 
             // conditionID
             // 
             this.conditionID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.conditionID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conditionID.FormattingEnabled = true;
             this.conditionID.Location = new System.Drawing.Point(124, 203);
             this.conditionID.Name = "conditionID";
-            this.conditionID.Size = new System.Drawing.Size(132, 21);
+            this.conditionID.Size = new System.Drawing.Size(132, 26);
             this.conditionID.TabIndex = 14;
             // 
             // Treatment

@@ -288,11 +288,18 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.empInfoVal(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text))
             {
-                employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
-                MessageBox.Show(employee.update(employeeObj));
+                if (employeeID == 0)
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                    MessageBox.Show(employee.update(employeeObj));
 
-                employeeSource.DataSource = employee.getAll();
-                dataGridView1.DataSource = employeeSource;
+                    employeeSource.DataSource = employee.getAll();
+                    dataGridView1.DataSource = employeeSource;
+                }
             }
             else
             {

@@ -966,15 +966,15 @@ INSERT INTO [employee] (empName, email, phoneNumber, [role], userName, [password
 VALUES ('Stefan', 'stefan@gamil.com', '0648721320', 'Manager', 'stefan123', '123Stefan');
 
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021DA000001' ,'Full', 120000, 380, 100000);
+VALUES ('2021DA000001' ,'Budget', 120000, 380, 100000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2019ZC000002' ,'Full', 134000, 385, 130000);
+VALUES ('2019ZC000002' ,'Premium', 134000, 385, 130000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021JA000003' ,'Full', 203000, 400, 200000);
+VALUES ('2021JA000003' ,'Budget', 203000, 400, 200000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2021EB000004' ,'Full', 320000, 450, 320000);
+VALUES ('2021EB000004' ,'Standard', 320000, 450, 320000);
 INSERT INTO [policy] (policyID, policyName, price, installment, payout)
-VALUES ('2017HD000005' ,'Full', 100000, 350, 90000);
+VALUES ('2017HD000005' ,'Premium Family', 100000, 350, 90000);
 
 INSERT INTO [call_history] (callCustomerID, callEmployeeID, [start], [end], duration, dateCreated)
 VALUES ('E00000001', 1, '12:00:00', '12:30:00', '00:30:00', '2022-10-14');

@@ -270,7 +270,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.polInfoVal(name.Text, price.Text, installment.Text, payout.Text))
             {
-                string newPolID = pol_b.GenerateID();
+                string newPolID = pol_b.GenerateID(name.Text);
 
                 policy_b policyObj = new policy_b(newPolID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
                 MessageBox.Show(policy_d.add(policyObj));
@@ -288,11 +288,18 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.polInfoVal(name.Text, price.Text, installment.Text, payout.Text))
             {
-                policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
-                MessageBox.Show(policy_d.update(policyObj));
+                if (policyID == "")
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    policy_b policyObj = new policy_b(policyID, name.Text, double.Parse(price.Text), double.Parse(installment.Text), double.Parse(payout.Text));
+                    MessageBox.Show(policy_d.update(policyObj));
 
-                policySource.DataSource = policy_d.getAll();
-                dataGridView1.DataSource = policySource;
+                    policySource.DataSource = policy_d.getAll();
+                    dataGridView1.DataSource = policySource;
+                }
             }
             else
             {

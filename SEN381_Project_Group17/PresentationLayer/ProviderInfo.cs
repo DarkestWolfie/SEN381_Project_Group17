@@ -275,11 +275,18 @@ namespace SEN381_Project_Group17.PresentationLayer
         {
             if (validation.provInfoVal(textBox2.Text, textBox3.Text, textBox4.Text))
             {
-                provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
-                MessageBox.Show(provider.update(providerObj));
+                if (providerID == 0)
+                {
+                    MessageBox.Show("Please select the record that you would like to update first");
+                }
+                else
+                {
+                    provider_b providerObj = new provider_b(providerID, textBox2.Text, textBox3.Text, textBox4.Text);
+                    MessageBox.Show(provider.update(providerObj));
 
-                providerSource.DataSource = provider.getAll();
-                dataGridView1.DataSource = providerSource;
+                    providerSource.DataSource = provider.getAll();
+                    dataGridView1.DataSource = providerSource;
+                }
             }
             else
             {

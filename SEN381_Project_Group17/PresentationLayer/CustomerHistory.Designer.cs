@@ -221,19 +221,21 @@
             // productID
             // 
             this.productID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productID.FormattingEnabled = true;
             this.productID.Location = new System.Drawing.Point(124, 242);
             this.productID.Name = "productID";
-            this.productID.Size = new System.Drawing.Size(100, 21);
+            this.productID.Size = new System.Drawing.Size(100, 26);
             this.productID.TabIndex = 125;
             // 
             // customerID
             // 
             this.customerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerID.FormattingEnabled = true;
             this.customerID.Location = new System.Drawing.Point(124, 208);
             this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(100, 21);
+            this.customerID.Size = new System.Drawing.Size(100, 26);
             this.customerID.TabIndex = 124;
             // 
             // dateTimePicker2

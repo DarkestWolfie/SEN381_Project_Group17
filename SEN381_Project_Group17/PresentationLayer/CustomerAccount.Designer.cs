@@ -193,10 +193,11 @@
             // clientID
             // 
             this.clientID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.clientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientID.FormattingEnabled = true;
             this.clientID.Location = new System.Drawing.Point(114, 282);
             this.clientID.Name = "clientID";
-            this.clientID.Size = new System.Drawing.Size(234, 21);
+            this.clientID.Size = new System.Drawing.Size(234, 26);
             this.clientID.TabIndex = 92;
             // 
             // dateTimePicker1
