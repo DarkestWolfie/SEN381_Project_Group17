@@ -265,21 +265,29 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            treatmentSource.DataSource = treatment_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = treatmentSource;
-
-            if (treatmentSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[treatmentSource.Position];
+                treatmentSource.DataSource = treatment_d.getAll();
+                dataGridView1.DataSource = treatmentSource;
+            }
+            else
+            {
+                treatmentSource.DataSource = treatment_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = treatmentSource;
 
-                name.Text = row.Cells["treatmentName"].Value.ToString();
-                description.Text = row.Cells["description"].Value.ToString();
-                cost.Text = row.Cells["cost"].Value.ToString();
-                conditionID.Text = row.Cells["treatmentConditionID"].Value.ToString();
-                providerID.Text = row.Cells["treatmentProviderID"].Value.ToString();
+                if (treatmentSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[treatmentSource.Position];
 
-                treatmentID = int.Parse(row.Cells["treatmentID"].Value.ToString());
+                    name.Text = row.Cells["treatmentName"].Value.ToString();
+                    description.Text = row.Cells["description"].Value.ToString();
+                    cost.Text = row.Cells["cost"].Value.ToString();
+                    conditionID.Text = row.Cells["treatmentConditionID"].Value.ToString();
+                    providerID.Text = row.Cells["treatmentProviderID"].Value.ToString();
 
+                    treatmentID = int.Parse(row.Cells["treatmentID"].Value.ToString());
+
+                }
             }
         }
 

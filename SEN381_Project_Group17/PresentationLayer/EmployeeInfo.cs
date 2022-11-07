@@ -127,21 +127,29 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            employeeSource.DataSource = employee.search(int.Parse(textBox1.Text));
-            dataGridView1.DataSource = employeeSource;
-
-            if (employeeSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[employeeSource.Position];
+                employeeSource.DataSource = employee.getAll();
+                dataGridView1.DataSource = employeeSource;
+            }
+            else
+            {
+                employeeSource.DataSource = employee.search(int.Parse(search.Text));
+                dataGridView1.DataSource = employeeSource;
 
-                textBox2.Text = row.Cells["empName"].Value.ToString();
-                textBox3.Text = row.Cells["email"].Value.ToString();
-                textBox4.Text = row.Cells["phoneNumber"].Value.ToString();
-                textBox5.Text = row.Cells["role"].Value.ToString();
-                textBox6.Text = row.Cells["userName"].Value.ToString();
-                textBox7.Text = row.Cells["password"].Value.ToString();
+                if (employeeSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[employeeSource.Position];
 
-                employeeID = int.Parse(row.Cells["employeeID"].Value.ToString());
+                    name.Text = row.Cells["empName"].Value.ToString();
+                    email.Text = row.Cells["email"].Value.ToString();
+                    number.Text = row.Cells["phoneNumber"].Value.ToString();
+                    empRole.Text = row.Cells["role"].Value.ToString();
+                    userName.Text = row.Cells["userName"].Value.ToString();
+                    password.Text = row.Cells["password"].Value.ToString();
+
+                    employeeID = int.Parse(row.Cells["employeeID"].Value.ToString());
+                }
             }
 
         }
@@ -162,12 +170,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[employeeSource.Position];
 
-                textBox2.Text = row.Cells["empName"].Value.ToString();
-                textBox3.Text = row.Cells["email"].Value.ToString();
-                textBox4.Text = row.Cells["phoneNumber"].Value.ToString();
-                textBox5.Text = row.Cells["role"].Value.ToString();
-                textBox6.Text = row.Cells["userName"].Value.ToString();
-                textBox7.Text = row.Cells["password"].Value.ToString();
+                name.Text = row.Cells["empName"].Value.ToString();
+                email.Text = row.Cells["email"].Value.ToString();
+                number.Text = row.Cells["phoneNumber"].Value.ToString();
+                empRole.Text = row.Cells["role"].Value.ToString();
+                userName.Text = row.Cells["userName"].Value.ToString();
+                password.Text = row.Cells["password"].Value.ToString();
 
                 employeeID = int.Parse(row.Cells["employeeID"].Value.ToString());
             }
@@ -286,7 +294,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.empInfoVal(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text))
+            if (validation.empInfoVal(name.Text, email.Text, number.Text, empRole.Text, userName.Text, password.Text))
             {
                 if (employeeID == 0)
                 {
@@ -294,7 +302,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                    employee_b employeeObj = new employee_b(employeeID, name.Text, email.Text, number.Text, empRole.Text, userName.Text, password.Text);
                     MessageBox.Show(employee.update(employeeObj));
 
                     employeeSource.DataSource = employee.getAll();
@@ -311,9 +319,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.empInfoVal(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text))
+            if (validation.empInfoVal(name.Text, email.Text, number.Text, empRole.Text, userName.Text, password.Text))
             {
-                employee_b employeeObj = new employee_b(employeeID, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+                employee_b employeeObj = new employee_b(employeeID, name.Text, email.Text, number.Text, empRole.Text, userName.Text, password.Text);
                 MessageBox.Show(employee.add(employeeObj));
 
                 employeeSource.DataSource = employee.getAll();

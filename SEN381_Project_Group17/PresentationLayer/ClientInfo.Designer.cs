@@ -60,13 +60,13 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.TextBox();
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlContainer.SuspendLayout();
@@ -95,7 +95,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(277, 100);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 247);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 218);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -107,7 +107,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.update.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update.Image = global::SEN381_Project_Group17.Properties.Resources.reload_arrows_2846;
             this.update.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.update.Location = new System.Drawing.Point(404, 582);
+            this.update.Location = new System.Drawing.Point(404, 485);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(230, 47);
             this.update.TabIndex = 10;
@@ -124,7 +124,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.delete.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete.Image = global::SEN381_Project_Group17.Properties.Resources.delete_10406;
             this.delete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.delete.Location = new System.Drawing.Point(685, 582);
+            this.delete.Location = new System.Drawing.Point(685, 485);
             this.delete.Name = "delete";
             this.delete.Size = new System.Drawing.Size(230, 47);
             this.delete.TabIndex = 9;
@@ -141,7 +141,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.add.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add.Image = global::SEN381_Project_Group17.Properties.Resources.add_button_12004;
             this.add.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add.Location = new System.Drawing.Point(119, 582);
+            this.add.Location = new System.Drawing.Point(119, 485);
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(230, 47);
             this.add.TabIndex = 8;
@@ -175,7 +175,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // addressLine
             // 
             this.addressLine.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressLine.Location = new System.Drawing.Point(119, 384);
+            this.addressLine.Location = new System.Drawing.Point(119, 338);
             this.addressLine.Name = "addressLine";
             this.addressLine.Size = new System.Drawing.Size(151, 26);
             this.addressLine.TabIndex = 51;
@@ -183,7 +183,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // familyRole
             // 
             this.familyRole.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familyRole.Location = new System.Drawing.Point(119, 280);
+            this.familyRole.Location = new System.Drawing.Point(120, 260);
             this.familyRole.Name = "familyRole";
             this.familyRole.Size = new System.Drawing.Size(151, 26);
             this.familyRole.TabIndex = 50;
@@ -191,7 +191,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // familyID
             // 
             this.familyID.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.familyID.Location = new System.Drawing.Point(119, 243);
+            this.familyID.Location = new System.Drawing.Point(120, 228);
             this.familyID.Name = "familyID";
             this.familyID.Size = new System.Drawing.Size(151, 26);
             this.familyID.TabIndex = 49;
@@ -199,7 +199,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // idNum
             // 
             this.idNum.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idNum.Location = new System.Drawing.Point(119, 208);
+            this.idNum.Location = new System.Drawing.Point(120, 196);
             this.idNum.Name = "idNum";
             this.idNum.Size = new System.Drawing.Size(151, 26);
             this.idNum.TabIndex = 48;
@@ -207,7 +207,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // surname
             // 
             this.surname.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.surname.Location = new System.Drawing.Point(120, 135);
+            this.surname.Location = new System.Drawing.Point(120, 132);
             this.surname.Name = "surname";
             this.surname.Size = new System.Drawing.Size(151, 26);
             this.surname.TabIndex = 46;
@@ -224,7 +224,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 387);
+            this.label8.Location = new System.Drawing.Point(12, 341);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(101, 18);
             this.label8.TabIndex = 44;
@@ -234,7 +234,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 280);
+            this.label7.Location = new System.Drawing.Point(12, 263);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 18);
             this.label7.TabIndex = 43;
@@ -244,7 +244,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 243);
+            this.label6.Location = new System.Drawing.Point(12, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 18);
             this.label6.TabIndex = 42;
@@ -254,7 +254,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 208);
+            this.label5.Location = new System.Drawing.Point(12, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 18);
             this.label5.TabIndex = 41;
@@ -285,7 +285,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 104);
+            this.label2.Location = new System.Drawing.Point(12, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 18);
             this.label2.TabIndex = 38;
@@ -294,7 +294,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // gender
             // 
             this.gender.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gender.Location = new System.Drawing.Point(119, 321);
+            this.gender.Location = new System.Drawing.Point(120, 292);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(151, 26);
             this.gender.TabIndex = 53;
@@ -304,7 +304,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 321);
+            this.label9.Location = new System.Drawing.Point(12, 295);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(62, 18);
             this.label9.TabIndex = 52;
@@ -314,7 +314,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // city
             // 
             this.city.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.city.Location = new System.Drawing.Point(119, 427);
+            this.city.Location = new System.Drawing.Point(119, 370);
             this.city.Name = "city";
             this.city.Size = new System.Drawing.Size(151, 26);
             this.city.TabIndex = 55;
@@ -323,7 +323,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 430);
+            this.label10.Location = new System.Drawing.Point(12, 373);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 18);
             this.label10.TabIndex = 54;
@@ -332,7 +332,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // province
             // 
             this.province.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.province.Location = new System.Drawing.Point(119, 477);
+            this.province.Location = new System.Drawing.Point(119, 402);
             this.province.Name = "province";
             this.province.Size = new System.Drawing.Size(151, 26);
             this.province.TabIndex = 57;
@@ -341,7 +341,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 480);
+            this.label11.Location = new System.Drawing.Point(12, 405);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(71, 18);
             this.label11.TabIndex = 56;
@@ -350,7 +350,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // postalCode
             // 
             this.postalCode.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.postalCode.Location = new System.Drawing.Point(119, 523);
+            this.postalCode.Location = new System.Drawing.Point(120, 434);
             this.postalCode.Name = "postalCode";
             this.postalCode.Size = new System.Drawing.Size(151, 26);
             this.postalCode.TabIndex = 59;
@@ -359,7 +359,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 523);
+            this.label12.Location = new System.Drawing.Point(12, 437);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(97, 18);
             this.label12.TabIndex = 58;
@@ -368,16 +368,16 @@ namespace SEN381_Project_Group17.PresentationLayer
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(277, 384);
+            this.dataGridView2.Location = new System.Drawing.Point(277, 338);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(742, 165);
+            this.dataGridView2.Size = new System.Drawing.Size(742, 122);
             this.dataGridView2.TabIndex = 60;
             this.dataGridView2.Visible = false;
             // 
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
-            this.pnlContainer.Controls.Add(this.dateTimePicker1);
+            this.pnlContainer.Controls.Add(this.date);
             this.pnlContainer.Controls.Add(this.label14);
             this.pnlContainer.Controls.Add(this.button2);
             this.pnlContainer.Controls.Add(this.search);
@@ -414,15 +414,24 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Size = new System.Drawing.Size(1031, 641);
+            this.pnlContainer.Size = new System.Drawing.Size(1031, 553);
             this.pnlContainer.TabIndex = 61;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // date
+            // 
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.date.Location = new System.Drawing.Point(120, 164);
+            this.date.MinimumSize = new System.Drawing.Size(4, 26);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(152, 26);
+            this.date.TabIndex = 93;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(564, 66);
+            this.label14.Location = new System.Drawing.Point(648, 66);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 18);
             this.label14.TabIndex = 91;
@@ -448,9 +457,9 @@ namespace SEN381_Project_Group17.PresentationLayer
             // search
             // 
             this.search.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(648, 63);
+            this.search.Location = new System.Drawing.Point(713, 63);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(204, 26);
+            this.search.Size = new System.Drawing.Size(153, 26);
             this.search.TabIndex = 92;
             // 
             // pnlTitle
@@ -486,20 +495,11 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label13.TabIndex = 8;
             this.label13.Text = "Client Information";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 169);
-            this.dateTimePicker1.MinimumSize = new System.Drawing.Size(0, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 30);
-            this.dateTimePicker1.TabIndex = 93;
-            // 
             // ClientInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 641);
+            this.ClientSize = new System.Drawing.Size(1031, 553);
             this.Controls.Add(this.pnlContainer);
             this.Name = "ClientInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -560,6 +560,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker date;
     }
 }

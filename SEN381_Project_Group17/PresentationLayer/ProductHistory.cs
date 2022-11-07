@@ -244,7 +244,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 string start = row.Cells["start"].Value.ToString();
                 string[] splitStart = start.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                this.start.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
                 string end = row.Cells["end"].Value.ToString();
                 string[] splitEnd = end.Split('-');
                 productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
@@ -256,34 +256,42 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            prodHistorySource.DataSource = prodHistory_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = prodHistorySource;
-
-            if (prodHistorySource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
+                prodHistorySource.DataSource = prodHistory_d.getAll();
+                dataGridView1.DataSource = prodHistorySource;
+            }
+            else
+            {
+                prodHistorySource.DataSource = prodHistory_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = prodHistorySource;
 
-                string start = row.Cells["start"].Value.ToString();
-                string[] splitStart = start.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
-                string end = row.Cells["end"].Value.ToString();
-                string[] splitEnd = end.Split('-');
-                productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
+                if (prodHistorySource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[prodHistorySource.Position];
 
-                prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
+                    string start = row.Cells["start"].Value.ToString();
+                    string[] splitStart = start.Split('-');
+                    this.start.Value = DateTime.Parse(splitStart[0] + "/" + splitStart[1] + "/" + splitStart[2]);
+                    string end = row.Cells["end"].Value.ToString();
+                    string[] splitEnd = end.Split('-');
+                    productID.Text = row.Cells["historyProductID"].Value.ToString(); ;
 
+                    prodHistoryID = int.Parse(row.Cells["proHistoryID"].Value.ToString());
+
+                }
             }
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.prodHistoryVal(productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            if (validation.prodHistoryVal(productID.Text, start.Text, end.Text))
             {
-                string start = dateTimePicker1.Value.ToShortDateString();
+                string start = this.start.Value.ToShortDateString();
                 string[] dateS = start.Split('/');
                 start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-                string end = dateTimePicker1.Value.ToShortDateString();
+                string end = this.start.Value.ToShortDateString();
                 string[] dateE = end.Split('/');
                 end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 
@@ -301,7 +309,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.prodHistoryVal(productID.Text, dateTimePicker1.Text, dateTimePicker2.Text))
+            if (validation.prodHistoryVal(productID.Text, start.Text, end.Text))
             {
                 if (prodHistoryID == 0)
                 {
@@ -309,11 +317,11 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    string start = dateTimePicker1.Value.ToShortDateString();
+                    string start = this.start.Value.ToShortDateString();
                     string[] dateS = start.Split('/');
                     start = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
-                    string end = dateTimePicker1.Value.ToShortDateString();
+                    string end = this.start.Value.ToShortDateString();
                     string[] dateE = end.Split('/');
                     end = dateE[0] + "-" + dateE[1] + "-" + dateE[2];
 

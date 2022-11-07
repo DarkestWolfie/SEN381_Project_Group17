@@ -247,20 +247,28 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            policySource.DataSource = policy_d.search(search.Text);
-            dataGridView1.DataSource = policySource;
-
-            if (policySource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[policySource.Position];
+                policySource.DataSource = policy_d.getAll();
+                dataGridView1.DataSource = policySource;
+            }
+            else
+            {
+                policySource.DataSource = policy_d.search(search.Text);
+                dataGridView1.DataSource = policySource;
 
-                name.Text = row.Cells["policyName"].Value.ToString();
-                price.Text = row.Cells["price"].Value.ToString();
-                installment.Text = row.Cells["installment"].Value.ToString();
-                payout.Text = row.Cells["payout"].Value.ToString();
+                if (policySource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[policySource.Position];
 
-                policyID = row.Cells["policyID"].Value.ToString();
+                    name.Text = row.Cells["policyName"].Value.ToString();
+                    price.Text = row.Cells["price"].Value.ToString();
+                    installment.Text = row.Cells["installment"].Value.ToString();
+                    payout.Text = row.Cells["payout"].Value.ToString();
 
+                    policyID = row.Cells["policyID"].Value.ToString();
+
+                }
             }
         }
 

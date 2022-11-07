@@ -255,20 +255,29 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            conditionSource.DataSource = condition_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = conditionSource;
-
-            if (conditionSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[conditionSource.Position];
-
-                name.Text = row.Cells["conditionName"].Value.ToString();
-                code.Text = row.Cells["conitionCode"].Value.ToString();
-                policyID.Text = row.Cells["conditionPolicyID"].Value.ToString();
-
-                conditionID = int.Parse(row.Cells["conditionID"].Value.ToString());
-
+                conditionSource.DataSource = condition_d.getAll();
+                dataGridView1.DataSource = conditionSource;
             }
+            else
+            {
+                conditionSource.DataSource = condition_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = conditionSource;
+
+                if (conditionSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[conditionSource.Position];
+
+                    name.Text = row.Cells["conditionName"].Value.ToString();
+                    code.Text = row.Cells["conitionCode"].Value.ToString();
+                    policyID.Text = row.Cells["conditionPolicyID"].Value.ToString();
+
+                    conditionID = int.Parse(row.Cells["conditionID"].Value.ToString());
+
+                }
+            }
+            
         }
 
         private void add_Click(object sender, EventArgs e)

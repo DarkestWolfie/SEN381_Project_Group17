@@ -18,6 +18,8 @@ namespace SEN381_Project_Group17.PresentationLayer
     {
         bool call = false;
         string role;
+        string cusID;
+
         //Form Design:
         private int borderRadius = 30;
         private int borderSize = 2;
@@ -35,7 +37,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.role = role;
         }
 
-        public ClaimApplication(string role, bool call)
+        public ClaimApplication(string role, bool call, string cust)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -45,6 +47,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
             this.role = role;
             this.call = call;
+            this.cusID = cust;
         }
 
         //Drag Form
@@ -144,6 +147,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 customerID.Items.Add(item.CustomerID);
 
+            }
+
+            if (call == true)
+            {
+                update.Hide();
+                delete.Hide();
+                customerID.Text = cusID;
+            }
+            else
+            {
+                update.Show();
+                delete.Show();
             }
         }
 
@@ -275,24 +290,33 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            applicationSource.DataSource = application_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = applicationSource;
-
-            if (applicationSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
-
-                string date = row.Cells["applicationDate"].Value.ToString();
-                string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
-                status.Text = row.Cells["status"].Value.ToString();
-                customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
-                conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
-                providerID.Text = row.Cells["applicationProviderID"].Value.ToString();
-
-                applicationID = int.Parse(row.Cells["applicationID"].Value.ToString());
-
+                applicationSource.DataSource = application_d.getAll();
+                dataGridView1.DataSource = applicationSource;
             }
+            else
+            {
+                applicationSource.DataSource = application_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = applicationSource;
+
+                if (applicationSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[applicationSource.Position];
+
+                    string date = row.Cells["applicationDate"].Value.ToString();
+                    string[] splits = date.Split('-');
+                    this.date.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                    status.Text = row.Cells["status"].Value.ToString();
+                    customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
+                    conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
+                    providerID.Text = row.Cells["applicationProviderID"].Value.ToString();
+
+                    applicationID = int.Parse(row.Cells["applicationID"].Value.ToString());
+
+                }
+            }
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -303,7 +327,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
                 string date = row.Cells["applicationDate"].Value.ToString();
                 string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                this.date.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
                 status.Text = row.Cells["status"].Value.ToString();
                 customerID.Text = row.Cells["applicationCustomerID"].Value.ToString();
                 conditionID.Text = row.Cells["applicationConditionID"].Value.ToString();
@@ -316,9 +340,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, dateTimePicker1.Text, status.Text))
+            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, date.Text, status.Text))
             {
-                string date = dateTimePicker1.Value.ToShortDateString();
+                string date = this.date.Value.ToShortDateString();
                 string[] dateS = date.Split('/');
                 date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
@@ -337,7 +361,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, dateTimePicker1.Text, status.Text))
+            if (validation.clientClaimVal(customerID.Text, conditionID.Text, providerID.Text, date.Text, status.Text))
             {
                 if (applicationID == 0)
                 {
@@ -345,7 +369,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    string date = dateTimePicker1.Value.ToShortDateString();
+                    string date = this.date.Value.ToShortDateString();
                     string[] dateS = date.Split('/');
                     date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 

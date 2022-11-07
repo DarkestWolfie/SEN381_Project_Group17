@@ -223,16 +223,16 @@ namespace SEN381_Project_Group17.PresentationLayer
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (validation.loginValidation(textBox1.Text, textBox2.Text) == true)
+            if (validation.loginValidation(userName.Text, password.Text) == true)
             {
-                string message = emp.checkLogin(textBox1.Text, textBox2.Text);
+                string message = emp.checkLogin(userName.Text, password.Text);
 
                 switch (message)
                 {
                     case "Call agent":
                         role = "Call Agent";
 
-                        id = emp.getID(textBox1.Text, textBox2.Text);
+                        id = emp.getID(userName.Text, password.Text);
                         CallCenter CC = new CallCenter(role, id);
                         this.Hide();
                         CC.ShowDialog();
@@ -242,7 +242,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                     case "Manager":
                         role = "Admin";
 
-                        id = emp.getID(textBox1.Text, textBox2.Text);
+                        id = emp.getID(userName.Text, password.Text);
                         UkupholisaHub hub = new UkupholisaHub(role, id);
                         this.Hide();
                         hub.ShowDialog();
@@ -257,6 +257,18 @@ namespace SEN381_Project_Group17.PresentationLayer
             else
             {
                 MessageBox.Show("Please enter values in all the vields");
+            }
+        }
+
+        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPassword.Checked)
+            {
+                password.PasswordChar = '\0';
+            }
+            else
+            {
+                password.PasswordChar = '*';
             }
         }
     }

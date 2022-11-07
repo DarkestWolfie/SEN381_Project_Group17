@@ -247,7 +247,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 due.Text = row.Cells["amountDue"].Value.ToString();
                 string date = row.Cells["installmentDate"].Value.ToString();
                 string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+                installment.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
 
                 accountID = int.Parse(row.Cells["accountID"].Value.ToString());
 
@@ -256,29 +256,38 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            accountSource.DataSource = account_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = accountSource;
-
-            if (accountSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[accountSource.Position];
-
-                clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
-                due.Text = row.Cells["amountDue"].Value.ToString();
-                string date = row.Cells["installmentDate"].Value.ToString();
-                string[] splits = date.Split('-');
-                dateTimePicker1.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
-
-                accountID = int.Parse(row.Cells["accountID"].Value.ToString());
-
+                accountSource.DataSource = account_d.getAll();
+                dataGridView1.DataSource = accountSource;
             }
+            else
+            {
+                accountSource.DataSource = account_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = accountSource;
+
+                if (accountSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[accountSource.Position];
+
+                    clientID.Text = row.Cells["accountCustomerID"].Value.ToString();
+                    due.Text = row.Cells["amountDue"].Value.ToString();
+                    string date = row.Cells["installmentDate"].Value.ToString();
+                    string[] splits = date.Split('-');
+                    installment.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+
+                    accountID = int.Parse(row.Cells["accountID"].Value.ToString());
+
+                }
+            }
+            
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.custAccVal(clientID.Text, due.Text, dateTimePicker1.Text))
+            if (validation.custAccVal(clientID.Text, due.Text, installment.Text))
             {
-                string date = dateTimePicker1.Value.ToShortDateString();
+                string date = installment.Value.ToShortDateString();
                 string[] dateS = date.Split('/');
                 date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 
@@ -297,7 +306,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.custAccVal(clientID.Text, due.Text, dateTimePicker1.Text))
+            if (validation.custAccVal(clientID.Text, due.Text, installment.Text))
             {
                 if (accountID == 0)
                 {
@@ -305,7 +314,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    string date = dateTimePicker1.Value.ToShortDateString();
+                    string date = installment.Value.ToShortDateString();
                     string[] dateS = date.Split('/');
                     date = dateS[0] + "-" + dateS[1] + "-" + dateS[2];
 

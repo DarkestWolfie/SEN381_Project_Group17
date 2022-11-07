@@ -244,7 +244,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             {
                 DataGridViewRow row = this.dataGridView1.Rows[productSource.Position];
 
-                diacount.Text = row.Cells["policyDiscount"].Value.ToString();
+                discount.Text = row.Cells["policyDiscount"].Value.ToString();
                 availability.Text = row.Cells["availability"].Value.ToString();
                 policyID.Text = row.Cells["productPolicyID"].Value.ToString();;
 
@@ -255,27 +255,35 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void find_Click(object sender, EventArgs e)
         {
-            productSource.DataSource = product_d.search(int.Parse(search.Text));
-            dataGridView1.DataSource = productSource;
-
-            if (productSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[productSource.Position];
+                productSource.DataSource = product_d.getAll();
+                dataGridView1.DataSource = productSource;
+            }
+            else
+            {
+                productSource.DataSource = product_d.search(int.Parse(search.Text));
+                dataGridView1.DataSource = productSource;
 
-                diacount.Text = row.Cells["policyDiscount"].Value.ToString();
-                availability.Text = row.Cells["availability"].Value.ToString();
-                policyID.Text = row.Cells["productPolicyID"].Value.ToString(); ;
+                if (productSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[productSource.Position];
 
-                productID = int.Parse(row.Cells["productID"].Value.ToString());
+                    discount.Text = row.Cells["policyDiscount"].Value.ToString();
+                    availability.Text = row.Cells["availability"].Value.ToString();
+                    policyID.Text = row.Cells["productPolicyID"].Value.ToString(); ;
 
+                    productID = int.Parse(row.Cells["productID"].Value.ToString());
+
+                }
             }
         }
 
         private void add_Click(object sender, EventArgs e)
         {
-            if (validation.prodInfoVal(diacount.Text, availability.Text, policyID.Text))
+            if (validation.prodInfoVal(discount.Text, availability.Text, policyID.Text))
             {
-                product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+                product_b productObj = new product_b(productID, policyID.Text, double.Parse(discount.Text), availability.Text);
                 MessageBox.Show(product_d.add(productObj));
 
                 productSource.DataSource = product_d.getAll();
@@ -289,7 +297,7 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void update_Click(object sender, EventArgs e)
         {
-            if (validation.prodInfoVal(diacount.Text, availability.Text, policyID.Text))
+            if (validation.prodInfoVal(discount.Text, availability.Text, policyID.Text))
             {
                 if (productID == 0)
                 {
@@ -297,7 +305,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 }
                 else
                 {
-                    product_b productObj = new product_b(productID, policyID.Text, double.Parse(diacount.Text), availability.Text);
+                    product_b productObj = new product_b(productID, policyID.Text, double.Parse(discount.Text), availability.Text);
                     MessageBox.Show(product_d.update(productObj));
 
                     productSource.DataSource = product_d.getAll();

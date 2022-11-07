@@ -14,6 +14,7 @@ namespace SEN381_Project_Group17.PresentationLayer
         string[] durationTime = {"00", "00", "00"};
         string role;
         int id;
+        bool callActive = false;
 
         //Form Design:
         private int borderRadius = 30;
@@ -125,25 +126,34 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button8_Click(object sender, EventArgs e)
         {
-            callSource.DataSource = call.search(int.Parse(textBox1.Text));
-            dataGridView1.DataSource = callSource;
-
-            if (callSource.Position >= 0)
+            if (search.Text == "")
             {
-                DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
-
-                customerID.Text = row.Cells["callCustomerID"].Value.ToString();
-                employeeID.Text = row.Cells["callEmployeeID"].Value.ToString();
-                start.Text = row.Cells["start"].Value.ToString();
-                end.Text = row.Cells["end"].Value.ToString();
-                duration.Text = row.Cells["duration"].Value.ToString();
-                string date = row.Cells["dateCreated"].Value.ToString();
-                string[] splits = date.Split('-');
-                dateCreated.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
-
-
-                callID = int.Parse(row.Cells["callID"].Value.ToString());
+                callSource.DataSource = call.getAll();
+                dataGridView1.DataSource = callSource;
             }
+            else
+            {
+                callSource.DataSource = call.search(int.Parse(search.Text));
+                dataGridView1.DataSource = callSource;
+
+                if (callSource.Position >= 0)
+                {
+                    DataGridViewRow row = this.dataGridView1.Rows[callSource.Position];
+
+                    customerID.Text = row.Cells["callCustomerID"].Value.ToString();
+                    employeeID.Text = row.Cells["callEmployeeID"].Value.ToString();
+                    start.Text = row.Cells["start"].Value.ToString();
+                    end.Text = row.Cells["end"].Value.ToString();
+                    duration.Text = row.Cells["duration"].Value.ToString();
+                    string date = row.Cells["dateCreated"].Value.ToString();
+                    string[] splits = date.Split('-');
+                    dateCreated.Value = DateTime.Parse(splits[0] + "/" + splits[1] + "/" + splits[2]);
+
+
+                    callID = int.Parse(row.Cells["callID"].Value.ToString());
+                }
+            }
+            
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -213,7 +223,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 dataGridView2.Show();
                 button3.Hide();
                 label1.Hide();
-                textBox1.Hide();
+                search.Hide();
                 button8.Hide();
 
                 custSource.DataSource = cust.getAll();
@@ -226,7 +236,7 @@ namespace SEN381_Project_Group17.PresentationLayer
                 dataGridView2.Hide();
                 dataGridView1.Show();
                 label1.Show();
-                textBox1.Show();
+                search.Show();
                 button8.Show();
 
                 callSource.DataSource = call.getAll();
@@ -386,6 +396,10 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
+            callActive = true;
+            start.Text = "00:00:00";
+            end.Text = "00:00:00";
+            duration.Text = "00:00:00";
             t = new System.Timers.Timer();
             t.AutoReset = true;
             t.Enabled = true;
@@ -393,6 +407,7 @@ namespace SEN381_Project_Group17.PresentationLayer
             t.Interval = 1000;
 
             button3.Show();
+            button2.Hide();
             start.Text = DateTime.Now.ToLongTimeString();
         }
 
@@ -459,7 +474,10 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
+            callActive = false;
             button3.Hide();
+            button2.Show();
+
 
             t.Stop();
             t.Dispose();
@@ -473,9 +491,9 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         private void customerID_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (duration.Text != "00:00:00")
+            if (callActive == true)
             {
-                ClaimApplication ca = new ClaimApplication(role, true);
+                ClaimApplication ca = new ClaimApplication(role, true, customerID.Text);
                 ca.Show();
             }
         }

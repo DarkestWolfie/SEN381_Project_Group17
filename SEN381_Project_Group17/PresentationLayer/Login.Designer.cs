@@ -29,8 +29,8 @@ namespace SEN381_Project_Group17.PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
+            this.userName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -39,28 +39,30 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.pnlTitle = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             this.pnlContainer.SuspendLayout();
             this.pnlTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox2
+            // password
             // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(119, 120);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(141, 26);
-            this.textBox2.TabIndex = 11;
-            this.textBox2.Text = "123Stefan";
+            this.password.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password.Location = new System.Drawing.Point(119, 120);
+            this.password.Name = "password";
+            this.password.PasswordChar = '*';
+            this.password.Size = new System.Drawing.Size(141, 26);
+            this.password.TabIndex = 11;
+            this.password.Text = "123Stefan";
             // 
-            // textBox1
+            // userName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(119, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 26);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "stefan123";
+            this.userName.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userName.Location = new System.Drawing.Point(119, 83);
+            this.userName.Name = "userName";
+            this.userName.Size = new System.Drawing.Size(141, 26);
+            this.userName.TabIndex = 10;
+            this.userName.Text = "stefan123";
             // 
             // label2
             // 
@@ -113,11 +115,12 @@ namespace SEN381_Project_Group17.PresentationLayer
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.Azure;
+            this.pnlContainer.Controls.Add(this.showPassword);
             this.pnlContainer.Controls.Add(this.pnlTitle);
             this.pnlContainer.Controls.Add(this.label1);
-            this.pnlContainer.Controls.Add(this.textBox2);
+            this.pnlContainer.Controls.Add(this.password);
             this.pnlContainer.Controls.Add(this.button1);
-            this.pnlContainer.Controls.Add(this.textBox1);
+            this.pnlContainer.Controls.Add(this.userName);
             this.pnlContainer.Controls.Add(this.label2);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
@@ -159,6 +162,17 @@ namespace SEN381_Project_Group17.PresentationLayer
             this.label3.TabIndex = 13;
             this.label3.Text = "Login";
             // 
+            // showPassword
+            // 
+            this.showPassword.AutoSize = true;
+            this.showPassword.Location = new System.Drawing.Point(119, 152);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(102, 17);
+            this.showPassword.TabIndex = 13;
+            this.showPassword.Text = "Show Password";
+            this.showPassword.UseVisualStyleBackColor = true;
+            this.showPassword.CheckedChanged += new System.EventHandler(this.showPassword_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,8 +199,8 @@ namespace SEN381_Project_Group17.PresentationLayer
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox password;
+        private System.Windows.Forms.TextBox userName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
@@ -195,5 +209,6 @@ namespace SEN381_Project_Group17.PresentationLayer
         private System.Windows.Forms.Panel pnlTitle;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox showPassword;
     }
 }
